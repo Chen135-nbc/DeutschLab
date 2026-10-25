@@ -1,7 +1,7 @@
 {
   "name": "deutschlab",
   "productName": "DeutschLab",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "description": "个人使用、本地优先的德语学习工作台",
   "type": "module",

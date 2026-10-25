@@ -172,7 +172,7 @@ test('教材状态、知识卡浏览、答题及旧题快照可在关闭重开�
   store.close();
   const db = new DatabaseSync(path);
   assert.equal(db.prepare('PRAGMA user_version').get().user_version, 5);
-  assert.equal(db.prepare('SELECT count(*) AS n FROM course_content_revisions').get().n, 2);
+  assert.equal(db.prepare('SELECT count(*) AS n FROM course_content_revisions WHERE unit_id = ?').get(studioPack.unit.id).n, 2);
   assert.equal(db.prepare('SELECT count(*) AS n FROM practice_attempts').get().n, 13);
   db.close();
 });

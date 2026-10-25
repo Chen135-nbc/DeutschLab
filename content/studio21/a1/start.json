@@ -1,0 +1,2853 @@
+{
+  "packId": "studio21.a1.start.pack",
+  "packVersion": "1.0.0",
+  "schemaVersion": 1,
+  "source": {
+    "kind": "user_outline",
+    "textbook": "Studio21 A1",
+    "pages": "8–15",
+    "note": "依据用户提供的 Start auf Deutsch 四节概要编写原创中文讲解与题目；未取得教材原页及音频，原书细节待人工核对。"
+  },
+  "unit": {
+    "id": "studio21.a1.start",
+    "level": "A1",
+    "number": "Start auf Deutsch",
+    "title": "Start auf Deutsch",
+    "chineseTitle": "德语入门",
+    "pages": "8–15",
+    "teachingPages": "8–15",
+    "practicePages": "",
+    "reviewPage": "",
+    "intro": "这是正式 Lektion 1 之前的 Einstieg 引导单元。先借中文说明理解教材任务，认识问候、姓名、来源、居住地、字母和阅读线索；不要求一次掌握所有出现的语法。",
+    "sections": [
+      {
+        "id": "deutsch-sehen-hoeren",
+        "title": "Deutsch sehen und hören",
+        "pages": "8–9",
+        "summary": "看见德语，听见德语：借熟悉词、图片与任务线索开始观察。",
+        "guide": {
+          "goals": [
+            "识别少量熟悉的国际词与德语词",
+            "利用场景或标识推测词义",
+            "知道听辨任务应注意什么"
+          ],
+          "tasks": [
+            "先看图片或标识，圈出认识的词；不必逐词翻译。",
+            "如果教材配有录音，先听整体场景，再听熟悉的词；本软件暂不提供录音或听辨评分。"
+          ],
+          "wrapUp": "能说出自己从词形和场景得到的线索即可；尚未听清的声音留待教材录音练习。"
+        },
+        "cardIds": [
+          "studio21.a1.start.card.familiar",
+          "studio21.a1.start.card.visual",
+          "studio21.a1.start.card.task",
+          "studio21.a1.start.card.recognition"
+        ],
+        "exerciseIds": [
+          "studio21.a1.start.q.s1-hotel",
+          "studio21.a1.start.q.s1-taxi",
+          "studio21.a1.start.q.s1-match",
+          "studio21.a1.start.q.s1-bus",
+          "studio21.a1.start.q.s1-uncertain",
+          "studio21.a1.start.q.s1-hear",
+          "studio21.a1.start.q.s1-see",
+          "studio21.a1.start.q.s1-first-listen",
+          "studio21.a1.start.q.s1-no-audio",
+          "studio21.a1.start.q.s1-recognize",
+          "studio21.a1.start.q.s1-scene",
+          "studio21.a1.start.q.s1-combine"
+        ],
+        "frameworkLinks": []
+      },
+      {
+        "id": "im-deutschkurs",
+        "title": "Im Deutschkurs",
+        "pages": "10–11",
+        "summary": "在德语课堂上：用短句问候、说姓名、来源和居住地。",
+        "guide": {
+          "goals": [
+            "按场合使用 Hallo 或 Guten Tag",
+            "理解并回应姓名、来源与居住地问题",
+            "初步区分 du 与 Sie"
+          ],
+          "tasks": [
+            "在教材人物或课堂图片中找出谁在说话、谁在回应。",
+            "先认清问句要问的资料，再用自己的姓名或示例资料替换；暂不背整套动词变位。"
+          ],
+          "wrapUp": "能按问句选择合适资料，并说一两句自我介绍；完整变位留到 Lektion 1。"
+        },
+        "cardIds": [
+          "studio21.a1.start.card.greeting",
+          "studio21.a1.start.card.name",
+          "studio21.a1.start.card.origin",
+          "studio21.a1.start.card.residence",
+          "studio21.a1.start.card.address",
+          "studio21.a1.start.card.person"
+        ],
+        "exerciseIds": [
+          "studio21.a1.start.q.s2-greet-formal",
+          "studio21.a1.start.q.s2-greet-friend",
+          "studio21.a1.start.q.s2-q-a",
+          "studio21.a1.start.q.s2-name",
+          "studio21.a1.start.q.s2-name-context",
+          "studio21.a1.start.q.s2-origin",
+          "studio21.a1.start.q.s2-aus",
+          "studio21.a1.start.q.s2-origin-vs-home",
+          "studio21.a1.start.q.s2-residence",
+          "studio21.a1.start.q.s2-in",
+          "studio21.a1.start.q.s2-city",
+          "studio21.a1.start.q.s2-sie",
+          "studio21.a1.start.q.s2-du",
+          "studio21.a1.start.q.s2-order-name",
+          "studio21.a1.start.q.s2-order-home",
+          "studio21.a1.start.q.s2-introduce",
+          "studio21.a1.start.q.s2-person",
+          "studio21.a1.start.q.s2-profile"
+        ],
+        "frameworkLinks": []
+      },
+      {
+        "id": "das-alphabet",
+        "title": "Das Alphabet",
+        "pages": "12–13",
+        "summary": "德语字母表：认识字母名称，逐字母拼写姓名与城市。",
+        "guide": {
+          "goals": [
+            "认出 26 个基本字母及 ä/ö/ü/ß",
+            "按顺序拼写简单姓名和城市",
+            "知道词重音会影响听辨"
+          ],
+          "tasks": [
+            "跟随教材或可靠录音听读字母；本软件给出名称与书面拼写，不提供音频评分。",
+            "看着姓名逐个字母拼出，再核对字母顺序和特殊字母。"
+          ],
+          "wrapUp": "能从书面字母序列还原姓名，并辨别变音字母；发音准确度需靠真实音频核对。"
+        },
+        "cardIds": [
+          "studio21.a1.start.card.alphabet",
+          "studio21.a1.start.card.special",
+          "studio21.a1.start.card.spell",
+          "studio21.a1.start.card.city",
+          "studio21.a1.start.card.stress"
+        ],
+        "exerciseIds": [
+          "studio21.a1.start.q.s3-j",
+          "studio21.a1.start.q.s3-v",
+          "studio21.a1.start.q.s3-w",
+          "studio21.a1.start.q.s3-letter-names",
+          "studio21.a1.start.q.s3-umlaut",
+          "studio21.a1.start.q.s3-eszett",
+          "studio21.a1.start.q.s3-not-b",
+          "studio21.a1.start.q.s3-forms",
+          "studio21.a1.start.q.s3-mia",
+          "studio21.a1.start.q.s3-anna",
+          "studio21.a1.start.q.s3-mia-sequence",
+          "studio21.a1.start.q.s3-bonn",
+          "studio21.a1.start.q.s3-berlin",
+          "studio21.a1.start.q.s3-db",
+          "studio21.a1.start.q.s3-stress",
+          "studio21.a1.start.q.s3-audio-limit"
+        ],
+        "frameworkLinks": []
+      },
+      {
+        "id": "internationale-woerter",
+        "title": "Internationale Wörter",
+        "pages": "14–15",
+        "summary": "国际词汇与初步阅读：抓住姓名、城市等关键信息，不被生词卡住。",
+        "guide": {
+          "goals": [
+            "利用国际词和上下文理解大意",
+            "从短人物资料提取姓名、城市与语言信息",
+            "区分主动掌握与仅需识读的词"
+          ],
+          "tasks": [
+            "先读题目问什么，再在短文中寻找姓名、城市等线索。",
+            "遇到陌生词时先跳过，利用熟悉词和上下文完成问题；本软件阅读材料为原创。"
+          ],
+          "wrapUp": "能从极短资料中找到关键信息，不必逐词解释所有结构。"
+        },
+        "cardIds": [
+          "studio21.a1.start.card.cognates",
+          "studio21.a1.start.card.profile",
+          "studio21.a1.start.card.context",
+          "studio21.a1.start.card.levels"
+        ],
+        "exerciseIds": [
+          "studio21.a1.start.q.s4-museum",
+          "studio21.a1.start.q.s4-music",
+          "studio21.a1.start.q.s4-international",
+          "studio21.a1.start.q.s4-name",
+          "studio21.a1.start.q.s4-city",
+          "studio21.a1.start.q.s4-origin",
+          "studio21.a1.start.q.s4-home",
+          "studio21.a1.start.q.s4-language",
+          "studio21.a1.start.q.s4-find",
+          "studio21.a1.start.q.s4-unknown",
+          "studio21.a1.start.q.s4-context",
+          "studio21.a1.start.q.s4-active",
+          "studio21.a1.start.q.s4-instruction"
+        ],
+        "frameworkLinks": []
+      }
+    ],
+    "assessmentIds": [
+      "studio21.a1.start.q.a01",
+      "studio21.a1.start.q.a02",
+      "studio21.a1.start.q.a03",
+      "studio21.a1.start.q.a04",
+      "studio21.a1.start.q.a05",
+      "studio21.a1.start.q.a06",
+      "studio21.a1.start.q.a07",
+      "studio21.a1.start.q.a08",
+      "studio21.a1.start.q.a09",
+      "studio21.a1.start.q.a10",
+      "studio21.a1.start.q.a11",
+      "studio21.a1.start.q.a12",
+      "studio21.a1.start.q.a13",
+      "studio21.a1.start.q.a14",
+      "studio21.a1.start.q.a15"
+    ]
+  },
+  "cards": [
+    {
+      "id": "studio21.a1.start.card.familiar",
+      "unitId": "studio21.a1.start",
+      "sectionId": "deutsch-sehen-hoeren",
+      "level": "A1",
+      "title": "先认出熟悉的词",
+      "category": "主题词汇",
+      "learningStatus": "recognition",
+      "core": [
+        "Hotel、Taxi、Radio 等词形容易让初学者联想到已知词。",
+        "国际词相似不等于所有用法完全相同；先借它们判断场景。"
+      ],
+      "explanation": "看见词形时，先问“我在哪里可能见到它？”；本节只练识别，不要求背大量新名词。",
+      "example": "Auf dem Schild steht „Hotel“.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "8–9",
+      "details": [
+        "Hotel 在旅馆标识上容易辨认。",
+        "Taxi 出现在交通场景中；Radio 可指收音机或广播。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.visual",
+      "unitId": "studio21.a1.start",
+      "sectionId": "deutsch-sehen-hoeren",
+      "level": "A1",
+      "title": "图片与标识是线索",
+      "category": "交际知识",
+      "learningStatus": "new",
+      "core": [
+        "词语旁的图片、物品、图标和地点能帮助推测词义。",
+        "只凭图片无法确定的词，先保留疑问，再用词典或课堂说明核对。"
+      ],
+      "explanation": "例如站牌旁的 Bus 比脱离场景的 Bus 更容易理解。观察不是猜测后就当成已掌握。",
+      "example": "Hier ist ein Bus.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "8–9",
+      "details": [
+        "先看地点，再看物品，最后看词。",
+        "遇到多个可能含义时不要强行确定。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.task",
+      "unitId": "studio21.a1.start",
+      "sectionId": "deutsch-sehen-hoeren",
+      "level": "A1",
+      "title": "看与听的任务怎么做",
+      "category": "常用表达",
+      "learningStatus": "recognition",
+      "core": [
+        "Sehen Sie. 是“请看”；Hören Sie. 是“请听”。",
+        "听辨时先辨场景、说话人数和熟悉词，不必一遍听懂所有词。"
+      ],
+      "explanation": "这些是通用课堂指令示例，不声称逐条出自教材第 8—9 页。本软件没有可靠配套音频，因此这里只讲任务方法。",
+      "example": "Hören Sie. – 请听。",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "8–9",
+      "details": [
+        "第一遍只抓整体，第二遍再核对某个词。",
+        "本单元纯文字练习不计为听力成绩。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.recognition",
+      "unitId": "studio21.a1.start",
+      "sectionId": "deutsch-sehen-hoeren",
+      "level": "A1",
+      "title": "识读与主动使用分开",
+      "category": "交际知识",
+      "learningStatus": "new",
+      "core": [
+        "看到熟悉词能认出，是识读；自己能在合适场景说出，才是主动使用。",
+        "陌生词不需要在 Start 一次记完。"
+      ],
+      "explanation": "先建立观察策略，随后在正式单元逐步学习词汇和语法。",
+      "example": "Ich sehe das Wort „Taxi“.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "8–9",
+      "details": [
+        "练习结果只反映本次识别，不代表实际听力或口语能力。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.greeting",
+      "unitId": "studio21.a1.start",
+      "sectionId": "im-deutschkurs",
+      "level": "A1",
+      "title": "见面与问候",
+      "category": "交际知识",
+      "learningStatus": "new",
+      "core": [
+        "Hallo 可用于熟悉、非正式场合；Guten Tag 常用于较正式的白天见面。",
+        "回应时可用同类问候，不必马上展开长对话。"
+      ],
+      "explanation": "先看关系与场合，再选问候。课堂里对老师或陌生成年人，用 Guten Tag 更稳妥。",
+      "example": "Guten Tag! – Guten Tag!",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.greeting"
+      ],
+      "sourcePages": "10–11",
+      "details": [
+        "Hallo! – Hallo! 是朋友之间的简短回应。",
+        "问候语可先整体学习，不逐词分析语法。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.name",
+      "unitId": "studio21.a1.start",
+      "sectionId": "im-deutschkurs",
+      "level": "A1",
+      "title": "询问和介绍姓名",
+      "category": "常用表达",
+      "learningStatus": "new",
+      "core": [
+        "Wie heißen Sie? 用正式称呼问“您叫什么名字？”",
+        "Ich heiße … 用来报出自己的姓名。"
+      ],
+      "explanation": "Wie 问“怎样/什么”，heißen 在这里整体理解为“叫作”；Sie 在问陌生成年人时表示“您”。暂不系统讲动词变位。",
+      "example": "Wie heißen Sie? – Ich heiße Mei.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.greeting",
+        "studio21.a1.lektion1.card.address"
+      ],
+      "sourcePages": "10–11",
+      "details": [
+        "问熟悉的人可说 Wie heißt du?。",
+        "回答姓名时不用加 Ich bin，直接用 Ich heiße … 即可。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.origin",
+      "unitId": "studio21.a1.start",
+      "sectionId": "im-deutschkurs",
+      "level": "A1",
+      "title": "询问来自哪里",
+      "category": "常用表达",
+      "learningStatus": "new",
+      "core": [
+        "Woher kommen Sie? 询问来源。",
+        "Ich komme aus China. 回答来自哪个国家或地方。"
+      ],
+      "explanation": "Woher 的重点是“从哪里来”，aus 在此表示“从……来”。这里按完整句型使用，不要求推导 kommen 的全套词尾。",
+      "example": "Woher kommen Sie? – Ich komme aus China.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.questions",
+        "studio21.a1.lektion1.card.regular-verbs"
+      ],
+      "sourcePages": "10–11",
+      "details": [
+        "回答来源时用 aus；不要把 Woher 与询问现住地的 Wo 混淆。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.residence",
+      "unitId": "studio21.a1.start",
+      "sectionId": "im-deutschkurs",
+      "level": "A1",
+      "title": "询问现在住哪里",
+      "category": "常用表达",
+      "learningStatus": "new",
+      "core": [
+        "Wo wohnen Sie? 询问当前居住地。",
+        "Ich wohne in Berlin. 回答住在某个城市。"
+      ],
+      "explanation": "Wo 问“在哪里”，in 在这个示例中表示“在……”。来源和现住地可能不同。",
+      "example": "Wo wohnen Sie? – Ich wohne in Bonn.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.questions"
+      ],
+      "sourcePages": "10–11",
+      "details": [
+        "Woher kommen Sie? → Ich komme aus China.",
+        "Wo wohnen Sie? → Ich wohne in Bonn."
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.address",
+      "unitId": "studio21.a1.start",
+      "sectionId": "im-deutschkurs",
+      "level": "A1",
+      "title": "du 和 Sie 先按场合选",
+      "category": "交际知识",
+      "learningStatus": "new",
+      "core": [
+        "du 常用于熟人、同龄朋友；Sie 常用于正式或陌生成年人。",
+        "正式问姓名：Wie heißen Sie?；非正式问姓名：Wie heißt du?。"
+      ],
+      "explanation": "正式 Sie 要大写；同一句中称呼和动词形式要配套。现在先识别这些固定问句，完整变位留到 Lektion 1。",
+      "example": "Hallo, Mia! Wie heißt du?",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.address"
+      ],
+      "sourcePages": "10–11",
+      "details": [
+        "不确定时，对陌生成年人使用 Sie 较稳妥。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.person",
+      "unitId": "studio21.a1.start",
+      "sectionId": "im-deutschkurs",
+      "level": "A1",
+      "title": "用短句介绍他人",
+      "category": "交际知识",
+      "learningStatus": "exposure",
+      "core": [
+        "Das ist … 可用于简单介绍一个人。",
+        "Er heißt … / Sie heißt … 分别说“他/她叫……”。"
+      ],
+      "explanation": "先用完整短句传达姓名，不扩展到复杂的人称代词或语序理论。",
+      "example": "Das ist Lina. Sie heißt Lina.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.pronouns"
+      ],
+      "sourcePages": "10–11",
+      "details": [
+        "本卡只需在资料中识读和简单替换姓名。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.alphabet",
+      "unitId": "studio21.a1.start",
+      "sectionId": "das-alphabet",
+      "level": "A1",
+      "title": "26 个基本字母",
+      "category": "发音知识",
+      "learningStatus": "new",
+      "core": [
+        "德语字母表有 A–Z 这 26 个基本字母，字形与英语相近，字母名称却不总相同。",
+        "字母名称表供书面识读；准确发音要结合可靠音频或老师示范。"
+      ],
+      "explanation": "例如 J 的字母名称与英语 J 不同；V 的德语字母名称接近“fau”。下方 IPA 仅作参考，不能代替听音。",
+      "example": "Mein Name ist Mia: M – I – A.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "12–13",
+      "details": [
+        "把字母和字母名称对应起来，再练习姓名拼写。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.special",
+      "unitId": "studio21.a1.start",
+      "sectionId": "das-alphabet",
+      "level": "A1",
+      "title": "ä、ö、ü 与 ß",
+      "category": "发音知识",
+      "learningStatus": "new",
+      "core": [
+        "ä、ö、ü 是带变音符号的字母；ß 称为 Eszett。",
+        "书写时不能随意省略变音符号；ß 与字母 B 也不是同一个字母。"
+      ],
+      "explanation": "这里只先认形、认名称，不系统讲所有发音和拼写规则。",
+      "example": "In München steht ein ü.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "12–13",
+      "details": [
+        "输入法暂时不方便时可了解 ae/oe/ue 等替代写法，但本节知识卡保留规范拼写。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.spell",
+      "unitId": "studio21.a1.start",
+      "sectionId": "das-alphabet",
+      "level": "A1",
+      "title": "逐字母拼写姓名",
+      "category": "常用表达",
+      "learningStatus": "new",
+      "core": [
+        "Wie schreibt man das? 可以询问“这个怎么写？”",
+        "拼写时按字母逐个说，例如 Mia → M – I – A。"
+      ],
+      "explanation": "注意姓名的字母顺序；不会发某个字母时，先借书面字母表核对，不把文字题当真实听辨。",
+      "example": "Wie schreibt man „Mia“? – M – I – A.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "12–13",
+      "details": [
+        "姓名首字母大写。",
+        "城市名也可按同样方式逐字母拼写。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.city",
+      "unitId": "studio21.a1.start",
+      "sectionId": "das-alphabet",
+      "level": "A1",
+      "title": "城市名与简单缩写",
+      "category": "主题词汇",
+      "learningStatus": "recognition",
+      "core": [
+        "Berlin → B – E – R – L – I – N；Bonn → B – O – N – N。",
+        "常见标识中的 EU、DB 可先认作字母序列，不要求系统学习机构名称。"
+      ],
+      "explanation": "本卡重点是按顺序辨认字母，不把这些示例说成教材原页内容。",
+      "example": "Berlin beginnt mit B.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "12–13",
+      "details": [
+        "EU 可逐字母识读；DB 可作为车站标识中的缩写识读。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.stress",
+      "unitId": "studio21.a1.start",
+      "sectionId": "das-alphabet",
+      "level": "A1",
+      "title": "词重音先有意识",
+      "category": "发音知识",
+      "learningStatus": "exposure",
+      "core": [
+        "词语会有较突出的音节，叫重音。",
+        "跟读时先注意教材或音频标出的重音，不必在 Start 背完整规则。"
+      ],
+      "explanation": "没有可用音频时，只能讲清“要留意什么”；程序不声称测出你的重音是否准确。",
+      "example": "Ho-tel: 读词时留意较突出的音节。",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.stress"
+      ],
+      "sourcePages": "12–13",
+      "details": [
+        "重音需要听真实语音和开口模仿，文字提示只是预备知识。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.cognates",
+      "unitId": "studio21.a1.start",
+      "sectionId": "internationale-woerter",
+      "level": "A1",
+      "title": "国际词是阅读入口",
+      "category": "主题词汇",
+      "learningStatus": "recognition",
+      "core": [
+        "Hotel、Museum、Musik、Internet 可帮助识别短文主题。",
+        "看到熟悉词先圈出来，再判断它在句中的意思。"
+      ],
+      "explanation": "词形相似是线索，不保证含义和用法完全相同；有疑问时查证。",
+      "example": "Das Museum ist in Berlin.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "14–15",
+      "details": [
+        "这几个词是原创练习使用的入门示例，不声称来自教材原文。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.profile",
+      "unitId": "studio21.a1.start",
+      "sectionId": "internationale-woerter",
+      "level": "A1",
+      "title": "人物资料抓关键信息",
+      "category": "交际知识",
+      "learningStatus": "new",
+      "core": [
+        "遇到极短人物资料，先找姓名、来源、城市或语言。",
+        "Ich heiße …、Ich komme aus …、Ich wohne in … 是三种不同线索；Ich spreche … 后面可能给出所说语言，这里只要求识读。"
+      ],
+      "explanation": "阅读题问姓名，就看 heiße 后的人名；问现住地，就看 wohne in 后的城市；问语言，再找 spreche 后的信息。不要把来源与现住地混为一谈。",
+      "example": "Ich heiße Noor. Ich komme aus Marokko. Ich wohne in Köln.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.questions"
+      ],
+      "sourcePages": "14–15",
+      "details": [
+        "人物资料为 DeutschLab 原创。",
+        "地名仅作阅读线索，不要求现在记住所有国家和城市。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.context",
+      "unitId": "studio21.a1.start",
+      "sectionId": "internationale-woerter",
+      "level": "A1",
+      "title": "借上下文读大意",
+      "category": "交际知识",
+      "learningStatus": "recognition",
+      "core": [
+        "读短文时先看标题、熟悉词和问题，再找答案。",
+        "暂时不认识的词可以跳过；不要为了一个词中断全部阅读。"
+      ],
+      "explanation": "例如句中有 Hotel 和 Berlin，至少能判断和地点有关，再由题目寻找具体信息。",
+      "example": "Lina wohnt in Berlin. Das Hotel ist hier.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "14–15",
+      "details": [
+        "推测后仍要核对；不要把猜测当作已掌握词义。"
+      ]
+    },
+    {
+      "id": "studio21.a1.start.card.levels",
+      "unitId": "studio21.a1.start",
+      "sectionId": "internationale-woerter",
+      "level": "A1",
+      "title": "读懂任务与背会全部词不同",
+      "category": "交际知识",
+      "learningStatus": "new",
+      "core": [
+        "核心掌握：本单元反复使用的问候、姓名与基本问答。",
+        "理解识读：国际词、简单缩写和人物资料线索。",
+        "初步接触：尚未系统讲解的动词形式与较长句子。"
+      ],
+      "explanation": "能回答阅读题，不等于短文每个词都要主动使用。正式语法和更多词汇将在后续单元深化。",
+      "example": "Ich lese zuerst die Frage.",
+      "exampleSource": "DeutschLab 原创例句",
+      "relatedIds": [],
+      "sourcePages": "14–15",
+      "details": [
+        "学习总结按这些层级回顾，不自动将识读内容标为熟练掌握。"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "studio21.a1.start.q.s1-hotel",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.familiar",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "旅馆标识上写着 Hotel。这个词最可能指什么？",
+      "explanation": "Hotel 是容易识别的国际词；标识场景也提供线索。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "医院"
+        },
+        {
+          "id": "c",
+          "text": "学校"
+        },
+        {
+          "id": "d",
+          "text": "车站"
+        },
+        {
+          "id": "a",
+          "text": "旅馆"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-taxi",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.familiar",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "路边车辆上写着 Taxi。应先把它归入哪类信息？",
+      "explanation": "Taxi 是交通场景里的熟悉词。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "天气"
+        },
+        {
+          "id": "a",
+          "text": "交通"
+        },
+        {
+          "id": "b",
+          "text": "食物"
+        },
+        {
+          "id": "c",
+          "text": "学习用品"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-match",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.familiar",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "把熟悉词与最可能的中文意思对应。",
+      "explanation": "先利用熟悉词形建立基本词义联系。",
+      "answer": [
+        "r0",
+        "r1",
+        "r2"
+      ],
+      "left": [
+        {
+          "id": "l0",
+          "text": "Hotel"
+        },
+        {
+          "id": "l1",
+          "text": "Taxi"
+        },
+        {
+          "id": "l2",
+          "text": "Radio"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "收音机/广播"
+        },
+        {
+          "id": "r1",
+          "text": "出租车"
+        },
+        {
+          "id": "r0",
+          "text": "旅馆"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-bus",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.visual",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "站牌旁有车辆图标和 Bus。哪个推断最有根据？",
+      "explanation": "图标与地点一起支持“公共交通”的推断。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Bus 表示价格"
+        },
+        {
+          "id": "a",
+          "text": "Bus 与公共交通有关"
+        },
+        {
+          "id": "b",
+          "text": "Bus 一定是餐厅"
+        },
+        {
+          "id": "c",
+          "text": "Bus 是姓名"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-uncertain",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.visual",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "只看一张模糊图片，不能确定陌生词含义。合适的做法是什么？",
+      "explanation": "上下文能帮忙，但不确定时要核对。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "跳过所有任务"
+        },
+        {
+          "id": "d",
+          "text": "把每个词都按英语读"
+        },
+        {
+          "id": "a",
+          "text": "先保留猜测，再查证"
+        },
+        {
+          "id": "b",
+          "text": "直接当成已掌握"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-hear",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.task",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "看到课堂指令 Hören Sie.，学习者应做什么？",
+      "explanation": "Hören Sie. 是通用课堂“请听”的指令。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "读"
+        },
+        {
+          "id": "c",
+          "text": "写"
+        },
+        {
+          "id": "d",
+          "text": "匹配"
+        },
+        {
+          "id": "a",
+          "text": "听"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-see",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.task",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "看到 Sehen Sie.，首先应做什么？",
+      "explanation": "Sehen Sie. 要求观察。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "付钱"
+        },
+        {
+          "id": "d",
+          "text": "读数字"
+        },
+        {
+          "id": "a",
+          "text": "看"
+        },
+        {
+          "id": "b",
+          "text": "写句子"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-first-listen",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.task",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "教材有录音，但第一遍没听懂所有词。最合适的目标是？",
+      "explanation": "听辨初期先抓整体，不要求第一遍逐词听懂。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "立刻记下所有语法"
+        },
+        {
+          "id": "c",
+          "text": "只看文字答案"
+        },
+        {
+          "id": "d",
+          "text": "把陌生词当作错误"
+        },
+        {
+          "id": "a",
+          "text": "先抓场景与熟悉词"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-no-audio",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.task",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "软件只给出文字“Hotel、Taxi”，未提供录音。这类题能证明什么？",
+      "explanation": "没有音频就不能把文字题当听力成绩。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "已经通过真实听力测试"
+        },
+        {
+          "id": "c",
+          "text": "已经掌握发音"
+        },
+        {
+          "id": "d",
+          "text": "能独立口语交流"
+        },
+        {
+          "id": "a",
+          "text": "只能检验文字识别"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-recognize",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.recognition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "看到 Radio 能猜出意思，但自己还不会在句子里使用。属于哪种状态？",
+      "explanation": "认得词不等于能主动使用。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "完成口语验证"
+        },
+        {
+          "id": "a",
+          "text": "理解识读"
+        },
+        {
+          "id": "b",
+          "text": "熟练主动使用"
+        },
+        {
+          "id": "c",
+          "text": "完全掌握语法"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-scene",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.visual",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "按场景选择最有用的熟悉词。",
+      "explanation": "物品和地点帮助解释文字。",
+      "answer": [
+        "r0",
+        "r1",
+        "r2"
+      ],
+      "left": [
+        {
+          "id": "l0",
+          "text": "旅馆门口"
+        },
+        {
+          "id": "l1",
+          "text": "出租车车顶"
+        },
+        {
+          "id": "l2",
+          "text": "收音设备旁"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "Radio"
+        },
+        {
+          "id": "r1",
+          "text": "Taxi"
+        },
+        {
+          "id": "r0",
+          "text": "Hotel"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s1-combine",
+      "sectionId": "deutsch-sehen-hoeren",
+      "knowledgeId": "studio21.a1.start.card.recognition",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "看到 Hotel 标识和床的图标，虽然不认识旁边的长词，当前最稳妥的理解是？",
+      "explanation": "结合熟悉词和图标判断大意，但不声称逐词理解。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "已经理解全部文字"
+        },
+        {
+          "id": "d",
+          "text": "这是德语课堂"
+        },
+        {
+          "id": "a",
+          "text": "这里可能与住宿有关"
+        },
+        {
+          "id": "b",
+          "text": "这里一定卖书"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-greet-formal",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.greeting",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "白天第一次见到一位不熟悉的老师，哪句问候更合适？",
+      "explanation": "Guten Tag! 适用于白天较正式的见面。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Bis morgen!"
+        },
+        {
+          "id": "a",
+          "text": "Guten Tag!"
+        },
+        {
+          "id": "b",
+          "text": "Tschüss!"
+        },
+        {
+          "id": "c",
+          "text": "Gute Nacht!"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-greet-friend",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.greeting",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "见到熟悉的同学，可用哪句简单问候？",
+      "explanation": "Hallo! 是常见的非正式问候。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "Gute Nacht!"
+        },
+        {
+          "id": "d",
+          "text": "Danke schön!"
+        },
+        {
+          "id": "a",
+          "text": "Hallo!"
+        },
+        {
+          "id": "b",
+          "text": "Auf Wiedersehen!"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-q-a",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.name",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "把问题与回答对应。",
+      "explanation": "姓名、来源与现住地是三种不同信息。",
+      "answer": [
+        "r0",
+        "r1",
+        "r2"
+      ],
+      "left": [
+        {
+          "id": "l0",
+          "text": "Wie heißen Sie?"
+        },
+        {
+          "id": "l1",
+          "text": "Woher kommen Sie?"
+        },
+        {
+          "id": "l2",
+          "text": "Wo wohnen Sie?"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "Ich wohne in Bonn."
+        },
+        {
+          "id": "r1",
+          "text": "Ich komme aus China."
+        },
+        {
+          "id": "r0",
+          "text": "Ich heiße Ada."
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-name",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.name",
+      "type": "fill",
+      "difficulty": 1,
+      "prompt": "补全自我介绍：Ich ___ Mei.",
+      "explanation": "Ich heiße … 表示“我叫……”。",
+      "answer": "heiße",
+      "acceptedAnswers": [
+        "heiße"
+      ],
+      "gradingRule": "trim-collapse-whitespace-casefold-preserve-umlauts-v1"
+    },
+    {
+      "id": "studio21.a1.start.q.s2-name-context",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.name",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "对方问 Wie heißen Sie?，哪句直接回答了问题？",
+      "explanation": "Wie heißen Sie? 问姓名，不问城市或饮料。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "Ich wohne in Köln."
+        },
+        {
+          "id": "c",
+          "text": "Ich komme aus China."
+        },
+        {
+          "id": "d",
+          "text": "Ich trinke Tee."
+        },
+        {
+          "id": "a",
+          "text": "Ich heiße Nora."
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-origin",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.origin",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "“Ich komme aus China.” 回答的是哪个问题？",
+      "explanation": "Woher 询问来源；aus 说明从哪里来。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "Wie heißen Sie?"
+        },
+        {
+          "id": "d",
+          "text": "Was trinken Sie?"
+        },
+        {
+          "id": "a",
+          "text": "Woher kommen Sie?"
+        },
+        {
+          "id": "b",
+          "text": "Wo wohnen Sie?"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-aus",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.origin",
+      "type": "fill",
+      "difficulty": 2,
+      "prompt": "只填一个词：Ich komme ___ China.",
+      "explanation": "Ich komme aus China. 是本节完整固定句型。",
+      "answer": "aus",
+      "acceptedAnswers": [
+        "aus"
+      ],
+      "gradingRule": "trim-collapse-whitespace-casefold-preserve-umlauts-v1"
+    },
+    {
+      "id": "studio21.a1.start.q.s2-origin-vs-home",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.origin",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Mina 来自中国，现在住在柏林。有人问 Woher kommen Sie?，哪句合适？",
+      "explanation": "题目问来源，不是现住地。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "Ich heiße Berlin."
+        },
+        {
+          "id": "d",
+          "text": "Berlin ist mein Name."
+        },
+        {
+          "id": "a",
+          "text": "Ich komme aus China."
+        },
+        {
+          "id": "b",
+          "text": "Ich wohne in Berlin."
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-residence",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.residence",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "“Ich wohne in Bonn.” 回答的是哪个问题？",
+      "explanation": "Wo wohnen Sie? 问当前住在哪里。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wo wohnen Sie?"
+        },
+        {
+          "id": "b",
+          "text": "Woher kommen Sie?"
+        },
+        {
+          "id": "c",
+          "text": "Wie heißen Sie?"
+        },
+        {
+          "id": "d",
+          "text": "Wie schreibt man Bonn?"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-in",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.residence",
+      "type": "fill",
+      "difficulty": 2,
+      "prompt": "只填一个词：Ich wohne ___ Berlin.",
+      "explanation": "Ich wohne in Berlin. 表示住在柏林。",
+      "answer": "in",
+      "acceptedAnswers": [
+        "in"
+      ],
+      "gradingRule": "trim-collapse-whitespace-casefold-preserve-umlauts-v1"
+    },
+    {
+      "id": "studio21.a1.start.q.s2-city",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.residence",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Lena 来自奥地利，现在住在柏林。问 Wo wohnen Sie?，应回答哪句？",
+      "explanation": "wohnen in 对应现住地。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Ich komme aus Berlin."
+        },
+        {
+          "id": "a",
+          "text": "Ich wohne in Berlin."
+        },
+        {
+          "id": "b",
+          "text": "Ich komme aus Österreich."
+        },
+        {
+          "id": "c",
+          "text": "Ich heiße Lena."
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-sie",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.address",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "向不熟悉的成年人正式询问姓名，选哪句？",
+      "explanation": "正式称呼用 Sie，对应固定问句 Wie heißen Sie?。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Wie heißen wir?"
+        },
+        {
+          "id": "a",
+          "text": "Wie heißen Sie?"
+        },
+        {
+          "id": "b",
+          "text": "Wie heißt du?"
+        },
+        {
+          "id": "c",
+          "text": "Wie heiße ich?"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-du",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.address",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "向熟悉的同龄朋友问姓名，选哪句？",
+      "explanation": "熟悉同龄朋友可用 du；问句形式也要相应改变。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Wo wohnen Sie?"
+        },
+        {
+          "id": "a",
+          "text": "Wie heißt du?"
+        },
+        {
+          "id": "b",
+          "text": "Wie heißen Sie?"
+        },
+        {
+          "id": "c",
+          "text": "Wie heiße ich?"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-order-name",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.name",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "把词语排成正式询问姓名的句子。",
+      "explanation": "正式问句是 Wie heißen Sie?。",
+      "answer": [
+        "w0",
+        "w1",
+        "w2"
+      ],
+      "tokens": [
+        {
+          "id": "w2",
+          "text": "Sie?"
+        },
+        {
+          "id": "w1",
+          "text": "heißen"
+        },
+        {
+          "id": "w0",
+          "text": "Wie"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-order-home",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.residence",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "把词语排成“我住在柏林”。",
+      "explanation": "Ich wohne in Berlin. 是本节现住地表达。",
+      "answer": [
+        "w0",
+        "w1",
+        "w2",
+        "w3"
+      ],
+      "tokens": [
+        {
+          "id": "w3",
+          "text": "Berlin."
+        },
+        {
+          "id": "w2",
+          "text": "in"
+        },
+        {
+          "id": "w1",
+          "text": "wohne"
+        },
+        {
+          "id": "w0",
+          "text": "Ich"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-introduce",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.person",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "向同学介绍 Lina，哪句最直接？",
+      "explanation": "Das ist … 可用于简单介绍别人。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Lina wohne in Berlin."
+        },
+        {
+          "id": "a",
+          "text": "Das ist Lina."
+        },
+        {
+          "id": "b",
+          "text": "Woher ist Lina?"
+        },
+        {
+          "id": "c",
+          "text": "Ich heiße Lina."
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-person",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.person",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "资料写 Das ist Amir. Er heißt Amir. 句中 Er 指谁？",
+      "explanation": "Er 在这里回指刚介绍的 Amir。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "说话人自己"
+        },
+        {
+          "id": "c",
+          "text": "一座城市"
+        },
+        {
+          "id": "d",
+          "text": "老师们"
+        },
+        {
+          "id": "a",
+          "text": "Amir"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s2-profile",
+      "sectionId": "im-deutschkurs",
+      "knowledgeId": "studio21.a1.start.card.residence",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "资料：Ich heiße Rui. Ich komme aus China. Ich wohne in Köln. 问“现在住哪儿”，应选？",
+      "explanation": "wohne in 后面给出当前居住地。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "in China"
+        },
+        {
+          "id": "a",
+          "text": "in Köln"
+        },
+        {
+          "id": "b",
+          "text": "aus China"
+        },
+        {
+          "id": "c",
+          "text": "Rui"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-j",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.alphabet",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "德语字母表中 J 的字母名称是哪项？",
+      "explanation": "德语 J 的字母名称是 Jot；这里不考听音。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "Jay"
+        },
+        {
+          "id": "c",
+          "text": "Eszett"
+        },
+        {
+          "id": "d",
+          "text": "Ef"
+        },
+        {
+          "id": "a",
+          "text": "Jot"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-v",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.alphabet",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "德语 V 的字母名称是哪项？",
+      "explanation": "德语字母 V 称为 Vau。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "We"
+        },
+        {
+          "id": "c",
+          "text": "U"
+        },
+        {
+          "id": "d",
+          "text": "Fau"
+        },
+        {
+          "id": "a",
+          "text": "Vau"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-w",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.alphabet",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "哪组德语字母名称对应正确？",
+      "explanation": "德语 W 叫 We；V 叫 Vau。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "J → Jay"
+        },
+        {
+          "id": "d",
+          "text": "Z → Zee"
+        },
+        {
+          "id": "a",
+          "text": "W → We"
+        },
+        {
+          "id": "b",
+          "text": "V → We"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-letter-names",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.alphabet",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "把字母与德语名称对应。",
+      "explanation": "这些名称与英语字母名不完全一样。",
+      "answer": [
+        "r0",
+        "r1",
+        "r2"
+      ],
+      "left": [
+        {
+          "id": "l0",
+          "text": "J"
+        },
+        {
+          "id": "l1",
+          "text": "V"
+        },
+        {
+          "id": "l2",
+          "text": "Z"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "Zett"
+        },
+        {
+          "id": "r1",
+          "text": "Vau"
+        },
+        {
+          "id": "r0",
+          "text": "Jot"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-umlaut",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.special",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "哪项含有德语变音字母？",
+      "explanation": "München 中含 ü。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Taxi"
+        },
+        {
+          "id": "a",
+          "text": "München"
+        },
+        {
+          "id": "b",
+          "text": "Berlin"
+        },
+        {
+          "id": "c",
+          "text": "Bonn"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-eszett",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.special",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "ß 的德语名称是什么？",
+      "explanation": "ß 称为 Eszett。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "Umlaut"
+        },
+        {
+          "id": "d",
+          "text": "We"
+        },
+        {
+          "id": "a",
+          "text": "Eszett"
+        },
+        {
+          "id": "b",
+          "text": "Jot"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-not-b",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.special",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "看见 Straße 中的 ß，应如何理解？",
+      "explanation": "ß 与 B 字形不同；此处只要求识别。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "它表示空格"
+        },
+        {
+          "id": "a",
+          "text": "它是 ß，不是字母 B"
+        },
+        {
+          "id": "b",
+          "text": "它等于 B"
+        },
+        {
+          "id": "c",
+          "text": "它是数字 8"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-forms",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.special",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "哪组都属于本节认识的德语特殊字母？",
+      "explanation": "本节认识 ä/ö/ü 和 ß。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "A、B、C、D"
+        },
+        {
+          "id": "d",
+          "text": "1、2、3、4"
+        },
+        {
+          "id": "a",
+          "text": "ä、ö、ü、ß"
+        },
+        {
+          "id": "b",
+          "text": "a、e、i、o"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-mia",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.spell",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "按顺序拼出姓名 Mia。",
+      "explanation": "Mia 的字母顺序是 M–I–A。",
+      "answer": [
+        "w0",
+        "w1",
+        "w2"
+      ],
+      "tokens": [
+        {
+          "id": "w2",
+          "text": "A"
+        },
+        {
+          "id": "w1",
+          "text": "I"
+        },
+        {
+          "id": "w0",
+          "text": "M"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-anna",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.spell",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "姓名 Anna 的正确字母序列是哪项？",
+      "explanation": "Anna 的字母顺序是 A–N–N–A；重复字母不能漏掉。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "A – N – A"
+        },
+        {
+          "id": "c",
+          "text": "A – M – N – A"
+        },
+        {
+          "id": "d",
+          "text": "A – N – N – E"
+        },
+        {
+          "id": "a",
+          "text": "A – N – N – A"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-mia-sequence",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.spell",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "M – I – A 可以还原为哪个姓名？",
+      "explanation": "按字母顺序 M、I、A 拼成 Mia。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mia"
+        },
+        {
+          "id": "b",
+          "text": "Mai"
+        },
+        {
+          "id": "c",
+          "text": "Mina"
+        },
+        {
+          "id": "d",
+          "text": "Mira"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-bonn",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.city",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "B – O – N – N 对应哪个城市名？",
+      "explanation": "顺序是 B–O–N–N，末尾两个 N。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bonn"
+        },
+        {
+          "id": "b",
+          "text": "Berlin"
+        },
+        {
+          "id": "c",
+          "text": "Bremen"
+        },
+        {
+          "id": "d",
+          "text": "Bonnn"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-berlin",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.city",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Berlin 的首字母和末字母分别是？",
+      "explanation": "Berlin = B–E–R–L–I–N。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "B 与 I"
+        },
+        {
+          "id": "a",
+          "text": "B 与 N"
+        },
+        {
+          "id": "b",
+          "text": "B 与 L"
+        },
+        {
+          "id": "c",
+          "text": "E 与 N"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-db",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.city",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "车站标识 DB 在本节应先怎样处理？",
+      "explanation": "此处只练缩写的字母识读。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "当作一个新动词"
+        },
+        {
+          "id": "c",
+          "text": "当作价格"
+        },
+        {
+          "id": "d",
+          "text": "当作听力成绩"
+        },
+        {
+          "id": "a",
+          "text": "识别为 D、B 两个字母"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-stress",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.stress",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "学习词重音时，当前最合理的目标是什么？",
+      "explanation": "词重音需要听真实语音；当前只建立意识。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "把每个音节都读一样重"
+        },
+        {
+          "id": "a",
+          "text": "借教材或可靠音频留意哪个音节更突出"
+        },
+        {
+          "id": "b",
+          "text": "只凭文字判定自己发音准确"
+        },
+        {
+          "id": "c",
+          "text": "背完整语音学体系"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s3-audio-limit",
+      "sectionId": "das-alphabet",
+      "knowledgeId": "studio21.a1.start.card.stress",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "软件显示字母名称文字、没有声音。完成这些题后，哪项说法准确？",
+      "explanation": "文字题不能替代真实听辨与发音练习。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "我的字母听力已认证"
+        },
+        {
+          "id": "c",
+          "text": "我的口音已自动评分"
+        },
+        {
+          "id": "d",
+          "text": "我不需要教材音频"
+        },
+        {
+          "id": "a",
+          "text": "我练了书面识别，发音仍需听音核对"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-museum",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.cognates",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "阅读中看到 Museum，最可能指什么？",
+      "explanation": "Museum 是易识读的国际词。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "博物馆"
+        },
+        {
+          "id": "b",
+          "text": "医院"
+        },
+        {
+          "id": "c",
+          "text": "面包"
+        },
+        {
+          "id": "d",
+          "text": "电话"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-music",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.cognates",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Musik 更可能和哪项有关？",
+      "explanation": "Musik 与“音乐”词形相近，可帮助识别主题。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "城市"
+        },
+        {
+          "id": "c",
+          "text": "价格"
+        },
+        {
+          "id": "d",
+          "text": "姓名"
+        },
+        {
+          "id": "a",
+          "text": "音乐"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-international",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.cognates",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "把国际词和主题对应。",
+      "explanation": "熟悉词形可以帮助把握短文主题。",
+      "answer": [
+        "r0",
+        "r1",
+        "r2"
+      ],
+      "left": [
+        {
+          "id": "l0",
+          "text": "Hotel"
+        },
+        {
+          "id": "l1",
+          "text": "Musik"
+        },
+        {
+          "id": "l2",
+          "text": "Internet"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "网络"
+        },
+        {
+          "id": "r1",
+          "text": "音乐"
+        },
+        {
+          "id": "r0",
+          "text": "住宿"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-name",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.profile",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "原创资料：Ich heiße Noor. Ich wohne in Köln. 人物叫什么？",
+      "explanation": "heiße 后面是姓名；Köln 是居住城市。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "Köln"
+        },
+        {
+          "id": "c",
+          "text": "Berlin"
+        },
+        {
+          "id": "d",
+          "text": "Hotel"
+        },
+        {
+          "id": "a",
+          "text": "Noor"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-city",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.profile",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "原创资料：Ich heiße Noor. Ich wohne in Köln. 人物住在哪？",
+      "explanation": "wohne in 后面是现住地。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "Noor"
+        },
+        {
+          "id": "c",
+          "text": "China"
+        },
+        {
+          "id": "d",
+          "text": "Bonn"
+        },
+        {
+          "id": "a",
+          "text": "Köln"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-origin",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.profile",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "原创资料：Ich heiße Mei. Ich komme aus China. Ich wohne in Berlin. 她来自哪里？",
+      "explanation": "komme aus 提供来源，不是现住地。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "China"
+        },
+        {
+          "id": "b",
+          "text": "Berlin"
+        },
+        {
+          "id": "c",
+          "text": "Mei"
+        },
+        {
+          "id": "d",
+          "text": "Hotel"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-home",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.profile",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "同一原创资料：Mei 来自 China，住在 Berlin。问现住地，应选？",
+      "explanation": "住在 Berlin；来自 China。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "China"
+        },
+        {
+          "id": "c",
+          "text": "Mei"
+        },
+        {
+          "id": "d",
+          "text": "Internet"
+        },
+        {
+          "id": "a",
+          "text": "Berlin"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-language",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.profile",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "原创资料：Ich heiße Lea. Ich wohne in Bonn. Ich spreche Deutsch. 她说哪种语言？",
+      "explanation": "Ich spreche Deutsch. 给出所说语言；Bonn 是居住城市。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deutsch"
+        },
+        {
+          "id": "b",
+          "text": "Bonn"
+        },
+        {
+          "id": "c",
+          "text": "Lea"
+        },
+        {
+          "id": "d",
+          "text": "Hotel"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-find",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.context",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "阅读任务只问人物姓名，最省力的做法是？",
+      "explanation": "先根据问题寻找姓名线索，不必逐词翻译。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "先查清每个生词"
+        },
+        {
+          "id": "c",
+          "text": "只看最后一个词"
+        },
+        {
+          "id": "d",
+          "text": "跳过全文"
+        },
+        {
+          "id": "a",
+          "text": "先找 Ich heiße … 后的信息"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-unknown",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.context",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "短文含一个陌生词，但姓名和城市都能找到。应如何处理？",
+      "explanation": "阅读入门可以先抓已知关键信息。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "先完成能确定的问题，陌生词随后核对"
+        },
+        {
+          "id": "b",
+          "text": "直接判定全篇无法阅读"
+        },
+        {
+          "id": "c",
+          "text": "把陌生词当姓名"
+        },
+        {
+          "id": "d",
+          "text": "宣称已掌握这个词"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-context",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.context",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "原创短文出现 Hotel、Berlin 和地图图标，最合理的初步推断是？",
+      "explanation": "熟悉词与图标只支持大意推断，不证明逐词理解。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "每个单词都已经懂了"
+        },
+        {
+          "id": "c",
+          "text": "一定在谈动词变位"
+        },
+        {
+          "id": "d",
+          "text": "人物必定来自柏林"
+        },
+        {
+          "id": "a",
+          "text": "内容可能与柏林某地点有关"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-active",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.levels",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "看见 Internet 能认出大意，但还不会主动造句。应标成？",
+      "explanation": "认读和主动表达是不同目标。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "理解识读"
+        },
+        {
+          "id": "b",
+          "text": "已完整掌握"
+        },
+        {
+          "id": "c",
+          "text": "已完成口语评估"
+        },
+        {
+          "id": "d",
+          "text": "必学复杂语法"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.s4-instruction",
+      "sectionId": "internationale-woerter",
+      "knowledgeId": "studio21.a1.start.card.levels",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "教材指令 Lesen Sie. 的意思是什么？",
+      "explanation": "Lesen Sie. 是常见课堂阅读指令。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "请写"
+        },
+        {
+          "id": "d",
+          "text": "请匹配"
+        },
+        {
+          "id": "a",
+          "text": "请读"
+        },
+        {
+          "id": "b",
+          "text": "请听"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a01",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.familiar",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "进入一栋楼，看见大字 HOTEL 和床形图标。先判断这里可能是？",
+      "explanation": "词形与图标都指向住宿场景。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "药店"
+        },
+        {
+          "id": "d",
+          "text": "车站"
+        },
+        {
+          "id": "a",
+          "text": "旅馆"
+        },
+        {
+          "id": "b",
+          "text": "电影院"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a02",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.visual",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "陌生标识旁有公交车图标。当前可靠的阅读策略是？",
+      "explanation": "图标提供场景线索，但仍要对照文字核实。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "放弃全部阅读"
+        },
+        {
+          "id": "a",
+          "text": "先用图标判断场景，再核对文字"
+        },
+        {
+          "id": "b",
+          "text": "不看图标只猜拼写"
+        },
+        {
+          "id": "c",
+          "text": "把猜测当成已掌握"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a03",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.task",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "没有音频的文字词汇选择题，成绩应解释为？",
+      "explanation": "没有声音就无法评估听辨。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "文字识别表现"
+        },
+        {
+          "id": "b",
+          "text": "真实听力水平"
+        },
+        {
+          "id": "c",
+          "text": "发音准确度"
+        },
+        {
+          "id": "d",
+          "text": "完整交流能力"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a04",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.greeting",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "白天第一次向陌生老师打招呼，选一句合适的开场。",
+      "explanation": "正式白天问候可用 Guten Tag!。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "Gute Nacht!"
+        },
+        {
+          "id": "c",
+          "text": "Auf Wiedersehen!"
+        },
+        {
+          "id": "d",
+          "text": "Bis bald!"
+        },
+        {
+          "id": "a",
+          "text": "Guten Tag!"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a05",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.name",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "对方正式问你的姓名，你叫 Lea。哪句回答贴切？",
+      "explanation": "回答姓名用 Ich heiße …。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "Ich komme aus Lea."
+        },
+        {
+          "id": "d",
+          "text": "Wie heißen Sie?"
+        },
+        {
+          "id": "a",
+          "text": "Ich heiße Lea."
+        },
+        {
+          "id": "b",
+          "text": "Ich wohne in Lea."
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a06",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.origin",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "资料：Omar 来自 Marokko，现在住在 Bonn。问 Woher kommen Sie?，应答？",
+      "explanation": "Woher 问来源；资料中的来源是 Marokko，不是现住地 Bonn。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Ich komme aus Omar."
+        },
+        {
+          "id": "a",
+          "text": "Ich komme aus Marokko."
+        },
+        {
+          "id": "b",
+          "text": "Ich wohne in Bonn."
+        },
+        {
+          "id": "c",
+          "text": "Ich heiße Bonn."
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a07",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.residence",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "同一资料：Omar 来自 Marokko，现住 Bonn。问 Wo wohnen Sie?，应答？",
+      "explanation": "Wo wohnen Sie? 询问现住地。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ich wohne in Bonn."
+        },
+        {
+          "id": "b",
+          "text": "Ich komme aus Marokko."
+        },
+        {
+          "id": "c",
+          "text": "Ich heiße Omar."
+        },
+        {
+          "id": "d",
+          "text": "Ich wohne aus Bonn."
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a08",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.address",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "对不熟悉的成年人询问姓名，哪一对称呼和动词形式配套？",
+      "explanation": "这里先整体识记正式问句。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "Wie heißt Sie?"
+        },
+        {
+          "id": "c",
+          "text": "Wie heißen du?"
+        },
+        {
+          "id": "d",
+          "text": "Wie heiße Sie?"
+        },
+        {
+          "id": "a",
+          "text": "Wie heißen Sie?"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a09",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.alphabet",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "德国人逐字母说 J – A。这里 J 的字母名称是？",
+      "explanation": "德语 J 称 Jot；题目只考名称知识，不包含音频。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "We"
+        },
+        {
+          "id": "d",
+          "text": "Eszett"
+        },
+        {
+          "id": "a",
+          "text": "Jot"
+        },
+        {
+          "id": "b",
+          "text": "Jay"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a10",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.special",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "München 中需要特别保留哪个字母？",
+      "explanation": "München 含 ü，不能随意省略变音符号。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "ß"
+        },
+        {
+          "id": "d",
+          "text": "ö"
+        },
+        {
+          "id": "a",
+          "text": "ü"
+        },
+        {
+          "id": "b",
+          "text": "u"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a11",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.spell",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "城市 Bonn 的正确字母序列是哪项？",
+      "explanation": "Bonn 的末尾有两个 N。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "B – O – M – N"
+        },
+        {
+          "id": "a",
+          "text": "B – O – N – N"
+        },
+        {
+          "id": "b",
+          "text": "B – O – N"
+        },
+        {
+          "id": "c",
+          "text": "B – N – O – N"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a12",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.city",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "姓名 Mia 的字母序列是哪项？",
+      "explanation": "拼写要保持 M、I、A 的顺序。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "M – I – A"
+        },
+        {
+          "id": "b",
+          "text": "M – A – I"
+        },
+        {
+          "id": "c",
+          "text": "N – I – A"
+        },
+        {
+          "id": "d",
+          "text": "M – I – E"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a13",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.profile",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "原创资料：Ich heiße Lina. Ich komme aus Spanien. Ich wohne in Berlin. 哪项是居住城市？",
+      "explanation": "wohne in 后给出居住城市。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "Spanien"
+        },
+        {
+          "id": "c",
+          "text": "Lina"
+        },
+        {
+          "id": "d",
+          "text": "Museum"
+        },
+        {
+          "id": "a",
+          "text": "Berlin"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a14",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.context",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "短文只问姓名，旁边还有不认识的词。先做什么？",
+      "explanation": "阅读时围绕问题寻找关键信息。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "把城市当成姓名"
+        },
+        {
+          "id": "d",
+          "text": "忽略所有熟悉词"
+        },
+        {
+          "id": "a",
+          "text": "寻找 heiße 后的人名"
+        },
+        {
+          "id": "b",
+          "text": "逐词翻译完再看题"
+        }
+      ]
+    },
+    {
+      "id": "studio21.a1.start.q.a15",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.start.card.levels",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Ergänzen Sie. 是通用课堂指令，要求做什么？",
+      "explanation": "Ergänzen Sie. 表示请补充填写；此题为通用指令示例。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "读出城市名"
+        },
+        {
+          "id": "a",
+          "text": "补充填写"
+        },
+        {
+          "id": "b",
+          "text": "听录音"
+        },
+        {
+          "id": "c",
+          "text": "两人一组说话"
+        }
+      ]
+    }
+  ],
+  "alphabet": [
+    {
+      "letter": "A",
+      "ipa": "aː"
+    },
+    {
+      "letter": "B",
+      "ipa": "beː"
+    },
+    {
+      "letter": "C",
+      "ipa": "tseː"
+    },
+    {
+      "letter": "D",
+      "ipa": "deː"
+    },
+    {
+      "letter": "E",
+      "ipa": "eː"
+    },
+    {
+      "letter": "F",
+      "ipa": "ɛf"
+    },
+    {
+      "letter": "G",
+      "ipa": "ɡeː"
+    },
+    {
+      "letter": "H",
+      "ipa": "haː"
+    },
+    {
+      "letter": "I",
+      "ipa": "iː"
+    },
+    {
+      "letter": "J",
+      "ipa": "jɔt"
+    },
+    {
+      "letter": "K",
+      "ipa": "kaː"
+    },
+    {
+      "letter": "L",
+      "ipa": "ɛl"
+    },
+    {
+      "letter": "M",
+      "ipa": "ɛm"
+    },
+    {
+      "letter": "N",
+      "ipa": "ɛn"
+    },
+    {
+      "letter": "O",
+      "ipa": "oː"
+    },
+    {
+      "letter": "P",
+      "ipa": "peː"
+    },
+    {
+      "letter": "Q",
+      "ipa": "kuː"
+    },
+    {
+      "letter": "R",
+      "ipa": "ɛʁ"
+    },
+    {
+      "letter": "S",
+      "ipa": "ɛs"
+    },
+    {
+      "letter": "T",
+      "ipa": "teː"
+    },
+    {
+      "letter": "U",
+      "ipa": "uː"
+    },
+    {
+      "letter": "V",
+      "ipa": "faʊ̯"
+    },
+    {
+      "letter": "W",
+      "ipa": "veː"
+    },
+    {
+      "letter": "X",
+      "ipa": "ɪks"
+    },
+    {
+      "letter": "Y",
+      "ipa": "ʏpsilɔn"
+    },
+    {
+      "letter": "Z",
+      "ipa": "tsɛt"
+    }
+  ]
+}

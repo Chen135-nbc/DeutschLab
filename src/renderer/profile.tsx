@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState, ty
 import { resolveVisit } from '../domain/catalog';
 import type { DesktopAPI, Settings, Snapshot, VisitInput, VisitKind } from '../shared/contracts';
 import { fontSizePixels } from '../shared/typography';
-import { getKnowledgeCard, getPracticeQuestion, gradeQuestion, parsePracticeScope, questionsForScope, selectPracticeQuestions, studioUnit } from '../domain/studio21';
+import { getKnowledgeCard, getPracticeQuestion, getStudioPack, gradeQuestion, parsePracticeScope, questionsForScope, selectPracticeQuestions, studioUnit, startPack } from '../domain/studio21';
 import { getExtensionPack, extensionItem, extensionIsProduction, selectExtensionItems, gradeExtensionObjective } from '../domain/extension';
 import { a1Scaffold } from '../domain/framework';
 
@@ -10,10 +10,12 @@ function previewAPI(): DesktopAPI {
   let snapshot: Snapshot = {
     settings: { level: 'A1', fontSize: 'standard', reducedMotion: false }, visits: [],
     frameworkProgress: { learning: {}, application: {} },
-    courseProgress: { textbookDone: false, recordingDone: false, lastLocation: null, viewedCardIds: [], sessions: [], attempts: [] },
+    courseProgress: { textbookDone: false, recordingDone: false, basicCompleted: false, lastLocation: null, viewedCardIds: [], sessions: [], attempts: [] },
+    startProgress: { textbookDone: false, recordingDone: false, basicCompleted: false, lastLocation: null, viewedCardIds: [], sessions: [], attempts: [] },
     extensionProgress: { viewedCardIds: [], lastPositions: {}, sessions: [], attempts: [] },
     storage: { mode: 'preview', path: null },
   };
+  const progressFor = (unitId: string) => unitId === startPack.unit.id ? snapshot.startProgress : snapshot.courseProgress;
   function refreshExtensionProgress(topicId: string) {
     const pack = getExtensionPack(topicId)!;
     const viewed = new Set(snapshot.extensionProgress.viewedCardIds);
@@ -41,36 +43,44 @@ function previewAPI(): DesktopAPI {
       snapshot = { ...snapshot, visits: [{ ...visit, id: crypto.randomUUID(), title, visitedAt: new Date().toISOString() }, ...snapshot.visits] };
       return structuredClone(snapshot);
     },
-    async setMaterialStatus(field, done) { snapshot.courseProgress[field] = done; return structuredClone(snapshot); },
+    async setMaterialStatus(field, done, unitId = studioUnit.id) { if (!getStudioPack(unitId)) throw new Error('课程不存在。'); progressFor(unitId)[field] = done; return structuredClone(snapshot); },
     async viewKnowledgeCard(cardId, preservePosition = false) {
       const card = getKnowledgeCard(cardId);
       if (!card) throw new Error('知识卡不存在。');
-      snapshot.courseProgress.viewedCardIds = [...new Set([...snapshot.courseProgress.viewedCardIds, cardId])];
-      if (!preservePosition) snapshot.courseProgress.lastLocation = `/focus/studio21/${cardId}`;
+      const progress = progressFor(card.unitId);
+      progress.viewedCardIds = [...new Set([...progress.viewedCardIds, cardId])];
+      if (!preservePosition) progress.lastLocation = `/focus/studio21/${cardId}`;
       return structuredClone(snapshot);
     },
-    async startPractice(scope, restart = false) {
-      if (!questionsForScope(parsePracticeScope(scope).sectionId).length) throw new Error('练习范围无效。');
-      if (restart || !snapshot.courseProgress.sessions.some(session => session.scope === scope && !session.completedAt)) {
+    async startPractice(scope, restart = false, unitId = studioUnit.id) {
+      const pack = getStudioPack(unitId);
+      if (!pack || !questionsForScope(parsePracticeScope(scope).sectionId, pack).length) throw new Error('练习范围无效。');
+      const progress = progressFor(unitId);
+      if (restart || !progress.sessions.some(session => session.scope === scope && !session.completedAt)) {
         const id = crypto.randomUUID();
-        const wrong = snapshot.courseProgress.attempts.filter(item => !item.correct);
-        snapshot.courseProgress.sessions.unshift({ id, scope, createdAt: new Date().toISOString(), completedAt: null, contentRevision: 'preview', questionIds: selectPracticeQuestions(scope, wrong.map(item => item.knowledgeId), id, wrong.map(item => item.questionId)).map(question => question.id) });
+        const wrong = progress.attempts.filter(item => !item.correct);
+        progress.sessions.unshift({ id, scope, createdAt: new Date().toISOString(), completedAt: null, contentRevision: 'preview', questionIds: selectPracticeQuestions(scope, wrong.map(item => item.knowledgeId), id, wrong.map(item => item.questionId), pack).map(question => question.id) });
       }
-      snapshot.courseProgress.lastLocation = `/focus/studio21/practice/${scope}`;
+      progress.lastLocation = unitId === studioUnit.id ? `/focus/studio21/practice/${scope}` : `/focus/studio21/${unitId}/practice/${scope}`;
       return structuredClone(snapshot);
     },
     async submitAnswer(sessionId, questionId, answer, hintViewed, cardViewed) {
       const question = getPracticeQuestion(questionId);
-      if (!question || !snapshot.courseProgress.sessions.some(session => session.id === sessionId)) throw new Error('练习记录无效。');
-      snapshot.courseProgress.attempts.unshift({ id: crypto.randomUUID(), sessionId, questionId, knowledgeId: question.knowledgeId, answer, correct: gradeQuestion(question, answer), hintViewed, cardViewed, answeredAt: new Date().toISOString(), contentRevision: 'preview', gradingRuleVersion: question.gradingRule ?? 'exact-structured-answer-v1', questionSnapshot: JSON.stringify(question) });
+      const unitId = startPack.questions.some(item => item.id === questionId) ? startPack.unit.id : studioUnit.id;
+      const progress = progressFor(unitId);
+      if (!question || !progress.sessions.some(session => session.id === sessionId)) throw new Error('练习记录无效。');
+      progress.attempts.unshift({ id: crypto.randomUUID(), sessionId, questionId, knowledgeId: question.knowledgeId, answer, correct: gradeQuestion(question, answer), hintViewed, cardViewed, answeredAt: new Date().toISOString(), contentRevision: 'preview', gradingRuleVersion: question.gradingRule ?? 'exact-structured-answer-v1', questionSnapshot: JSON.stringify(question) });
       return structuredClone(snapshot);
     },
     async completePractice(sessionId) {
-      const session = snapshot.courseProgress.sessions.find(item => item.id === sessionId);
-      if (!session || snapshot.courseProgress.attempts.filter(item => item.sessionId === sessionId).length !== (session.questionIds ?? questionsForScope(session.scope).map(q => q.id)).length) throw new Error('练习尚未完成。');
+      const unitId = snapshot.startProgress.sessions.some(item => item.id === sessionId) ? startPack.unit.id : studioUnit.id;
+      const progress = progressFor(unitId);
+      const session = progress.sessions.find(item => item.id === sessionId);
+      if (!session || progress.attempts.filter(item => item.sessionId === sessionId).length !== (session.questionIds ?? questionsForScope(session.scope, getStudioPack(unitId)!).map(q => q.id)).length) throw new Error('练习尚未完成。');
       session.completedAt = new Date().toISOString();
+      if (unitId === startPack.unit.id && session.scope === 'assessment') progress.basicCompleted ||= progress.attempts.filter(item => item.sessionId === sessionId && item.correct).length >= Math.ceil((session.questionIds?.length ?? startPack.unit.assessmentIds.length) * 0.8);
       const sectionId = parsePracticeScope(session.scope).sectionId;
-      snapshot.courseProgress.lastLocation = sectionId === 'assessment' ? `/courses/${studioUnit.id}` : `/courses/${studioUnit.id}/sections/${sectionId}`;
+      progress.lastLocation = sectionId === 'assessment' ? `/courses/${unitId}` : `/courses/${unitId}/sections/${sectionId}`;
       return structuredClone(snapshot);
     },
     async viewExtensionCard(topicId, cardId) {
@@ -123,9 +133,9 @@ interface ProfileContext {
   snapshot: Snapshot;
   updateSettings(settings: Settings): Promise<void>;
   recordVisit(visit: VisitInput): Promise<void>;
-  setMaterialStatus(field: 'textbookDone' | 'recordingDone', done: boolean): Promise<void>;
+  setMaterialStatus(field: 'textbookDone' | 'recordingDone', done: boolean, unitId?: string): Promise<void>;
   viewKnowledgeCard(cardId: string, preservePosition?: boolean): Promise<void>;
-  startPractice(scope: string, restart?: boolean): Promise<Snapshot>;
+  startPractice(scope: string, restart?: boolean, unitId?: string): Promise<Snapshot>;
   submitAnswer(sessionId: string, questionId: string, answer: string | string[], hintViewed: boolean, cardViewed: boolean): Promise<Snapshot>;
   completePractice(sessionId: string): Promise<void>;
   viewExtensionCard(topicId: string, cardId: string): Promise<void>;
@@ -162,9 +172,9 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   }, [notify]);
   const updateSettings = useCallback(async (settings: Settings) => { await mutate(() => api.updateSettings(settings)); }, [mutate]);
   const recordVisit = useCallback(async (visit: VisitInput) => { await mutate(() => api.recordVisit(visit)); }, [mutate]);
-  const setMaterialStatus = useCallback(async (field: 'textbookDone' | 'recordingDone', done: boolean) => { await mutate(() => api.setMaterialStatus(field, done)); }, [mutate]);
+  const setMaterialStatus = useCallback(async (field: 'textbookDone' | 'recordingDone', done: boolean, unitId?: string) => { await mutate(() => api.setMaterialStatus(field, done, unitId)); }, [mutate]);
   const viewKnowledgeCard = useCallback(async (cardId: string, preservePosition = false) => { await mutate(() => api.viewKnowledgeCard(cardId, preservePosition)); }, [mutate]);
-  const startPractice = useCallback((scope: string, restart = false) => mutate(() => api.startPractice(scope, restart)), [mutate]);
+  const startPractice = useCallback((scope: string, restart = false, unitId?: string) => mutate(() => api.startPractice(scope, restart, unitId)), [mutate]);
   const submitAnswer = useCallback((sessionId: string, questionId: string, answer: string | string[], hintViewed: boolean, cardViewed: boolean) => mutate(() => api.submitAnswer(sessionId, questionId, answer, hintViewed, cardViewed)), [mutate]);
   const completePractice = useCallback(async (sessionId: string) => { await mutate(() => api.completePractice(sessionId)); }, [mutate]);
   const viewExtensionCard = useCallback(async (topicId: string, cardId: string) => { await mutate(() => api.viewExtensionCard(topicId, cardId)); }, [mutate]);

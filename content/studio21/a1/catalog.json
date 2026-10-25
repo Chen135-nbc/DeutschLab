@@ -1,0 +1,22 @@
+{
+  "nodes": [
+    { "id": "studio21.a1.start", "kind": "entry", "label": "Start auf Deutsch", "status": "open" },
+    { "id": "studio21.a1.lektion1", "kind": "lesson", "label": "Lektion 1 · Kaffee oder Tee?", "status": "open" },
+    { "id": "studio21.a1.lektion2", "kind": "lesson", "label": "Lektion 2", "status": "placeholder" },
+    { "id": "studio21.a1.lektion3", "kind": "lesson", "label": "Lektion 3", "status": "placeholder" },
+    { "id": "studio21.a1.lektion4", "kind": "lesson", "label": "Lektion 4", "status": "placeholder" },
+    { "id": "studio21.a1.lektion5", "kind": "lesson", "label": "Lektion 5", "status": "placeholder" },
+    { "id": "studio21.a1.lektion6", "kind": "lesson", "label": "Lektion 6", "status": "placeholder" },
+    { "id": "studio21.a1.lektion7", "kind": "lesson", "label": "Lektion 7", "status": "placeholder" },
+    { "id": "studio21.a1.lektion8", "kind": "lesson", "label": "Lektion 8", "status": "placeholder" },
+    { "id": "studio21.a1.lektion9", "kind": "lesson", "label": "Lektion 9", "status": "placeholder" },
+    { "id": "studio21.a1.lektion10", "kind": "lesson", "label": "Lektion 10", "status": "placeholder" },
+    { "id": "studio21.a1.lektion11", "kind": "lesson", "label": "Lektion 11", "status": "placeholder" },
+    { "id": "studio21.a1.lektion12", "kind": "lesson", "label": "Lektion 12", "status": "placeholder" },
+    { "id": "studio21.a1.station1", "kind": "station", "label": "Station 1", "status": "placeholder" },
+    { "id": "studio21.a1.station2", "kind": "station", "label": "Station 2", "status": "placeholder" },
+    { "id": "studio21.a1.station3", "kind": "station", "label": "Station 3", "status": "placeholder" },
+    { "id": "studio21.a1.station4", "kind": "station", "label": "Station 4", "status": "placeholder" }
+  ],
+  "note": "Start 是引导单元，不计入 12 个正式 Lektion。Station 单独列为复习占位；其实际穿插位置及其余单元标题待教材目录核对。"
+}

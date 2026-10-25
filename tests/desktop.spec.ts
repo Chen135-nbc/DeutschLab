@@ -7,6 +7,7 @@ import type { FrameworkCatalog, AbilityTree } from '../src/domain/framework';
 const framework: FrameworkCatalog = JSON.parse(readFileSync(resolve('content/frameworks/a1/a1_extension_framework.json'), 'utf8'));
 const ability: AbilityTree = JSON.parse(readFileSync(resolve('content/frameworks/a1/a1_ability_tree.json'), 'utf8'));
 const studio = JSON.parse(readFileSync(resolve('content/studio21/a1/lektion1.json'), 'utf8'));
+const start = JSON.parse(readFileSync(resolve('content/studio21/a1/start.json'), 'utf8'));
 
 let app: ElectronApplication;
 let page: Page;
@@ -314,7 +315,7 @@ test('打包资源离线可用，没有页面异常或远程请求', async () =>
 
 test('真实第一单元、知识卡专注模式、小节练习和重启续学', async () => {
   await go('主线学习');
-  await page.locator('.studio-feature-course').click();
+  await page.locator('[data-studio-node-id="studio21.a1.lektion1"]').click();
   await expect(page.locator('.studio-section-card')).toHaveCount(4);
   await page.getByLabel('已完成录播课').check();
   await page.locator('.studio-section-card').first().click();
@@ -338,7 +339,7 @@ test('真实第一单元、知识卡专注模式、小节练习和重启续学',
   await app.close();
   await launch();
   await go('主线学习');
-  await page.locator('.studio-feature-course').click();
+  await page.locator('[data-studio-node-id="studio21.a1.lektion1"]').click();
   await expect(page.getByLabel('已完成录播课')).toBeChecked();
   await page.locator('.studio-section-card').first().click();
   await page.getByRole('link', { name: '基础巩固' }).click();
@@ -359,10 +360,77 @@ test('真实第一单元、知识卡专注模式、小节练习和重启续学',
   await capture('test-results/deutschlab-studio-focus-result.png');
 });
 
+test('Start 引导单元四节、专注学习、综合检测和重启记录', async () => {
+  test.setTimeout(90000);
+  if (await page.locator('.focus-shell').count()) await page.getByRole('link', { name: '返回课程' }).click();
+  await go('主线学习');
+  await expect(page.locator('[data-studio-node-id]')).toHaveCount(17);
+  await page.locator('[data-studio-node-id="studio21.a1.start"]').click();
+  await expect(page.getByRole('heading', { name: 'Start auf Deutsch · 德语入门' })).toBeVisible();
+  await expect(page.locator('.studio-section-card')).toHaveCount(4);
+  await expect(page.locator('.start-intro')).toContainText('课堂');
+  await capture('test-results/deutschlab-start-course.png');
+  await page.getByLabel('已完成教材相关内容').check();
+  await page.locator('.studio-section-card').nth(2).click();
+  await expect(page.getByRole('heading', { name: 'Das Alphabet', exact: true, level: 1 })).toBeVisible();
+  await expect(page.locator('.start-guide')).toBeVisible();
+  await page.locator('.studio-card-row').filter({ hasText: '26 个基本字母' }).click();
+  await expect(page.locator('.sidebar')).toHaveCount(0);
+  await expect(page.locator('.start-alphabet span')).toHaveCount(26);
+  await capture('test-results/deutschlab-start-alphabet.png');
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('heading', { name: 'Das Alphabet', exact: true, level: 1 })).toBeVisible();
+  await page.getByRole('link', { name: '基础巩固' }).click();
+  await expect(page.locator('.focus-question')).toBeVisible();
+  const started = await page.evaluate(() => window.deutschlab!.getSnapshot());
+  const session = started.startProgress.sessions[0];
+  expect(session.questionIds).toHaveLength(12);
+  const first = start.questions.find((q: { id: string }) => q.id === session.questionIds![0]);
+  await answerCurrent(first);
+  await expect(page.getByRole('status')).toContainText('回答正确');
+  await page.getByRole('link', { name: '退出专注' }).click();
+  await app.close();
+  await launch();
+  await go('主线学习');
+  await page.locator('[data-studio-node-id="studio21.a1.start"]').click();
+  await expect(page.getByLabel('已完成教材相关内容')).toBeChecked();
+  await page.locator('.studio-section-card').nth(2).click();
+  await page.getByRole('link', { name: '基础巩固' }).click();
+  await expect(page.locator('.focus-question')).toBeVisible();
+  const resumed = await page.evaluate(() => window.deutschlab!.getSnapshot());
+  expect(resumed.startProgress.sessions[0].id).toBe(session.id);
+  expect(resumed.startProgress.attempts).toHaveLength(1);
+  await page.getByRole('link', { name: '退出专注' }).click();
+  await page.getByRole('link', { name: '返回单元总览' }).click();
+  await page.getByRole('link', { name: '进入专注检测' }).click();
+  const assessment = start.questions.filter((q: { sectionId: string }) => q.sectionId === 'assessment');
+  expect(assessment).toHaveLength(15);
+  for (const [index, question] of assessment.entries()) {
+    await expect(page.locator('.focus-question')).toHaveText(question.prompt);
+    await answerCurrent(question);
+    await expect(page.getByRole('status')).toContainText('回答正确');
+    await page.getByRole('button', { name: index === assessment.length - 1 ? '查看结果' : '下一题' }).click();
+  }
+  await expect(page.locator('.focus-result')).toContainText('15 / 15');
+  const complete = await page.evaluate(() => window.deutschlab!.getSnapshot());
+  expect(complete.startProgress.basicCompleted).toBe(true);
+  expect(complete.startProgress.attempts).toHaveLength(16);
+  expect(complete.frameworkProgress.application).toEqual({});
+  await page.getByRole('link', { name: '返回课程' }).click();
+  await go('学习统计');
+  await page.getByRole('button', { name: '学习记录', exact: true }).click();
+  await expect(page.locator('.start-record-row')).toHaveCount(16);
+  await app.close();
+  await launch();
+  const saved = await page.evaluate(() => window.deutschlab!.getSnapshot());
+  expect(saved.startProgress.basicCompleted).toBe(true);
+  expect(saved.startProgress.attempts).toHaveLength(16);
+});
+
 test('四题型与综合检测可作答，错误知识点可回看且重练产生新记录', async () => {
   if (await page.locator('.focus-shell').count()) await page.getByRole('link', { name: '返回课程' }).click();
   await go('主线学习');
-  await page.locator('.studio-feature-course').click();
+  await page.locator('[data-studio-node-id="studio21.a1.lektion1"]').click();
   const before = await page.evaluate(() => window.deutschlab!.getSnapshot());
   const priorAttempts = before.courseProgress.attempts.length;
   const priorAssessments = before.courseProgress.sessions.filter(session => session.scope === 'assessment').length;
@@ -400,7 +468,7 @@ test('四题型与综合检测可作答，错误知识点可回看且重练产�
   await page.getByRole('link', { name: '退出专注' }).click();
   await go('学习统计');
   await page.getByRole('button', { name: '学习记录', exact: true }).click();
-  await expect(page.locator('.studio-record-row')).toHaveCount(Math.min(30, priorAttempts + 18));
+  await expect(page.locator('.studio-records .studio-record-row')).toHaveCount(Math.min(30, priorAttempts + 18));
   await expect(page.locator('.studio-records')).toContainText('问候与自我介绍');
   await capture('test-results/deutschlab-studio-records.png');
 });
@@ -408,7 +476,7 @@ test('四题型与综合检测可作答，错误知识点可回看且重练产�
 test('四个小节都能打开知识卡与练习，搜索可回到单元，草稿退出有提示', async () => {
   if (await page.locator('.focus-shell').count()) await page.getByRole('link', { name: '返回课程' }).click();
   await go('主线学习');
-  await page.locator('.studio-feature-course').click();
+  await page.locator('[data-studio-node-id="studio21.a1.lektion1"]').click();
   await page.getByRole('searchbox', { name: '检索第一单元知识卡' }).fill('siebzig');
   await expect(page.locator('.studio-search-results a')).toHaveCount(1);
   await page.locator('.studio-search-results a').click();
@@ -454,7 +522,7 @@ test('第一单元和专注模式在最小桌面窗口、最大字号下可以�
   await expect(page.locator('html')).toHaveCSS('font-size', '24px');
   await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].setContentSize(960, 640));
   await go('主线学习');
-  await page.locator('.studio-feature-course').click();
+  await page.locator('[data-studio-node-id="studio21.a1.lektion1"]').click();
   expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
   await page.locator('.studio-section-card').first().click();
   expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);

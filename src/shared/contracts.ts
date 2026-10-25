@@ -18,7 +18,7 @@ export interface PracticeAttempt {
   contentRevision: string; gradingRuleVersion: string; questionSnapshot: string;
 }
 export interface CourseProgress {
-  textbookDone: boolean; recordingDone: boolean; lastLocation: string | null;
+  textbookDone: boolean; recordingDone: boolean; basicCompleted: boolean; lastLocation: string | null;
   viewedCardIds: string[]; sessions: PracticeSession[]; attempts: PracticeAttempt[];
 }
 export interface ExtensionSession { id: string; topicId: string; scope: string; itemIds: string[]; contentRevision: string; createdAt: string; completedAt: string | null }
@@ -29,6 +29,7 @@ export interface Snapshot {
   visits: Visit[];
   frameworkProgress: FrameworkProgress;
   courseProgress: CourseProgress;
+  startProgress: CourseProgress;
   extensionProgress: ExtensionProgress;
   storage: { mode: 'sqlite' | 'preview'; path: string | null };
 }
@@ -36,9 +37,9 @@ export interface DesktopAPI {
   getSnapshot(): Promise<Snapshot>;
   updateSettings(settings: Settings): Promise<Snapshot>;
   recordVisit(visit: VisitInput): Promise<Snapshot>;
-  setMaterialStatus(field: 'textbookDone' | 'recordingDone', done: boolean): Promise<Snapshot>;
+  setMaterialStatus(field: 'textbookDone' | 'recordingDone', done: boolean, unitId?: string): Promise<Snapshot>;
   viewKnowledgeCard(cardId: string, preservePosition?: boolean): Promise<Snapshot>;
-  startPractice(scope: string, restart?: boolean): Promise<Snapshot>;
+  startPractice(scope: string, restart?: boolean, unitId?: string): Promise<Snapshot>;
   submitAnswer(sessionId: string, questionId: string, answer: Answer, hintViewed: boolean, cardViewed: boolean): Promise<Snapshot>;
   completePractice(sessionId: string): Promise<Snapshot>;
   viewExtensionCard(topicId: string, cardId: string): Promise<Snapshot>;

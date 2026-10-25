@@ -1,0 +1,13 @@
+{
+  "sourceNote": "DeutschLab 整理的常见课堂德语指令示例；未对照 Studio21 Start 原页逐条核实。",
+  "items": [
+    { "id": "instruction.listen", "german": "Hören Sie.", "chinese": "请听。", "action": "听录音或老师说话，先抓整体和熟悉词。" },
+    { "id": "instruction.look", "german": "Sehen Sie.", "chinese": "请看。", "action": "观察图片、物品或示例。" },
+    { "id": "instruction.read", "german": "Lesen Sie.", "chinese": "请读。", "action": "阅读给出的词、句或短文。" },
+    { "id": "instruction.speak", "german": "Sprechen Sie.", "chinese": "请说。", "action": "开口说出词句；需要时跟随可靠音频或老师示范。" },
+    { "id": "instruction.write", "german": "Schreiben Sie.", "chinese": "请写。", "action": "把答案写下来，注意字母顺序。" },
+    { "id": "instruction.complete", "german": "Ergänzen Sie.", "chinese": "请补充填写。", "action": "在空白处填上合适的词或信息。" },
+    { "id": "instruction.match", "german": "Ordnen Sie zu.", "chinese": "请匹配、对应。", "action": "把有关系的词、图片或句子配对。" },
+    { "id": "instruction.pairs", "german": "Arbeiten Sie zu zweit.", "chinese": "请两人一组完成。", "action": "与一位同伴一起完成任务。" }
+  ]
+}

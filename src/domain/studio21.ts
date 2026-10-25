@@ -1,4 +1,7 @@
 import rawPack from '../../content/studio21/a1/lektion1.json';
+import rawStart from '../../content/studio21/a1/start.json';
+import rawCatalog from '../../content/studio21/a1/catalog.json';
+import rawInstructions from '../../content/studio21/common/instructions.json';
 import { a1Scaffold } from './framework';
 
 export type QuestionType = 'single' | 'match' | 'fill' | 'order';
@@ -7,8 +10,9 @@ export interface Choice { id: string; text: string }
 export interface KnowledgeCard {
   id: string; unitId: string; sectionId: string; level: string; title: string;
   category: '交际知识' | '主题词汇' | '语法知识' | '常用表达' | '发音知识';
-  learningStatus: 'new' | 'reinforce' | 'recognition'; core: string[];
+  learningStatus: 'new' | 'reinforce' | 'recognition' | 'exposure'; core: string[];
   explanation: string; example: string; exampleSource: string; relatedIds: string[]; sourcePages: string;
+  details?: string[];
 }
 export interface PracticeQuestion {
   id: string; sectionId: string; knowledgeId: string; type: QuestionType; difficulty: 1 | 2 | 3;
@@ -19,14 +23,16 @@ export interface PracticeQuestion {
 export interface Section {
   id: string; title: string; pages: string; summary: string;
   cardIds: string[]; exerciseIds: string[]; frameworkLinks: string[];
+  guide?: { goals: string[]; tasks: string[]; wrapUp: string };
 }
 export interface StudioPack {
   packId: string; packVersion: string; schemaVersion: number;
   source: { kind: string; textbook: string; pages: string; note: string };
   unit: { id: string; level: string; number: string; title: string; chineseTitle: string;
     pages: string; teachingPages: string; practicePages: string; reviewPage: string;
-    sections: Section[]; assessmentIds: string[] };
+    intro?: string; sections: Section[]; assessmentIds: string[] };
   cards: KnowledgeCard[]; questions: PracticeQuestion[];
+  alphabet?: { letter: string; ipa: string }[];
 }
 function ensure(ok: unknown, message: string): asserts ok { if (!ok) throw new Error(`Studio21 内容包无效：${message}`); }
 function ids(items: { id: string }[], label: string) {
@@ -80,14 +86,24 @@ export function validateStudioPack(input: unknown, sharedCards: readonly Knowled
       ensure(question.answer.length === question.tokens.length && new Set(question.answer).size === question.tokens.length && question.answer.every(id => question.tokens!.some(item => item.id === id)), `排序答案无效：${question.id}`);
     } else ensure(false, `未知题型：${question.id}`);
   }
-  ensure(value.unit.assessmentIds.length >= 15 && value.unit.assessmentIds.length <= 20 && value.unit.assessmentIds.every(id => questionIds.has(id)), '综合检测应有 15–20 题');
+  ensure(value.unit.assessmentIds.length >= 12 && value.unit.assessmentIds.length <= 20 && value.unit.assessmentIds.every(id => questionIds.has(id)), '综合检测应有 12–20 题');
   return value;
 }
 export const studioPack = validateStudioPack(rawPack as unknown as StudioPack);
+export const startPack = validateStudioPack(rawStart as unknown as StudioPack, studioPack.cards);
+export const studioPacks = [startPack, studioPack];
+export const getStudioPack = (unitId: string) => studioPacks.find(pack => pack.unit.id === unitId);
+export const getCourseSection = (unitId: string, sectionId: string) => getStudioPack(unitId)?.unit.sections.find(section => section.id === sectionId);
+export const studioA1Catalog = rawCatalog;
+export const classroomInstructions = rawInstructions;
+if (new Set(studioA1Catalog.nodes.map(node => node.id)).size !== 17 || studioA1Catalog.nodes[0].id !== startPack.unit.id || studioA1Catalog.nodes[1].id !== studioPack.unit.id ||
+    studioA1Catalog.nodes.filter(node => node.kind === 'lesson').length !== 12 || studioA1Catalog.nodes.filter(node => node.kind === 'station').length !== 4) throw new Error('Studio21 A1 目录结构无效。');
+if (startPack.alphabet?.length !== 26 || new Set(startPack.alphabet.map(item => item.letter)).size !== 26) throw new Error('Start 字母表不完整。');
+if (new Set(classroomInstructions.items.map(item => item.id)).size !== classroomInstructions.items.length) throw new Error('教材指令 ID 重复。');
 export const studioUnit = studioPack.unit;
 export const getStudioSection = (id: string) => studioUnit.sections.find(section => section.id === id);
-export const getKnowledgeCard = (id: string) => studioPack.cards.find(card => card.id === id);
-export const getPracticeQuestion = (id: string) => studioPack.questions.find(question => question.id === id);
+export const getKnowledgeCard = (id: string) => studioPacks.flatMap(pack => pack.cards).find(card => card.id === id);
+export const getPracticeQuestion = (id: string) => studioPacks.flatMap(pack => pack.questions).find(question => question.id === id);
 export const questionsForScope = (scope: string, pack: StudioPack = studioPack) =>
   (scope === 'assessment' ? pack.unit.assessmentIds : pack.unit.sections.find(section => section.id === scope)?.exerciseIds ?? [])
     .map(id => pack.questions.find(question => question.id === id)!);

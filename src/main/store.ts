@@ -7,7 +7,7 @@ import { levels, type Settings, type Snapshot, type Visit, type VisitInput, type
 import { a1Scaffold, canonicalJSON, validateScaffold } from '../domain/framework';
 import type { ApplicationRecord, FrameworkProgress, LearningCoverageRecord } from '../domain/progress';
 import { isFontSize } from '../shared/typography';
-import { studioPack, studioUnit, validateStudioPack, questionsForScope, gradeQuestion, parsePracticeScope, selectPracticeQuestions, type StudioPack, type Answer, type PracticeQuestion } from '../domain/studio21';
+import { studioPack, startPack, studioUnit, getStudioPack, getKnowledgeCard, validateStudioPack, questionsForScope, gradeQuestion, parsePracticeScope, selectPracticeQuestions, type StudioPack, type Answer, type PracticeQuestion } from '../domain/studio21';
 import { extensionPacks, getExtensionPack, extensionItem, extensionIsProduction, selectExtensionItems, gradeExtensionObjective, validateExtensionPack, type ExtensionPack } from '../domain/extension';
 
 const defaults: Settings = { level: 'A1', fontSize: 'standard', reducedMotion: false };
@@ -140,6 +140,7 @@ export class LocalStore {
       this.db.exec('COMMIT;');
       this.importScaffold(a1Scaffold.framework, a1Scaffold.ability);
       this.importStudioPack(studioPack);
+      this.importStudioPack(startPack);
       for (const pack of extensionPacks) this.importExtensionPack(pack);
     } catch (error) {
       try { this.db.exec('ROLLBACK;'); } catch { /* No pending transaction. */ }
@@ -197,20 +198,20 @@ export class LocalStore {
     } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
     return revision;
   }
-  private activeRevision(): string {
-    const row = this.db.prepare('SELECT revision FROM course_content_active WHERE unit_id = ?').get(studioUnit.id) as { revision: string };
+  private activeRevision(unitId: string): string {
+    const row = this.db.prepare('SELECT revision FROM course_content_active WHERE unit_id = ?').get(unitId) as { revision: string };
     return row.revision;
   }
-  private setPosition(location: string) {
+  private setPosition(unitId: string, location: string) {
     this.db.prepare(`INSERT INTO course_position VALUES (?, ?, ?) ON CONFLICT(unit_id)
-      DO UPDATE SET location = excluded.location, updated_at = excluded.updated_at`).run(studioUnit.id, location, new Date().toISOString());
+      DO UPDATE SET location = excluded.location, updated_at = excluded.updated_at`).run(unitId, location, new Date().toISOString());
   }
-  private courseProgress(): Snapshot['courseProgress'] {
-    const manual = this.db.prepare('SELECT textbook_done AS textbookDone, recording_done AS recordingDone FROM course_manual_state WHERE unit_id = ?').get(studioUnit.id) as { textbookDone: number; recordingDone: number } | undefined;
-    const position = this.db.prepare('SELECT location FROM course_position WHERE unit_id = ?').get(studioUnit.id) as { location: string } | undefined;
-    const viewedCardIds = this.db.prepare('SELECT DISTINCT card_id AS cardId FROM card_views WHERE unit_id = ? ORDER BY rowid').all(studioUnit.id).map(row => String(row.cardId));
+  private courseProgress(unitId: string): Snapshot['courseProgress'] {
+    const manual = this.db.prepare('SELECT textbook_done AS textbookDone, recording_done AS recordingDone FROM course_manual_state WHERE unit_id = ?').get(unitId) as { textbookDone: number; recordingDone: number } | undefined;
+    const position = this.db.prepare('SELECT location FROM course_position WHERE unit_id = ?').get(unitId) as { location: string } | undefined;
+    const viewedCardIds = this.db.prepare('SELECT DISTINCT card_id AS cardId FROM card_views WHERE unit_id = ? ORDER BY rowid').all(unitId).map(row => String(row.cardId));
     const sessions = this.db.prepare(`SELECT s.id, s.scope, s.content_revision AS contentRevision, s.created_at AS createdAt, s.completed_at AS completedAt, p.question_ids_json AS questionIdsJson
-      FROM practice_sessions s LEFT JOIN practice_plans p ON p.session_id = s.id WHERE s.unit_id = ? ORDER BY s.rowid DESC`).all(studioUnit.id).map(row => ({
+      FROM practice_sessions s LEFT JOIN practice_plans p ON p.session_id = s.id WHERE s.unit_id = ? ORDER BY s.rowid DESC`).all(unitId).map(row => ({
         id: String(row.id), scope: String(row.scope), contentRevision: String(row.contentRevision), createdAt: String(row.createdAt), completedAt: row.completedAt ? String(row.completedAt) : null,
         questionIds: row.questionIdsJson ? JSON.parse(String(row.questionIdsJson)) as string[] : undefined,
       })) satisfies PracticeSession[];
@@ -218,13 +219,15 @@ export class LocalStore {
       a.answer_json AS answerJson, a.correct, a.hint_viewed AS hintViewed, a.card_viewed AS cardViewed,
       a.answered_at AS answeredAt, a.content_revision AS contentRevision, a.grading_rule_version AS gradingRuleVersion,
       a.question_snapshot AS questionSnapshot FROM practice_attempts a JOIN practice_sessions s ON s.id = a.session_id
-      WHERE s.unit_id = ? ORDER BY a.rowid DESC`).all(studioUnit.id).map(row => ({
+      WHERE s.unit_id = ? ORDER BY a.rowid DESC`).all(unitId).map(row => ({
         id: String(row.id), sessionId: String(row.sessionId), questionId: String(row.questionId), knowledgeId: String(row.knowledgeId),
         answer: JSON.parse(String(row.answerJson)) as Answer, correct: Boolean(row.correct), hintViewed: Boolean(row.hintViewed),
         cardViewed: Boolean(row.cardViewed), answeredAt: String(row.answeredAt), contentRevision: String(row.contentRevision),
         gradingRuleVersion: String(row.gradingRuleVersion), questionSnapshot: String(row.questionSnapshot),
       })) satisfies PracticeAttempt[];
-    return { textbookDone: Boolean(manual?.textbookDone), recordingDone: Boolean(manual?.recordingDone), lastLocation: position?.location ?? null, viewedCardIds, sessions, attempts };
+    const basicCompleted = unitId === startPack.unit.id && sessions.some(session => session.scope === 'assessment' && !!session.completedAt &&
+      attempts.filter(attempt => attempt.sessionId === session.id && attempt.correct).length >= Math.ceil((session.questionIds?.length ?? startPack.unit.assessmentIds.length) * 0.8));
+    return { textbookDone: Boolean(manual?.textbookDone), recordingDone: Boolean(manual?.recordingDone), basicCompleted, lastLocation: position?.location ?? null, viewedCardIds, sessions, attempts };
   }
   private extensionProgress(): Snapshot['extensionProgress'] {
     const viewedCardIds = this.db.prepare('SELECT DISTINCT card_id AS id FROM extension_card_views ORDER BY rowid').all().map(row => String(row.id));
@@ -278,7 +281,7 @@ export class LocalStore {
     const row = this.db.prepare('SELECT payload FROM app_settings WHERE id = 1').get() as { payload: string };
     const visits = this.db.prepare(`SELECT id, kind, ref_id AS refId, title, visited_at AS visitedAt
       FROM browsing_history ORDER BY rowid DESC LIMIT 100`).all().map(row => ({ ...row })) as unknown as Visit[];
-    return { settings: validateSettings(JSON.parse(row.payload)), visits, frameworkProgress: this.frameworkProgress(), courseProgress: this.courseProgress(), extensionProgress: this.extensionProgress(), storage: { mode: 'sqlite', path: this.path } };
+    return { settings: validateSettings(JSON.parse(row.payload)), visits, frameworkProgress: this.frameworkProgress(), courseProgress: this.courseProgress(studioUnit.id), startProgress: this.courseProgress(startPack.unit.id), extensionProgress: this.extensionProgress(), storage: { mode: 'sqlite', path: this.path } };
   }
   updateSettings(value: unknown): Snapshot {
     const settings = validateSettings(value);
@@ -295,49 +298,51 @@ export class LocalStore {
       .run(randomUUID(), v.kind, v.refId, title, new Date().toISOString());
     return this.snapshot();
   }
-  setMaterialStatus(field: unknown, done: unknown): Snapshot {
-    if (!['textbookDone', 'recordingDone'].includes(String(field)) || typeof done !== 'boolean') throw new Error('教材状态无效。');
+  setMaterialStatus(field: unknown, done: unknown, unitId: unknown = studioUnit.id): Snapshot {
+    if (!['textbookDone', 'recordingDone'].includes(String(field)) || typeof done !== 'boolean' || typeof unitId !== 'string' || !getStudioPack(unitId)) throw new Error('教材状态无效。');
     const column = field === 'textbookDone' ? 'textbook_done' : 'recording_done';
-    this.db.prepare('INSERT OR IGNORE INTO course_manual_state (unit_id, updated_at) VALUES (?, ?)').run(studioUnit.id, new Date().toISOString());
-    this.db.prepare(`UPDATE course_manual_state SET ${column} = ?, updated_at = ? WHERE unit_id = ?`).run(done ? 1 : 0, new Date().toISOString(), studioUnit.id);
+    this.db.prepare('INSERT OR IGNORE INTO course_manual_state (unit_id, updated_at) VALUES (?, ?)').run(unitId, new Date().toISOString());
+    this.db.prepare(`UPDATE course_manual_state SET ${column} = ?, updated_at = ? WHERE unit_id = ?`).run(done ? 1 : 0, new Date().toISOString(), unitId);
     return this.snapshot();
   }
   viewKnowledgeCard(cardId: unknown, preservePosition: unknown = false): Snapshot {
-    const card = studioPack.cards.find(item => item.id === cardId);
+    const card = typeof cardId === 'string' ? getKnowledgeCard(cardId) : undefined;
     if (!card || typeof preservePosition !== 'boolean') throw new Error('知识卡不存在或浏览状态无效。');
     this.db.exec('BEGIN IMMEDIATE;');
     try {
-      this.db.prepare('INSERT INTO card_views VALUES (?, ?, ?, ?, ?)').run(randomUUID(), studioUnit.id, card.id, this.activeRevision(), new Date().toISOString());
-      if (!preservePosition) this.setPosition(`/focus/studio21/${card.id}`);
+      this.db.prepare('INSERT INTO card_views VALUES (?, ?, ?, ?, ?)').run(randomUUID(), card.unitId, card.id, this.activeRevision(card.unitId), new Date().toISOString());
+      if (!preservePosition) this.setPosition(card.unitId, `/focus/studio21/${card.id}`);
       this.db.exec('COMMIT;');
     } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
     return this.snapshot();
   }
-  startPractice(scope: unknown, restart: unknown = false): Snapshot {
-    if (typeof scope !== 'string' || !questionsForScope(parsePracticeScope(scope).sectionId).length || typeof restart !== 'boolean') throw new Error('练习范围无效。');
-    const revision = this.activeRevision();
+  startPractice(scope: unknown, restart: unknown = false, unitId: unknown = studioUnit.id): Snapshot {
+    const pack = typeof unitId === 'string' ? getStudioPack(unitId) : undefined;
+    if (!pack || typeof scope !== 'string' || !questionsForScope(parsePracticeScope(scope).sectionId, pack).length || typeof restart !== 'boolean') throw new Error('练习范围无效。');
+    const revision = this.activeRevision(pack.unit.id);
     const active = this.db.prepare(`SELECT id FROM practice_sessions WHERE unit_id = ? AND scope = ?
-      AND content_revision = ? AND completed_at IS NULL ORDER BY rowid DESC LIMIT 1`).get(studioUnit.id, scope, revision) as { id: string } | undefined;
+      AND content_revision = ? AND completed_at IS NULL ORDER BY rowid DESC LIMIT 1`).get(pack.unit.id, scope, revision) as { id: string } | undefined;
     this.db.exec('BEGIN IMMEDIATE;');
     try {
       if (!active || restart) {
         const id = randomUUID();
-        const wrongRows = this.db.prepare('SELECT DISTINCT knowledge_id AS knowledgeId, question_id AS questionId FROM practice_attempts WHERE correct = 0').all();
-        const selected = selectPracticeQuestions(scope, wrongRows.map(row => String(row.knowledgeId)), id, wrongRows.map(row => String(row.questionId)));
+        const wrongRows = this.db.prepare(`SELECT DISTINCT a.knowledge_id AS knowledgeId, a.question_id AS questionId FROM practice_attempts a
+          JOIN practice_sessions s ON s.id = a.session_id WHERE s.unit_id = ? AND a.correct = 0`).all(pack.unit.id);
+        const selected = selectPracticeQuestions(scope, wrongRows.map(row => String(row.knowledgeId)), id, wrongRows.map(row => String(row.questionId)), pack);
         this.db.prepare('INSERT INTO practice_sessions (id, unit_id, scope, content_revision, created_at) VALUES (?, ?, ?, ?, ?)')
-          .run(id, studioUnit.id, scope, revision, new Date().toISOString());
+          .run(id, pack.unit.id, scope, revision, new Date().toISOString());
         this.db.prepare('INSERT INTO practice_plans VALUES (?, ?)').run(id, JSON.stringify(selected.map(question => question.id)));
       }
-      this.setPosition(`/focus/studio21/practice/${scope}`);
+      this.setPosition(pack.unit.id, pack.unit.id === studioUnit.id ? `/focus/studio21/practice/${scope}` : `/focus/studio21/${pack.unit.id}/practice/${scope}`);
       this.db.exec('COMMIT;');
     } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
     return this.snapshot();
   }
-  private sessionQuestion(sessionId: unknown, questionId: unknown): { session: { scope: string; content_revision: string; completed_at: string | null }; question: PracticeQuestion } {
+  private sessionQuestion(sessionId: unknown, questionId: unknown): { session: { unit_id: string; scope: string; content_revision: string; completed_at: string | null }; question: PracticeQuestion } {
     if (typeof sessionId !== 'string' || typeof questionId !== 'string') throw new Error('练习记录无效。');
-    const session = this.db.prepare('SELECT scope, content_revision, completed_at FROM practice_sessions WHERE id = ? AND unit_id = ?').get(sessionId, studioUnit.id) as { scope: string; content_revision: string; completed_at: string | null } | undefined;
+    const session = this.db.prepare('SELECT unit_id, scope, content_revision, completed_at FROM practice_sessions WHERE id = ?').get(sessionId) as { unit_id: string; scope: string; content_revision: string; completed_at: string | null } | undefined;
     if (!session || session.completed_at) throw new Error('练习已结束或不存在。');
-    const row = this.db.prepare('SELECT payload FROM course_content_revisions WHERE unit_id = ? AND revision = ?').get(studioUnit.id, session.content_revision) as { payload: string } | undefined;
+    const row = this.db.prepare('SELECT payload FROM course_content_revisions WHERE unit_id = ? AND revision = ?').get(session.unit_id, session.content_revision) as { payload: string } | undefined;
     if (!row) throw new Error('旧版题目内容缺失。');
     const pack = JSON.parse(row.payload) as StudioPack;
     const plan = this.db.prepare('SELECT question_ids_json AS ids FROM practice_plans WHERE session_id = ?').get(sessionId) as { ids: string } | undefined;
@@ -368,10 +373,10 @@ export class LocalStore {
   }
   completePractice(sessionId: unknown): Snapshot {
     if (typeof sessionId !== 'string') throw new Error('练习 ID 无效。');
-    const session = this.db.prepare('SELECT scope, content_revision, completed_at FROM practice_sessions WHERE id = ? AND unit_id = ?').get(sessionId, studioUnit.id) as { scope: string; content_revision: string; completed_at: string | null } | undefined;
+    const session = this.db.prepare('SELECT unit_id, scope, content_revision, completed_at FROM practice_sessions WHERE id = ?').get(sessionId) as { unit_id: string; scope: string; content_revision: string; completed_at: string | null } | undefined;
     if (!session) throw new Error('练习不存在。');
     if (session.completed_at) return this.snapshot();
-    const row = this.db.prepare('SELECT payload FROM course_content_revisions WHERE unit_id = ? AND revision = ?').get(studioUnit.id, session.content_revision) as { payload: string };
+    const row = this.db.prepare('SELECT payload FROM course_content_revisions WHERE unit_id = ? AND revision = ?').get(session.unit_id, session.content_revision) as { payload: string };
     const plan = this.db.prepare('SELECT question_ids_json AS ids FROM practice_plans WHERE session_id = ?').get(sessionId) as { ids: string } | undefined;
     const expected = plan ? (JSON.parse(plan.ids) as string[]).length : questionsForScope(session.scope, JSON.parse(row.payload) as StudioPack).length;
     const actual = (this.db.prepare('SELECT count(*) AS n FROM practice_attempts WHERE session_id = ?').get(sessionId) as { n: number }).n;
@@ -380,7 +385,7 @@ export class LocalStore {
     try {
       this.db.prepare('UPDATE practice_sessions SET completed_at = ? WHERE id = ?').run(new Date().toISOString(), sessionId);
       const sectionId = parsePracticeScope(session.scope).sectionId;
-      this.setPosition(sectionId === 'assessment' ? `/courses/${studioUnit.id}` : `/courses/${studioUnit.id}/sections/${sectionId}`);
+      this.setPosition(session.unit_id, sectionId === 'assessment' ? `/courses/${session.unit_id}` : `/courses/${session.unit_id}/sections/${sectionId}`);
       this.db.exec('COMMIT;');
     } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
     return this.snapshot();

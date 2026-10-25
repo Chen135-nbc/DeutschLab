@@ -25,3 +25,9 @@
 ## Studio21 A1 Lektion 1 内容包
 
 `studio21/a1/lektion1.json` 依据用户在 2026-10-15 提供的课程概要建立，并于 2026-10-26 扩充练习。内容包包含教材范围、四个小节、18 张知识卡、65 道小节练习和 18 道综合检测题；解释、例句及题目由 DeutschLab 原创编写，没有复制教材原题、对话或听力。页码是概要所给范围，不代表已对照教材原页核验。知识卡、题目和现有 A1 专题分别保持稳定 ID；课程关联不复制 A1 框架原始内容。
+
+## Studio21 A1 Start 引导单元
+
+`studio21/a1/start.json` 依据用户提供的 Start 课程范围和四节结构编写，包含第 8–15 页的中文导读、19 张知识卡、59 道小节原创题和 15 道综合检测题。`studio21/a1/catalog.json` 保存 Start、12 个 Lektion 与 4 个 Station 共 17 个课程节点；未开发节点只作为占位，标题及 Station 穿插位置待教材目录核对。`studio21/common/instructions.json` 是供后续单元复用的课堂指令释义。
+
+目前没有用户教材原页与配套音频；Start 的教学解释、短资料、例句和题目都是 DeutschLab 原创内容，不能当作教材原文或听力成绩。课程仅关联已有 Lektion 1 知识 ID，不改变原有 A1 自学框架和能力树。`scripts/build-start-content.py` 可重新生成 Start JSON；更改内容时保留已发布的稳定 ID，学习历史按内容版本与题目快照保存。

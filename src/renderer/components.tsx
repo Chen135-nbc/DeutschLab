@@ -1,12 +1,12 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ChevronRight, Construction, X, type LucideIcon } from 'lucide-react';
 
 export function Badge({ children = 'DEMO', tone = 'demo' }: { children?: ReactNode; tone?: 'demo' | 'muted' | 'green' }) {
   return <span className={`badge ${tone}`}>{children}</span>;
 }
-export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <section className={`card ${className}`}>{children}</section>;
+export function Card({ children, className = '', ...attributes }: HTMLAttributes<HTMLElement> & { children: ReactNode }) {
+  return <section className={`card ${className}`} {...attributes}>{children}</section>;
 }
 export function Page({ eyebrow, title, description, children, action }: { eyebrow: string; title: string; description: string; children: ReactNode; action?: ReactNode }) {
   return <div className="page"><header className="page-heading"><div><p className="eyebrow">{eyebrow}</p><h1>{title}</h1><p className="page-description">{description}</p></div>{action}</header>{children}</div>;

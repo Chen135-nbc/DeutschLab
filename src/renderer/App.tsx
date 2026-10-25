@@ -9,6 +9,7 @@ import { APP_VERSION } from '../shared/app-info';
 import { QuestsPage, QuestPage, CollectionPage } from './pages/Quests';
 import { KnowledgePage, StatisticsPage, SettingsPage, NotFoundPage } from './pages/Workspace';
 import { StudioCoursePage, StudioSectionPage, KnowledgeFocusPage, PracticeFocusPage } from './pages/Studio21';
+import { startPack } from '../domain/studio21';
 import { ExtensionCardFocusPage, ExtensionPracticeFocusPage } from './pages/Extension';
 
 const navigation = [
@@ -35,7 +36,7 @@ function Shell() {
     </aside>
     <div className="main-shell">
       <div className="window-bar"><span>DEUTSCHLAB · PERSONAL LEARNING SPACE</span></div>
-      <div className="topbar"><div className="breadcrumb"><Link to="/">个人学习工作台</Link><ChevronRight size={13} /><span>{current.section}</span></div><div className="environment"><span className="status-dot" />{snapshot.storage.mode === 'sqlite' ? '本地桌面' : '网页预览 · 不保存数据'}<span className="separator" />A1 框架 · Studio21 第一单元</div></div>
+      <div className="topbar"><div className="breadcrumb"><Link to="/">个人学习工作台</Link><ChevronRight size={13} /><span>{current.section}</span></div><div className="environment"><span className="status-dot" />{snapshot.storage.mode === 'sqlite' ? '本地桌面' : '网页预览 · 不保存数据'}<span className="separator" />A1 框架 · Studio21 Start / Lektion 1</div></div>
       <main id="main-content" tabIndex={-1} key={location.pathname}><Outlet /></main>
       <footer className="workspace-footer"><span>一点一滴，积累属于你的德语。</span><span>DEUTSCHLAB / {APP_VERSION} · 本地学习空间</span></footer>
     </div>
@@ -48,6 +49,7 @@ function TopicDetailRouter() {
 export function App() {
   return <HashRouter><ProfileProvider><Routes>
     <Route path="focus/studio21/practice/:scope" element={<PracticeFocusPage />} />
+    <Route path="focus/studio21/:unitId/practice/:scope" element={<PracticeFocusPage />} />
     <Route path="focus/studio21/:cardId" element={<KnowledgeFocusPage />} />
     <Route path="focus/extension/:topicId/cards/:cardId" element={<ExtensionCardFocusPage />} />
     <Route path="focus/extension/:topicId/practice" element={<ExtensionPracticeFocusPage />} />
@@ -56,6 +58,8 @@ export function App() {
     <Route path="courses" element={<CoursesPage />} />
     <Route path="courses/studio21.a1.lektion1" element={<StudioCoursePage />} />
     <Route path="courses/studio21.a1.lektion1/sections/:sectionId" element={<StudioSectionPage />} />
+    <Route path="courses/studio21.a1.start" element={<StudioCoursePage courseId={startPack.unit.id} />} />
+    <Route path="courses/studio21.a1.start/sections/:sectionId" element={<StudioSectionPage courseId={startPack.unit.id} />} />
     <Route path="courses/:unitId" element={<CoursePage />} />
     <Route path="topics" element={<FrameworkDirectoryPage />} />
     <Route path="topics/demo" element={<DemoTopicsPage />} />
