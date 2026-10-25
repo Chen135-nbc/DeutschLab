@@ -6,9 +6,11 @@ import { applicationFor, coverageFor } from '../../domain/progress';
 import { useProfile, useRecordVisit } from '../profile';
 import { BackLink, Badge, Card, EmptyState, Page, Placeholder, SectionHeading } from '../components';
 import { MissingContent } from './Learning';
+import { getExtensionPack } from '../../domain/extension';
+import { ExtensionTopicPage } from './Extension';
 
 export function FrameworkNotice() {
-  return <div className="framework-notice"><Badge tone="green">A1 目录骨架</Badge><p>来源：{a1Scaffold.framework.source.title}。详细讲义与训练待填充，导入和浏览不会改变学习或运用状态。</p></div>;
+  return <div className="framework-notice"><Badge tone="green">A1 原有目录</Badge><p>来源：{a1Scaffold.framework.source.title}。数字与基础数量、饮料两个完整专题已开放；其他单元仍按原框架保留。浏览只记录足迹，不代表掌握。</p></div>;
 }
 function FrameworkSearch({ value, onChange, label = '搜索 A1 拓展目录' }: { value: string; onChange(value: string): void; label?: string }) {
   return <label className="search-field framework-search"><Search size={18} /><input aria-label={label} value={value} onChange={event => onChange(event.target.value)} placeholder="搜索板块、单元标题或细分学习内容…" />{value && <button onClick={() => onChange('')} aria-label="清除目录搜索">×</button>}</label>;
@@ -39,7 +41,7 @@ export function FrameworkBoardPage() {
   return <Page eyebrow={`A1 · 板块 ${String(board.number).padStart(2, '0')}`} title={board.title} description={board.description} action={<Badge tone="muted">目录骨架</Badge>}>
     <BackLink to="/topics">返回 A1 拓展目录</BackLink><FrameworkNotice />
     <div className="board-context-grid"><Card className="detail-card"><SectionHeading title="板块定位与等级衔接" /><div className="bridge-copy"><span className="field-label">本板块定位</span><p>{board.description}</p><span className="field-label">A1 阶段</span><p>{board.a1_bridge}</p><span className="field-label">A1 → A2 衔接</span><p>{board.a2_bridge}</p></div></Card><Card className="detail-card"><SectionHeading title="完成标准" subtitle="目标说明，不表示已经达成" /><ol className="completion-goals">{board.completion_criteria.map((goal, index) => <li key={goal} data-goal-id={a1Scaffold.ability.tree.children.find(branch => branch.source_catalog_id === board.id)!.completion_criteria[index].id}><span>{String(index + 1).padStart(2, '0')}</span><p>{goal}</p></li>)}</ol><Link className="text-link" to={`/statistics?tab=skills&board=${board.id}`}>在能力树中查看<ListTree size={16} /></Link></Card></div>
-    <SectionHeading title="单元目录" subtitle={`${board.units.length} 个单元 · 按源文件顺序显示，可自由浏览`} /><Card className="framework-unit-list">{board.units.map(unit => <Link to={`/topics/${unit.id}`} key={unit.id} data-unit-id={unit.id}><span className="chapter-index">{String(unit.number).padStart(2, '0')}</span><div className="framework-unit-title"><strong>{unit.title}</strong><span>{unit.outline.length} 条细分内容 · 详细教学待填充</span></div><StateBadges unit={unit} /><ChevronRight size={17} /></Link>)}</Card>
+    <SectionHeading title="单元目录" subtitle={`${board.units.length} 个单元 · 按源文件顺序显示，可自由浏览`} /><Card className="framework-unit-list">{board.units.map(unit => <Link to={`/topics/${unit.id}`} key={unit.id} data-unit-id={unit.id}><span className="chapter-index">{String(unit.number).padStart(2, '0')}</span><div className="framework-unit-title"><strong>{unit.title}</strong><span>{unit.outline.length} 条细分内容 · {getExtensionPack(unit.id) ? '完整专题已开放' : '详细教学待填充'}</span></div><StateBadges unit={unit} /><ChevronRight size={17} /></Link>)}</Card>
   </Page>;
 }
 export function FrameworkUnitPage() {
@@ -48,6 +50,7 @@ export function FrameworkUnitPage() {
   useRecordVisit('topic', unit?.id);
   const { snapshot } = useProfile();
   if (!unit) return <MissingContent label="A1 单元" to="/topics" />;
+  if (getExtensionPack(unit.id)) return <ExtensionTopicPage topicId={unit.id} />;
   const board = a1Scaffold.boardByUnitId.get(unit.id)!;
   const node = getAbilityNodeForUnit(unit.id)!;
   const coverage = coverageFor(unit, snapshot.frameworkProgress);

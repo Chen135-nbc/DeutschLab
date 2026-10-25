@@ -47,6 +47,10 @@ app.whenReady().then(() => {
   ipcMain.handle('practice:start', (event, scope: unknown, restart: unknown) => { checkSender(event); return store!.startPractice(scope, restart); });
   ipcMain.handle('practice:answer', (event, sessionId: unknown, questionId: unknown, answer: unknown, hintViewed: unknown, cardViewed: unknown) => { checkSender(event); return store!.submitAnswer(sessionId, questionId, answer, hintViewed, cardViewed); });
   ipcMain.handle('practice:complete', (event, sessionId: unknown) => { checkSender(event); return store!.completePractice(sessionId); });
+  ipcMain.handle('extension:card', (event, topicId: unknown, cardId: unknown) => { checkSender(event); return store!.viewExtensionCard(topicId, cardId); });
+  ipcMain.handle('extension:start', (event, topicId: unknown, restart: unknown, taskId: unknown) => { checkSender(event); return store!.startExtensionPractice(topicId, restart, taskId); });
+  ipcMain.handle('extension:answer', (event, sessionId: unknown, itemId: unknown, answer: unknown, selfCheck: unknown) => { checkSender(event); return store!.submitExtensionAnswer(sessionId, itemId, answer, selfCheck); });
+  ipcMain.handle('extension:complete', (event, sessionId: unknown) => { checkSender(event); return store!.completeExtensionPractice(sessionId); });
   Menu.setApplicationMenu(Menu.buildFromTemplate([
     { label: 'DeutschLab', submenu: [{ role: 'about' }, { type: 'separator' }, { role: 'hide' }, { role: 'quit' }] },
     { label: '编辑', submenu: [{ role: 'undo' }, { role: 'redo' }, { type: 'separator' }, { role: 'cut' }, { role: 'copy' }, { role: 'paste' }, { role: 'selectAll' }] },

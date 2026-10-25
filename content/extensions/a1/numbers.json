@@ -1,0 +1,764 @@
+{
+  "topicId": "A1-B03-U01",
+  "version": "1.0.0",
+  "intro": "把主线学过的数字用于电话号码、门牌、数量与价格核对。这里练习真实信息的读写，不学习日期或序数词。",
+  "goals": [
+    "读写 0—1000 的常用数字",
+    "辨认十位、个位与百位的组合",
+    "核对单个数字读出的电话号码",
+    "理解简单数量与价格并提出简短询问"
+  ],
+  "completion": "浏览三个细分部分的知识卡，并完成至少一次包含自我核对的专题练习；这只表示本专题学习过，不代表实际交流能力已获验证。",
+  "studioCardIds": [
+    "studio21.a1.lektion1.card.numbers-basic",
+    "studio21.a1.lektion1.card.numbers-pattern",
+    "studio21.a1.lektion1.card.hundreds",
+    "studio21.a1.lektion1.card.phone",
+    "studio21.a1.lektion1.card.prices"
+  ],
+  "sections": [
+    {
+      "outlineId": "A1-B03-U01-P01",
+      "title": "数字读写与信息记录",
+      "summary": "从 0—20、整十到百位；电话号码按题目指定的单个数字读法核对。",
+      "cardIds": [
+        "ext.a1.numbers.card.base",
+        "ext.a1.numbers.card.large",
+        "ext.a1.numbers.card.phone"
+      ]
+    },
+    {
+      "outlineId": "A1-B03-U01-P02",
+      "title": "问数量、问价格与核对",
+      "summary": "用短问句确认数量和价格，再把读到的信息写下来。",
+      "cardIds": [
+        "ext.a1.numbers.card.quantity",
+        "ext.a1.numbers.card.price",
+        "ext.a1.numbers.card.confirm"
+      ]
+    },
+    {
+      "outlineId": "A1-B03-U01-P03",
+      "title": "十位个位的生活应用",
+      "summary": "区分 16/60、17/70 以及两位数先个位后十位的顺序。",
+      "cardIds": [
+        "ext.a1.numbers.card.order",
+        "ext.a1.numbers.card.pitfalls"
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "id": "ext.a1.numbers.card.base",
+      "outlineId": "A1-B03-U01-P01",
+      "title": "0—20 与整十",
+      "body": [
+        "null、eins、zwei、drei 等基础数字先整体记忆。",
+        "11—19 和整十有特殊写法；16 是 sechzehn，17 是 siebzehn，30 是 dreißig，60 是 sechzig，70 是 siebzig。"
+      ],
+      "example": "Ich habe zehn Euro.",
+      "studioCardIds": [
+        "studio21.a1.lektion1.card.numbers-basic"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.card.large",
+      "outlineId": "A1-B03-U01-P01",
+      "title": "百位与一千",
+      "body": [
+        "100 = einhundert；205 = zweihundertfünf；1000 = eintausend。",
+        "百位后直接接剩余数字：321 = dreihunderteinundzwanzig。"
+      ],
+      "example": "Die Nummer ist zweihundertfünf.",
+      "studioCardIds": [
+        "studio21.a1.lektion1.card.hundreds"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.card.phone",
+      "outlineId": "A1-B03-U01-P01",
+      "title": "单个数字读电话号码",
+      "body": [
+        "本专题的电话题明确采用逐个数字读法。0 读作 null；08 读作 null acht。",
+        "现实中电话号码也可能分组读；这里不把一种分组方式当成唯一标准。"
+      ],
+      "example": "Meine Nummer ist null drei vier sieben.",
+      "studioCardIds": [
+        "studio21.a1.lektion1.card.phone"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.card.quantity",
+      "outlineId": "A1-B03-U01-P02",
+      "title": "问有多少",
+      "body": [
+        "Wie viele? 可作为问数量的固定短问句使用。",
+        "回答先用已会的名词和数字，例如 Zwei Kaffee, bitte.；这里只把它当点单短语，不讲名词复数全套规则。"
+      ],
+      "example": "Wie viele? – Zwei, bitte.",
+      "studioCardIds": []
+    },
+    {
+      "id": "ext.a1.numbers.card.price",
+      "outlineId": "A1-B03-U01-P02",
+      "title": "问价格与读价格",
+      "body": [
+        "Wie viel kostet das? 先作为整体实用问句记忆。",
+        "2,50 € 可以说 zwei Euro fünfzig；在文字记录中明确使用欧元和分。"
+      ],
+      "example": "Wie viel kostet das? – Zwei Euro fünfzig.",
+      "studioCardIds": [
+        "studio21.a1.lektion1.card.prices"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.card.confirm",
+      "outlineId": "A1-B03-U01-P02",
+      "title": "请求重复与确认",
+      "body": [
+        "Bitte noch einmal. 是请对方再说一遍的固定表达。",
+        "核对信息可直接重复数字并用问号表示确认；不需要复杂电话会话。"
+      ],
+      "example": "Vierzig? Bitte noch einmal.",
+      "studioCardIds": []
+    },
+    {
+      "id": "ext.a1.numbers.card.order",
+      "outlineId": "A1-B03-U01-P03",
+      "title": "两位数的反向顺序",
+      "body": [
+        "21 = einundzwanzig：先个位，再 und，最后十位。",
+        "42 = zweiundvierzig；不要把它误读成 vierundzwanzig（24）。"
+      ],
+      "example": "Die Hausnummer ist zweiundvierzig.",
+      "studioCardIds": [
+        "studio21.a1.lektion1.card.numbers-pattern"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.card.pitfalls",
+      "outlineId": "A1-B03-U01-P03",
+      "title": "易混淆的数字",
+      "body": [
+        "16 sechzehn / 60 sechzig；17 siebzehn / 70 siebzig。",
+        "听到号码或价格时，可先写阿拉伯数字，再回查德语拼写。"
+      ],
+      "example": "Siebzig, nicht siebzehn.",
+      "studioCardIds": [
+        "studio21.a1.lektion1.card.numbers-pitfalls"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "id": "ext.a1.numbers.v.null",
+      "term": "null",
+      "meaning": "零",
+      "collocation": "null acht",
+      "example": "Die Nummer beginnt mit null.",
+      "tags": [
+        "数字",
+        "电话"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.sechzehn",
+      "term": "sechzehn",
+      "meaning": "十六",
+      "collocation": "sechzehn Euro",
+      "example": "Das kostet sechzehn Euro.",
+      "tags": [
+        "数字",
+        "易错"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.siebzehn",
+      "term": "siebzehn",
+      "meaning": "十七",
+      "collocation": "siebzehn Euro",
+      "example": "Das kostet siebzehn Euro.",
+      "tags": [
+        "数字",
+        "易错"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.dreissig",
+      "term": "dreißig",
+      "meaning": "三十",
+      "collocation": "dreißig Euro",
+      "example": "Das sind dreißig Euro.",
+      "tags": [
+        "数字",
+        "拼写"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.sechzig",
+      "term": "sechzig",
+      "meaning": "六十",
+      "collocation": "sechzig Euro",
+      "example": "Das sind sechzig Euro.",
+      "tags": [
+        "数字",
+        "易错"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.siebzig",
+      "term": "siebzig",
+      "meaning": "七十",
+      "collocation": "siebzig Euro",
+      "example": "Das sind siebzig Euro.",
+      "tags": [
+        "数字",
+        "易错"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.hundert",
+      "term": "einhundert",
+      "meaning": "一百",
+      "collocation": "einhundert Euro",
+      "example": "Die Zahl ist einhundert.",
+      "tags": [
+        "数字",
+        "百位"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.tausend",
+      "term": "eintausend",
+      "meaning": "一千",
+      "collocation": "eintausend Euro",
+      "example": "Die Zahl ist eintausend.",
+      "tags": [
+        "数字",
+        "千位"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.nummer",
+      "term": "die Nummer",
+      "meaning": "号码",
+      "article": "die",
+      "plural": "die Nummern",
+      "collocation": "die Hausnummer",
+      "example": "Die Nummer ist 42.",
+      "tags": [
+        "电话",
+        "门牌"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.preis",
+      "term": "der Preis",
+      "meaning": "价格",
+      "article": "der",
+      "plural": "die Preise",
+      "collocation": "der Preis für Tee",
+      "example": "Der Preis ist zwei Euro.",
+      "tags": [
+        "价格"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.euro",
+      "term": "der Euro",
+      "meaning": "欧元",
+      "article": "der",
+      "plural": "die Euro（金额后）",
+      "collocation": "zwei Euro",
+      "example": "Das kostet zwei Euro.",
+      "tags": [
+        "价格"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.v.wiederholung",
+      "term": "Bitte noch einmal.",
+      "meaning": "请再说一遍",
+      "collocation": "Zwei? Bitte noch einmal.",
+      "example": "Bitte noch einmal: siebzig oder siebzehn?",
+      "tags": [
+        "核对",
+        "固定表达"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "ext.a1.numbers.q.read16",
+      "sectionId": "A1-B03-U01-P01",
+      "knowledgeId": "ext.a1.numbers.card.base",
+      "difficulty": 1,
+      "type": "single",
+      "prompt": "sechzehn 对应哪个数字？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "6"
+        },
+        {
+          "id": "a",
+          "text": "16"
+        },
+        {
+          "id": "b",
+          "text": "60"
+        },
+        {
+          "id": "c",
+          "text": "17"
+        }
+      ],
+      "explanation": "sechzehn 是 16；sechzig 是 60。"
+    },
+    {
+      "id": "ext.a1.numbers.q.read70",
+      "sectionId": "A1-B03-U01-P01",
+      "knowledgeId": "ext.a1.numbers.card.base",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "号码中的 siebzig 应记为？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "77"
+        },
+        {
+          "id": "a",
+          "text": "70"
+        },
+        {
+          "id": "b",
+          "text": "17"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        }
+      ],
+      "explanation": "siebzig 是 70，siebzehn 是 17。"
+    },
+    {
+      "id": "ext.a1.numbers.q.hundred",
+      "sectionId": "A1-B03-U01-P01",
+      "knowledgeId": "ext.a1.numbers.card.large",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "门牌号 zweihundertfünf 应记为？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "25"
+        },
+        {
+          "id": "d",
+          "text": "2005"
+        },
+        {
+          "id": "a",
+          "text": "205"
+        },
+        {
+          "id": "b",
+          "text": "250"
+        }
+      ],
+      "explanation": "zweihundertfünf = 200 + 5。"
+    },
+    {
+      "id": "ext.a1.numbers.q.phone",
+      "sectionId": "A1-B03-U01-P01",
+      "knowledgeId": "ext.a1.numbers.card.phone",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "逐个数字读作 null fünf zwei neun，号码应记为？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "0592"
+        },
+        {
+          "id": "d",
+          "text": "5290"
+        },
+        {
+          "id": "a",
+          "text": "0529"
+        },
+        {
+          "id": "b",
+          "text": "5029"
+        }
+      ],
+      "explanation": "题目明确逐位读；null 必须保留在开头。"
+    },
+    {
+      "id": "ext.a1.numbers.q.phone-check",
+      "sectionId": "A1-B03-U01-P01",
+      "knowledgeId": "ext.a1.numbers.card.phone",
+      "difficulty": 3,
+      "type": "single",
+      "prompt": "你记录的是 0671；对方逐位读 null sechs sieben eins。是否一致？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "不一致：0761"
+        },
+        {
+          "id": "c",
+          "text": "不一致：0670"
+        },
+        {
+          "id": "d",
+          "text": "不一致：6017"
+        },
+        {
+          "id": "a",
+          "text": "一致：0671"
+        }
+      ],
+      "explanation": "逐位核对 0、6、7、1，顺序完全一致。"
+    },
+    {
+      "id": "ext.a1.numbers.q.quantity",
+      "sectionId": "A1-B03-U01-P02",
+      "knowledgeId": "ext.a1.numbers.card.quantity",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "对方说 zwei，问的是有几个；应记录的数量是？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "3"
+        },
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "20"
+        }
+      ],
+      "explanation": "zwei 是 2。"
+    },
+    {
+      "id": "ext.a1.numbers.q.ask-price",
+      "sectionId": "A1-B03-U01-P02",
+      "knowledgeId": "ext.a1.numbers.card.price",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "想礼貌询问一个商品多少钱，可用哪个固定问句？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Wie heißen Sie?"
+        },
+        {
+          "id": "a",
+          "text": "Wie viel kostet das?"
+        },
+        {
+          "id": "b",
+          "text": "Wie viele sind Sie?"
+        },
+        {
+          "id": "c",
+          "text": "Woher kommt das?"
+        }
+      ],
+      "explanation": "Wie viel kostet das? 可整体记作询价问句。"
+    },
+    {
+      "id": "ext.a1.numbers.q.price",
+      "sectionId": "A1-B03-U01-P02",
+      "knowledgeId": "ext.a1.numbers.card.price",
+      "difficulty": 3,
+      "type": "single",
+      "prompt": "价格写为 3,50 €，哪项与之相符？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "drei Euro fünfzehn"
+        },
+        {
+          "id": "a",
+          "text": "drei Euro fünfzig"
+        },
+        {
+          "id": "b",
+          "text": "dreißig Euro fünfzig"
+        },
+        {
+          "id": "c",
+          "text": "fünf Euro dreißig"
+        }
+      ],
+      "explanation": "欧元在前、分在后；3,50 € 是三欧元五十分。"
+    },
+    {
+      "id": "ext.a1.numbers.q.repeat",
+      "sectionId": "A1-B03-U01-P02",
+      "knowledgeId": "ext.a1.numbers.card.confirm",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "没有听清对方说的数字，选哪句简短请求？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "Danke, zusammen."
+        },
+        {
+          "id": "c",
+          "text": "Ich heiße Nummer."
+        },
+        {
+          "id": "d",
+          "text": "Was trinken Sie?"
+        },
+        {
+          "id": "a",
+          "text": "Bitte noch einmal."
+        }
+      ],
+      "explanation": "Bitte noch einmal. 表示请再说一遍。"
+    },
+    {
+      "id": "ext.a1.numbers.q.order42",
+      "sectionId": "A1-B03-U01-P03",
+      "knowledgeId": "ext.a1.numbers.card.order",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "门牌号 42 的德语写法是哪项？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "zweiundvierzehn"
+        },
+        {
+          "id": "d",
+          "text": "vierzigundzwei"
+        },
+        {
+          "id": "a",
+          "text": "zweiundvierzig"
+        },
+        {
+          "id": "b",
+          "text": "vierundzwanzig"
+        }
+      ],
+      "explanation": "42 先说个位 zwei，再说 und + vierzig。"
+    },
+    {
+      "id": "ext.a1.numbers.q.order24",
+      "sectionId": "A1-B03-U01-P03",
+      "knowledgeId": "ext.a1.numbers.card.order",
+      "difficulty": 3,
+      "type": "single",
+      "prompt": "你听到 vierundzwanzig；应走向哪个门牌？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "14"
+        },
+        {
+          "id": "d",
+          "text": "40"
+        },
+        {
+          "id": "a",
+          "text": "24"
+        },
+        {
+          "id": "b",
+          "text": "42"
+        }
+      ],
+      "explanation": "vierundzwanzig = 4 + und + 20，即 24。"
+    },
+    {
+      "id": "ext.a1.numbers.q.pitfall",
+      "sectionId": "A1-B03-U01-P03",
+      "knowledgeId": "ext.a1.numbers.card.pitfalls",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "十七和七十的正确配对是哪项？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "siebzehn / siebzig"
+        },
+        {
+          "id": "b",
+          "text": "siebzig / siebzehn"
+        },
+        {
+          "id": "c",
+          "text": "sieben / siebzig"
+        },
+        {
+          "id": "d",
+          "text": "siebzehn / siebzehn"
+        }
+      ],
+      "explanation": "17 是 siebzehn，70 是 siebzig。"
+    }
+  ],
+  "production": [
+    {
+      "id": "ext.a1.numbers.prod.read-number",
+      "outlineId": "A1-B03-U01-P01",
+      "knowledgeId": "ext.a1.numbers.card.base",
+      "level": 1,
+      "task": "用德语写出数字 30。",
+      "hints": [
+        "整十；注意 ß"
+      ],
+      "reference": "dreißig",
+      "checks": [
+        "写出完整数字词",
+        "ß 拼写正确"
+      ],
+      "commonError": "dreissig 在本练习的标准德语拼写中应写作 dreißig。"
+    },
+    {
+      "id": "ext.a1.numbers.prod.phone",
+      "outlineId": "A1-B03-U01-P01",
+      "knowledgeId": "ext.a1.numbers.card.phone",
+      "level": 2,
+      "task": "将号码 0427 按单个数字读法写成德语。",
+      "hints": [
+        "0 = null",
+        "逐位，不按两位数分组"
+      ],
+      "reference": "null vier zwei sieben",
+      "checks": [
+        "保留开头的 null",
+        "顺序 0–4–2–7"
+      ],
+      "commonError": "不要写 vierhundertsiebenundzwanzig；本题要求逐位读。"
+    },
+    {
+      "id": "ext.a1.numbers.prod.quantity",
+      "outlineId": "A1-B03-U01-P02",
+      "knowledgeId": "ext.a1.numbers.card.quantity",
+      "level": 2,
+      "task": "根据“两个”写一句极简的数量回答。",
+      "hints": [
+        "Wie viele?",
+        "可用简短回答"
+      ],
+      "reference": "Zwei, bitte.",
+      "checks": [
+        "表达数量 2",
+        "句子可独立回应问句"
+      ],
+      "commonError": "不要把 zwei 写成 zwölf。"
+    },
+    {
+      "id": "ext.a1.numbers.prod.price",
+      "outlineId": "A1-B03-U01-P02",
+      "knowledgeId": "ext.a1.numbers.card.price",
+      "level": 2,
+      "task": "为价格 2,50 € 写一句简单的价格句。",
+      "hints": [
+        "Das kostet …",
+        "zwei Euro fünfzig"
+      ],
+      "reference": "Das kostet zwei Euro fünfzig.",
+      "checks": [
+        "金额是 2,50 €",
+        "语句有价格表达"
+      ],
+      "commonError": "不要把 2,50 € 读成 fünfundzwanzig Euro。"
+    },
+    {
+      "id": "ext.a1.numbers.prod.repeat",
+      "outlineId": "A1-B03-U01-P02",
+      "knowledgeId": "ext.a1.numbers.card.confirm",
+      "level": 3,
+      "task": "你没听清对方说的是 16 还是 60。写一到两句请求重复并核对。",
+      "hints": [
+        "Bitte noch einmal.",
+        "sechzehn / sechzig"
+      ],
+      "reference": "Bitte noch einmal. Sechzehn oder sechzig?",
+      "checks": [
+        "明确请求重复",
+        "准确区分 16 与 60"
+      ],
+      "commonError": "sechzehn 是 16；sechzig 是 60。"
+    },
+    {
+      "id": "ext.a1.numbers.prod.door",
+      "outlineId": "A1-B03-U01-P03",
+      "knowledgeId": "ext.a1.numbers.card.order",
+      "level": 3,
+      "task": "你听到门牌号 42，写一句话确认这个号码。",
+      "hints": [
+        "Ist die Hausnummer …?",
+        "42 = zweiundvierzig"
+      ],
+      "reference": "Ist die Hausnummer zweiundvierzig?",
+      "checks": [
+        "保留门牌信息",
+        "42 的德语顺序正确",
+        "疑问句动词在前"
+      ],
+      "commonError": "不要写成 vierundzwanzig（24）。"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ext.a1.numbers.task.phone",
+      "title": "核对一个电话号码",
+      "instruction": "用逐个数字读法写出或核对一个四位号码，并请求对方重复不清楚的一位。",
+      "itemIds": [
+        "ext.a1.numbers.prod.phone",
+        "ext.a1.numbers.prod.repeat"
+      ]
+    },
+    {
+      "id": "ext.a1.numbers.task.shop",
+      "title": "核对一笔简单购物信息",
+      "instruction": "读出价格、询问多少钱，并用一句短句写出数量。",
+      "itemIds": [
+        "ext.a1.numbers.prod.price",
+        "ext.a1.numbers.prod.quantity"
+      ]
+    }
+  ],
+  "numberSeeds": [
+    21,
+    24,
+    35,
+    46,
+    60,
+    70,
+    105,
+    119,
+    342,
+    999
+  ]
+}

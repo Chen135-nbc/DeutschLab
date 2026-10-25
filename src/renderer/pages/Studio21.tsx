@@ -79,7 +79,7 @@ export function StudioSectionPage() {
     <div className="studio-related">{section.frameworkLinks.map(id => { const topic = getFrameworkUnit(id)!; return <Link key={id} to={`/topics/${id}`}>{topic.title}<ArrowRight size={14} /></Link>; })}</div>
   </Page>;
 }
-function FocusLayout({ title, trail, current, total, back, onExit, children, footer }: { title: string; trail: string; current: number; total: number; back: string; onExit?: () => void; children: ReactNode; footer: ReactNode }) {
+export function FocusLayout({ title, trail, current, total, back, onExit, children, footer }: { title: string; trail: string; current: number; total: number; back: string; onExit?: () => void; children: ReactNode; footer: ReactNode }) {
   return <div className="focus-shell"><div className="focus-topbar"><span className="focus-wordmark">D. <span>DeutschLab · Focus Mode</span></span><Link className="focus-exit" to={back} onClick={event => { if (onExit) { event.preventDefault(); onExit(); } }}><X size={17} />退出专注</Link></div>
     <main className="focus-main"><div className="focus-meta"><span>{trail}</span><strong>{String(current).padStart(2, '0')} / {String(total).padStart(2, '0')}</strong></div><div className="focus-progress" aria-label={`进度 ${current} / ${total}`}><span style={{ width: `${Math.min(100, (current / total) * 100)}%` }} /></div><h1>{title}</h1><div className="focus-content">{children}</div><footer className="focus-footer">{footer}</footer></main>
   </div>;

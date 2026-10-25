@@ -1,0 +1,758 @@
+{
+  "topicId": "A1-B06-U04",
+  "version": "1.0.0",
+  "intro": "从已学的 Kaffee、Tee、Wasser 出发，补充日常饮料和简单饮用要求，练习说出自己的选择与一个基础订单。",
+  "goals": [
+    "识别常见饮料名称及冠词",
+    "询问和回答想喝什么",
+    "用 gern、lieber、mit、ohne 表达偏好与要求",
+    "说明冷热和简单数量",
+    "完成一个非常基础的饮料订单"
+  ],
+  "completion": "浏览三个细分部分的知识卡，并完成至少一次包含自我核对的专题练习；这只表示本专题学习过，不代表真实咖啡馆对话已经掌握。",
+  "studioCardIds": [
+    "studio21.a1.lektion1.card.drinks",
+    "studio21.a1.lektion1.card.request",
+    "studio21.a1.lektion1.card.preferences",
+    "studio21.a1.lektion1.card.regular-verbs"
+  ],
+  "sections": [
+    {
+      "outlineId": "A1-B06-U04-P01",
+      "title": "常见饮料词汇",
+      "summary": "补充果汁、牛奶等日常饮料；冠词作为词条信息记忆，不在这里系统训练格变化。",
+      "cardIds": [
+        "ext.a1.drinks.card.words",
+        "ext.a1.drinks.card.types"
+      ]
+    },
+    {
+      "outlineId": "A1-B06-U04-P02",
+      "title": "冷热、偏好与数量",
+      "summary": "用已学动词和固定表达说明想喝什么、喜欢什么以及是否加糖或牛奶。",
+      "cardIds": [
+        "ext.a1.drinks.card.temperature",
+        "ext.a1.drinks.card.preference",
+        "ext.a1.drinks.card.additions"
+      ]
+    },
+    {
+      "outlineId": "A1-B06-U04-P03",
+      "title": "一个简单饮料订单",
+      "summary": "用 Ich möchte …, bitte. 提出请求，确认饮料、数量和简单要求。",
+      "cardIds": [
+        "ext.a1.drinks.card.order",
+        "ext.a1.drinks.card.confirm"
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "id": "ext.a1.drinks.card.words",
+      "outlineId": "A1-B06-U04-P01",
+      "title": "五种基础饮料与补充词",
+      "body": [
+        "主线已有 Wasser、Tee、Kaffee；本专题补充 Milch、Saft、Orangensaft。",
+        "名词连冠词一起认识；这里只要求识读，不要求完整的冠词格变化。"
+      ],
+      "example": "Ich trinke heute Orangensaft.",
+      "studioCardIds": [
+        "studio21.a1.lektion1.card.drinks"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.card.types",
+      "outlineId": "A1-B06-U04-P01",
+      "title": "饮料的简单分类",
+      "body": [
+        "Mineralwasser 是矿泉水；Apfelsaft 是苹果汁。",
+        "Kaffee 和 Tee 通常作为热饮出现；本专题也练习表达 kalt 或 warm 的需求。"
+      ],
+      "example": "Ich trinke Mineralwasser.",
+      "studioCardIds": []
+    },
+    {
+      "id": "ext.a1.drinks.card.temperature",
+      "outlineId": "A1-B06-U04-P02",
+      "title": "冷饮与热饮",
+      "body": [
+        "kaltes Wasser、warmer Tee 可先作为整体搭配认识；这里不系统讲形容词词尾。",
+        "需要时可用简短固定短语：Wasser, bitte. Kalt, bitte."
+      ],
+      "example": "Ich möchte kaltes Wasser, bitte.",
+      "studioCardIds": []
+    },
+    {
+      "id": "ext.a1.drinks.card.preference",
+      "outlineId": "A1-B06-U04-P02",
+      "title": "喜欢与更喜欢",
+      "body": [
+        "Ich trinke gern Tee. 表示喜欢喝茶。",
+        "Ich trinke lieber Wasser. 表示更愿意喝水；不展开高阶比较句式。"
+      ],
+      "example": "Ich trinke gern Tee, aber lieber Wasser.",
+      "studioCardIds": [
+        "studio21.a1.lektion1.card.preferences"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.card.additions",
+      "outlineId": "A1-B06-U04-P02",
+      "title": "加与不加",
+      "body": [
+        "mit Milch / ohne Milch、mit Zucker / ohne Zucker 是当前可直接使用的短语。",
+        "nicht gern 表示不喜欢；不要把 ohne 与 nicht gern 混为一谈。"
+      ],
+      "example": "Tee ohne Zucker, bitte.",
+      "studioCardIds": [
+        "studio21.a1.lektion1.card.preferences"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.card.order",
+      "outlineId": "A1-B06-U04-P03",
+      "title": "基础饮料订单",
+      "body": [
+        "Was trinken Sie? 可以问对方喝什么。",
+        "Ich möchte einen Tee, bitte. 先作为完整实用句型学习；不在本专题展开 möchten 的语法体系。"
+      ],
+      "example": "Ich möchte einen Kaffee mit Milch, bitte.",
+      "studioCardIds": [
+        "studio21.a1.lektion1.card.request"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.card.confirm",
+      "outlineId": "A1-B06-U04-P03",
+      "title": "确认饮料和数量",
+      "body": [
+        "Zwei Tee, bitte. 可作为简短点单表达。",
+        "核对订单可以重复关键内容：Zwei Tee ohne Zucker? – Ja, bitte. 这里不扩展完整餐厅对话。"
+      ],
+      "example": "Zwei Tee ohne Zucker? – Ja, bitte.",
+      "studioCardIds": []
+    }
+  ],
+  "vocabulary": [
+    {
+      "id": "ext.a1.drinks.v.wasser",
+      "term": "das Wasser",
+      "meaning": "水",
+      "article": "das",
+      "plural": "通常不可数；种类可说 die Wässer",
+      "collocation": "kaltes Wasser",
+      "example": "Ich trinke Wasser.",
+      "tags": [
+        "基础",
+        "饮料"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.tee",
+      "term": "der Tee",
+      "meaning": "茶",
+      "article": "der",
+      "plural": "die Tees（种类）",
+      "collocation": "Tee ohne Zucker",
+      "example": "Ich trinke gern Tee.",
+      "tags": [
+        "基础",
+        "热饮"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.kaffee",
+      "term": "der Kaffee",
+      "meaning": "咖啡",
+      "article": "der",
+      "plural": "die Kaffees（杯数或种类）",
+      "collocation": "Kaffee mit Milch",
+      "example": "Ich möchte einen Kaffee, bitte.",
+      "tags": [
+        "基础",
+        "热饮"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.milch",
+      "term": "die Milch",
+      "meaning": "牛奶",
+      "article": "die",
+      "plural": "通常不可数",
+      "collocation": "Kaffee mit Milch",
+      "example": "Ich trinke Milch.",
+      "tags": [
+        "新增",
+        "饮料"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.saft",
+      "term": "der Saft",
+      "meaning": "果汁",
+      "article": "der",
+      "plural": "die Säfte",
+      "collocation": "ein Saft",
+      "example": "Ich trinke Saft.",
+      "tags": [
+        "新增",
+        "饮料"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.orange",
+      "term": "der Orangensaft",
+      "meaning": "橙汁",
+      "article": "der",
+      "plural": "die Orangensäfte",
+      "collocation": "Orangensaft, bitte",
+      "example": "Ich möchte Orangensaft, bitte.",
+      "tags": [
+        "新增",
+        "果汁"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.apfel",
+      "term": "der Apfelsaft",
+      "meaning": "苹果汁",
+      "article": "der",
+      "plural": "die Apfelsäfte",
+      "collocation": "Apfelsaft, bitte",
+      "example": "Ich trinke Apfelsaft.",
+      "tags": [
+        "新增",
+        "果汁"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.mineral",
+      "term": "das Mineralwasser",
+      "meaning": "矿泉水",
+      "article": "das",
+      "plural": "通常不可数",
+      "collocation": "Mineralwasser, bitte",
+      "example": "Ich möchte Mineralwasser, bitte.",
+      "tags": [
+        "新增",
+        "水"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.zucker",
+      "term": "der Zucker",
+      "meaning": "糖",
+      "article": "der",
+      "plural": "通常不可数",
+      "collocation": "ohne Zucker",
+      "example": "Tee ohne Zucker, bitte.",
+      "tags": [
+        "要求"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.kalt",
+      "term": "kalt",
+      "meaning": "冷的",
+      "collocation": "kaltes Wasser（整体搭配）",
+      "example": "Ich möchte kaltes Wasser, bitte.",
+      "tags": [
+        "特征",
+        "固定搭配"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.warm",
+      "term": "warm",
+      "meaning": "温的、热的",
+      "collocation": "warmer Tee（整体搭配）",
+      "example": "Ich möchte warmen Tee, bitte.",
+      "tags": [
+        "特征",
+        "固定搭配"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.v.lieber",
+      "term": "lieber",
+      "meaning": "更喜欢",
+      "collocation": "lieber Wasser trinken",
+      "example": "Ich trinke lieber Wasser.",
+      "tags": [
+        "偏好"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "ext.a1.drinks.q.milk",
+      "sectionId": "A1-B06-U04-P01",
+      "knowledgeId": "ext.a1.drinks.card.words",
+      "difficulty": 1,
+      "type": "single",
+      "prompt": "Milch 是什么饮料？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "果汁"
+        },
+        {
+          "id": "c",
+          "text": "矿泉水"
+        },
+        {
+          "id": "d",
+          "text": "茶"
+        },
+        {
+          "id": "a",
+          "text": "牛奶"
+        }
+      ],
+      "explanation": "Milch 是牛奶；词条是 die Milch。"
+    },
+    {
+      "id": "ext.a1.drinks.q.juice",
+      "sectionId": "A1-B06-U04-P01",
+      "knowledgeId": "ext.a1.drinks.card.words",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "想喝苹果汁，应选择哪项？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "Apfelsaft"
+        },
+        {
+          "id": "b",
+          "text": "Orangensaft"
+        },
+        {
+          "id": "c",
+          "text": "Mineralwasser"
+        },
+        {
+          "id": "d",
+          "text": "Milch"
+        }
+      ],
+      "explanation": "Apfelsaft 是苹果汁。"
+    },
+    {
+      "id": "ext.a1.drinks.q.water",
+      "sectionId": "A1-B06-U04-P01",
+      "knowledgeId": "ext.a1.drinks.card.types",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "哪项是矿泉水？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Kaffee"
+        },
+        {
+          "id": "a",
+          "text": "Mineralwasser"
+        },
+        {
+          "id": "b",
+          "text": "Orangensaft"
+        },
+        {
+          "id": "c",
+          "text": "Milch"
+        }
+      ],
+      "explanation": "Mineralwasser 是矿泉水。"
+    },
+    {
+      "id": "ext.a1.drinks.q.article",
+      "sectionId": "A1-B06-U04-P01",
+      "knowledgeId": "ext.a1.drinks.card.words",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "哪组词条与冠词对应正确？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "die Milch"
+        },
+        {
+          "id": "b",
+          "text": "der Milch"
+        },
+        {
+          "id": "c",
+          "text": "das Milch"
+        },
+        {
+          "id": "d",
+          "text": "die Kaffee"
+        }
+      ],
+      "explanation": "Milch 的词条冠词是 die；此处只识记词条。"
+    },
+    {
+      "id": "ext.a1.drinks.q.cold",
+      "sectionId": "A1-B06-U04-P02",
+      "knowledgeId": "ext.a1.drinks.card.temperature",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "你想要冷水，哪项固定搭配最合适？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "Kaffee mit Milch"
+        },
+        {
+          "id": "d",
+          "text": "heißer Saft"
+        },
+        {
+          "id": "a",
+          "text": "kaltes Wasser"
+        },
+        {
+          "id": "b",
+          "text": "warmer Tee"
+        }
+      ],
+      "explanation": "kaltes Wasser 可作为当前阶段的整体搭配使用。"
+    },
+    {
+      "id": "ext.a1.drinks.q.warm",
+      "sectionId": "A1-B06-U04-P02",
+      "knowledgeId": "ext.a1.drinks.card.temperature",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "哪项表示温热的茶？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Apfelsaft"
+        },
+        {
+          "id": "a",
+          "text": "warmer Tee"
+        },
+        {
+          "id": "b",
+          "text": "kaltes Wasser"
+        },
+        {
+          "id": "c",
+          "text": "Tee ohne Zucker"
+        }
+      ],
+      "explanation": "warmer Tee 是温热的茶，先整体识读。"
+    },
+    {
+      "id": "ext.a1.drinks.q.gern",
+      "sectionId": "A1-B06-U04-P02",
+      "knowledgeId": "ext.a1.drinks.card.preference",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "Ich trinke gern Tee. 表示什么？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "我喜欢喝茶"
+        },
+        {
+          "id": "b",
+          "text": "我不喜欢喝茶"
+        },
+        {
+          "id": "c",
+          "text": "我只喝水"
+        },
+        {
+          "id": "d",
+          "text": "我要两杯茶"
+        }
+      ],
+      "explanation": "gern 表示喜欢做这件事。"
+    },
+    {
+      "id": "ext.a1.drinks.q.lieber",
+      "sectionId": "A1-B06-U04-P02",
+      "knowledgeId": "ext.a1.drinks.card.preference",
+      "difficulty": 3,
+      "type": "single",
+      "prompt": "朋友问茶还是水，你更想喝水。哪句合适？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "d",
+          "text": "Ich trinke ohne Wasser."
+        },
+        {
+          "id": "a",
+          "text": "Ich trinke lieber Wasser."
+        },
+        {
+          "id": "b",
+          "text": "Ich trinke gern Tee."
+        },
+        {
+          "id": "c",
+          "text": "Ich heiße Wasser."
+        }
+      ],
+      "explanation": "lieber 用于表达此时更倾向于水。"
+    },
+    {
+      "id": "ext.a1.drinks.q.without",
+      "sectionId": "A1-B06-U04-P02",
+      "knowledgeId": "ext.a1.drinks.card.additions",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "想要不加糖的茶，选哪项？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "Tee ohne Zucker"
+        },
+        {
+          "id": "b",
+          "text": "Tee mit Zucker"
+        },
+        {
+          "id": "c",
+          "text": "Kaffee mit Milch"
+        },
+        {
+          "id": "d",
+          "text": "Wasser mit Zucker"
+        }
+      ],
+      "explanation": "ohne Zucker 表示不加糖。"
+    },
+    {
+      "id": "ext.a1.drinks.q.notgern",
+      "sectionId": "A1-B06-U04-P02",
+      "knowledgeId": "ext.a1.drinks.card.additions",
+      "difficulty": 3,
+      "type": "single",
+      "prompt": "你不喜欢牛奶，但可以喝茶，哪句明确表达“不喜欢牛奶”？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "b",
+          "text": "Ich trinke Milch gern."
+        },
+        {
+          "id": "c",
+          "text": "Ich trinke lieber Milch."
+        },
+        {
+          "id": "d",
+          "text": "Ich möchte Milch."
+        },
+        {
+          "id": "a",
+          "text": "Ich trinke Milch nicht gern."
+        }
+      ],
+      "explanation": "nicht gern 表示不喜欢；没有否定喝茶。"
+    },
+    {
+      "id": "ext.a1.drinks.q.order",
+      "sectionId": "A1-B06-U04-P03",
+      "knowledgeId": "ext.a1.drinks.card.order",
+      "difficulty": 2,
+      "type": "single",
+      "prompt": "服务员问 Was trinken Sie? 你想要一杯咖啡。",
+      "answer": "a",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ich möchte einen Kaffee, bitte."
+        },
+        {
+          "id": "b",
+          "text": "Ich heiße Kaffee."
+        },
+        {
+          "id": "c",
+          "text": "Was trinken Kaffee?"
+        },
+        {
+          "id": "d",
+          "text": "Sie möchten einen Kaffee?"
+        }
+      ],
+      "explanation": "Ich möchte …, bitte 是已接触的礼貌请求句型。"
+    },
+    {
+      "id": "ext.a1.drinks.q.two",
+      "sectionId": "A1-B06-U04-P03",
+      "knowledgeId": "ext.a1.drinks.card.confirm",
+      "difficulty": 3,
+      "type": "single",
+      "prompt": "你要两杯不加糖的茶，哪项简短点单最清楚？",
+      "answer": "a",
+      "options": [
+        {
+          "id": "c",
+          "text": "Zwei Kaffee ohne Milch."
+        },
+        {
+          "id": "d",
+          "text": "Tee und Zucker, bitte."
+        },
+        {
+          "id": "a",
+          "text": "Zwei Tee ohne Zucker, bitte."
+        },
+        {
+          "id": "b",
+          "text": "Ein Tee mit Zucker, bitte."
+        }
+      ],
+      "explanation": "简短订单需同时保留数量、饮料和无糖要求。"
+    }
+  ],
+  "production": [
+    {
+      "id": "ext.a1.drinks.prod.order-words",
+      "outlineId": "A1-B06-U04-P01",
+      "knowledgeId": "ext.a1.drinks.card.words",
+      "level": 1,
+      "task": "把 ich / trinke / Saft 排成一句话。",
+      "hints": [
+        "主语在前",
+        "动词第二位"
+      ],
+      "reference": "Ich trinke Saft.",
+      "checks": [
+        "三个词都出现",
+        "trinke 与 ich 搭配"
+      ],
+      "commonError": "不要写 Ich trinken Saft。"
+    },
+    {
+      "id": "ext.a1.drinks.prod.gern",
+      "outlineId": "A1-B06-U04-P02",
+      "knowledgeId": "ext.a1.drinks.card.preference",
+      "level": 2,
+      "task": "用德语说“我喜欢喝茶”。",
+      "hints": [
+        "ich",
+        "trinken",
+        "gern",
+        "Tee"
+      ],
+      "reference": "Ich trinke gern Tee.",
+      "checks": [
+        "trinke 与 ich 搭配",
+        "gern 表达喜好",
+        "Tee 写对"
+      ],
+      "commonError": "不要把 gern 放在动词之前。"
+    },
+    {
+      "id": "ext.a1.drinks.prod.lieber",
+      "outlineId": "A1-B06-U04-P02",
+      "knowledgeId": "ext.a1.drinks.card.preference",
+      "level": 2,
+      "task": "你更想喝水。写一句短句。",
+      "hints": [
+        "ich",
+        "lieber",
+        "Wasser"
+      ],
+      "reference": "Ich trinke lieber Wasser.",
+      "checks": [
+        "表达“更想喝”",
+        "使用 Wasser",
+        "动词形式正确"
+      ],
+      "commonError": "lieber 表示更倾向；不要误写 gern 造成意思变化。"
+    },
+    {
+      "id": "ext.a1.drinks.prod.additions",
+      "outlineId": "A1-B06-U04-P02",
+      "knowledgeId": "ext.a1.drinks.card.additions",
+      "level": 2,
+      "task": "用一句短句表达“茶，不加糖”。",
+      "hints": [
+        "Tee",
+        "ohne Zucker",
+        "bitte"
+      ],
+      "reference": "Tee ohne Zucker, bitte.",
+      "checks": [
+        "饮料为茶",
+        "明确无糖",
+        "保持礼貌简短"
+      ],
+      "commonError": "mit Zucker 是加糖，不能替换 ohne Zucker。"
+    },
+    {
+      "id": "ext.a1.drinks.prod.order",
+      "outlineId": "A1-B06-U04-P03",
+      "knowledgeId": "ext.a1.drinks.card.order",
+      "level": 3,
+      "task": "你想要一杯加牛奶的咖啡。写一句礼貌订单。",
+      "hints": [
+        "Ich möchte …, bitte.",
+        "Kaffee mit Milch"
+      ],
+      "reference": "Ich möchte einen Kaffee mit Milch, bitte.",
+      "checks": [
+        "饮料是咖啡",
+        "加牛奶",
+        "礼貌请求"
+      ],
+      "commonError": "mit Milch 是加牛奶；ohne Milch 是不加。"
+    },
+    {
+      "id": "ext.a1.drinks.prod.two-sentences",
+      "outlineId": "A1-B06-U04-P03",
+      "knowledgeId": "ext.a1.drinks.card.confirm",
+      "level": 3,
+      "task": "你想点两杯不加糖的茶；对方重复订单后，你确认。写两句短话。",
+      "hints": [
+        "Zwei Tee ohne Zucker, bitte.",
+        "Ja, bitte."
+      ],
+      "reference": "Zwei Tee ohne Zucker, bitte. Ja, bitte.",
+      "checks": [
+        "数量为二",
+        "饮料为茶",
+        "不加糖",
+        "有简短确认"
+      ],
+      "commonError": "别漏掉数量或把 ohne 改成 mit。"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ext.a1.drinks.task.choose",
+      "title": "说出自己的饮料偏好",
+      "instruction": "用 gern 或 lieber 写一句短句，再说明是否要牛奶或糖。",
+      "itemIds": [
+        "ext.a1.drinks.prod.gern",
+        "ext.a1.drinks.prod.additions"
+      ]
+    },
+    {
+      "id": "ext.a1.drinks.task.order",
+      "title": "完成一个基础饮料订单",
+      "instruction": "根据给定需求写一到两句短句：饮料、数量和简单要求。",
+      "itemIds": [
+        "ext.a1.drinks.prod.order",
+        "ext.a1.drinks.prod.two-sentences"
+      ]
+    }
+  ]
+}

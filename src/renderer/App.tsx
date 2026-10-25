@@ -9,6 +9,7 @@ import { APP_VERSION } from '../shared/app-info';
 import { QuestsPage, QuestPage, CollectionPage } from './pages/Quests';
 import { KnowledgePage, StatisticsPage, SettingsPage, NotFoundPage } from './pages/Workspace';
 import { StudioCoursePage, StudioSectionPage, KnowledgeFocusPage, PracticeFocusPage } from './pages/Studio21';
+import { ExtensionCardFocusPage, ExtensionPracticeFocusPage } from './pages/Extension';
 
 const navigation = [
   { to: '/', title: '学习工作台', icon: LayoutDashboard, section: '首页' },
@@ -48,6 +49,8 @@ export function App() {
   return <HashRouter><ProfileProvider><Routes>
     <Route path="focus/studio21/practice/:scope" element={<PracticeFocusPage />} />
     <Route path="focus/studio21/:cardId" element={<KnowledgeFocusPage />} />
+    <Route path="focus/extension/:topicId/cards/:cardId" element={<ExtensionCardFocusPage />} />
+    <Route path="focus/extension/:topicId/practice" element={<ExtensionPracticeFocusPage />} />
     <Route element={<Shell />}>
     <Route index element={<HomePage />} />
     <Route path="courses" element={<CoursesPage />} />

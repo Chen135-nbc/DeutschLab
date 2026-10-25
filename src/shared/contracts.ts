@@ -21,11 +21,15 @@ export interface CourseProgress {
   textbookDone: boolean; recordingDone: boolean; lastLocation: string | null;
   viewedCardIds: string[]; sessions: PracticeSession[]; attempts: PracticeAttempt[];
 }
+export interface ExtensionSession { id: string; topicId: string; scope: string; itemIds: string[]; contentRevision: string; createdAt: string; completedAt: string | null }
+export interface ExtensionAttempt { id: string; sessionId: string; topicId: string; itemId: string; knowledgeId: string; answer: Answer; correct: boolean | null; selfCheck: 'can_do' | 'needs_work' | null; answeredAt: string; itemSnapshot: string }
+export interface ExtensionProgress { viewedCardIds: string[]; lastPositions: Record<string, string>; sessions: ExtensionSession[]; attempts: ExtensionAttempt[] }
 export interface Snapshot {
   settings: Settings;
   visits: Visit[];
   frameworkProgress: FrameworkProgress;
   courseProgress: CourseProgress;
+  extensionProgress: ExtensionProgress;
   storage: { mode: 'sqlite' | 'preview'; path: string | null };
 }
 export interface DesktopAPI {
@@ -37,5 +41,9 @@ export interface DesktopAPI {
   startPractice(scope: string, restart?: boolean): Promise<Snapshot>;
   submitAnswer(sessionId: string, questionId: string, answer: Answer, hintViewed: boolean, cardViewed: boolean): Promise<Snapshot>;
   completePractice(sessionId: string): Promise<Snapshot>;
+  viewExtensionCard(topicId: string, cardId: string): Promise<Snapshot>;
+  startExtensionPractice(topicId: string, restart?: boolean, taskId?: string): Promise<Snapshot>;
+  submitExtensionAnswer(sessionId: string, itemId: string, answer: Answer, selfCheck?: 'can_do' | 'needs_work'): Promise<Snapshot>;
+  completeExtensionPractice(sessionId: string): Promise<Snapshot>;
 }
 declare global { interface Window { deutschlab?: DesktopAPI } }

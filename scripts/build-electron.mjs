@@ -7,6 +7,7 @@ await build({
     'domain/framework': 'src/domain/framework.ts',
     'domain/progress': 'src/domain/progress.ts',
     'domain/studio21': 'src/domain/studio21.ts',
+    'domain/extension': 'src/domain/extension.ts',
     'preload/index': 'src/preload/index.ts',
   },
   outdir: 'dist',

@@ -84,7 +84,7 @@ test('旧 v1 档案的设置和浏览历史在事务升级后完整保留', () =
   assert.deepEqual(store.snapshot().frameworkProgress, emptyProgress());
   store.close();
   const check = new DatabaseSync(path);
-  assert.equal(check.prepare('PRAGMA user_version').get().user_version, 4);
+  assert.equal(check.prepare('PRAGMA user_version').get().user_version, 5);
   check.close();
 });
 

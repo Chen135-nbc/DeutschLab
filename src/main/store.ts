@@ -8,6 +8,7 @@ import { a1Scaffold, canonicalJSON, validateScaffold } from '../domain/framework
 import type { ApplicationRecord, FrameworkProgress, LearningCoverageRecord } from '../domain/progress';
 import { isFontSize } from '../shared/typography';
 import { studioPack, studioUnit, validateStudioPack, questionsForScope, gradeQuestion, parsePracticeScope, selectPracticeQuestions, type StudioPack, type Answer, type PracticeQuestion } from '../domain/studio21';
+import { extensionPacks, getExtensionPack, extensionItem, extensionIsProduction, selectExtensionItems, gradeExtensionObjective, validateExtensionPack, type ExtensionPack } from '../domain/extension';
 
 const defaults: Settings = { level: 'A1', fontSize: 'standard', reducedMotion: false };
 
@@ -28,7 +29,7 @@ export class LocalStore {
     mkdirSync(dirname(path), { recursive: true });
     this.db = new DatabaseSync(path);
     const version = this.db.prepare('PRAGMA user_version').get() as { user_version: number };
-    if (version.user_version > 4) {
+    if (version.user_version > 5) {
       this.db.close();
       throw new Error('本地档案来自较新版本，请使用兼容的 DeutschLab。');
     }
@@ -100,7 +101,32 @@ export class LocalStore {
         content_revision TEXT NOT NULL, grading_rule_version TEXT NOT NULL, question_snapshot TEXT NOT NULL,
         UNIQUE(session_id, question_id)
       );
-      PRAGMA user_version = 4;
+      CREATE TABLE IF NOT EXISTS extension_content_revisions (
+        topic_id TEXT NOT NULL, revision TEXT NOT NULL, payload TEXT NOT NULL, imported_at TEXT NOT NULL,
+        PRIMARY KEY(topic_id, revision)
+      );
+      CREATE TABLE IF NOT EXISTS extension_content_active (
+        topic_id TEXT PRIMARY KEY, revision TEXT NOT NULL,
+        FOREIGN KEY(topic_id, revision) REFERENCES extension_content_revisions(topic_id, revision)
+      );
+      CREATE TABLE IF NOT EXISTS extension_card_views (
+        id TEXT PRIMARY KEY, topic_id TEXT NOT NULL, card_id TEXT NOT NULL, viewed_at TEXT NOT NULL
+      );
+      CREATE TABLE IF NOT EXISTS extension_position (
+        topic_id TEXT PRIMARY KEY, location TEXT NOT NULL, updated_at TEXT NOT NULL
+      );
+      CREATE TABLE IF NOT EXISTS extension_sessions (
+        id TEXT PRIMARY KEY, topic_id TEXT NOT NULL, scope TEXT NOT NULL, content_revision TEXT NOT NULL,
+        item_ids_json TEXT NOT NULL CHECK(json_valid(item_ids_json) AND json_type(item_ids_json) = 'array'),
+        created_at TEXT NOT NULL, completed_at TEXT
+      );
+      CREATE TABLE IF NOT EXISTS extension_attempts (
+        id TEXT PRIMARY KEY, session_id TEXT NOT NULL REFERENCES extension_sessions(id),
+        item_id TEXT NOT NULL, knowledge_id TEXT NOT NULL, answer_json TEXT NOT NULL,
+        correct INTEGER CHECK(correct IN (0, 1)), self_check TEXT CHECK(self_check IN ('can_do', 'needs_work')),
+        answered_at TEXT NOT NULL, item_snapshot TEXT NOT NULL, UNIQUE(session_id, item_id)
+      );
+      PRAGMA user_version = 5;
     `);
       // Give unfinished v3 sessions their original question order before importing newer content.
       const legacy = this.db.prepare(`SELECT s.id, s.scope, r.payload FROM practice_sessions s
@@ -114,6 +140,7 @@ export class LocalStore {
       this.db.exec('COMMIT;');
       this.importScaffold(a1Scaffold.framework, a1Scaffold.ability);
       this.importStudioPack(studioPack);
+      for (const pack of extensionPacks) this.importExtensionPack(pack);
     } catch (error) {
       try { this.db.exec('ROLLBACK;'); } catch { /* No pending transaction. */ }
       this.db.close();
@@ -157,6 +184,19 @@ export class LocalStore {
     } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
     return { revision, alreadyImported: exists };
   }
+  importExtensionPack(input: unknown) {
+    const pack = validateExtensionPack(input);
+    const payload = canonicalJSON(pack);
+    const revision = createHash('sha256').update(payload).digest('hex');
+    this.db.exec('BEGIN IMMEDIATE;');
+    try {
+      this.db.prepare('INSERT OR IGNORE INTO extension_content_revisions VALUES (?, ?, ?, ?)').run(pack.topicId, revision, payload, new Date().toISOString());
+      this.db.prepare(`INSERT INTO extension_content_active VALUES (?, ?) ON CONFLICT(topic_id)
+        DO UPDATE SET revision = excluded.revision`).run(pack.topicId, revision);
+      this.db.exec('COMMIT;');
+    } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
+    return revision;
+  }
   private activeRevision(): string {
     const row = this.db.prepare('SELECT revision FROM course_content_active WHERE unit_id = ?').get(studioUnit.id) as { revision: string };
     return row.revision;
@@ -186,21 +226,59 @@ export class LocalStore {
       })) satisfies PracticeAttempt[];
     return { textbookDone: Boolean(manual?.textbookDone), recordingDone: Boolean(manual?.recordingDone), lastLocation: position?.location ?? null, viewedCardIds, sessions, attempts };
   }
+  private extensionProgress(): Snapshot['extensionProgress'] {
+    const viewedCardIds = this.db.prepare('SELECT DISTINCT card_id AS id FROM extension_card_views ORDER BY rowid').all().map(row => String(row.id));
+    const lastPositions = Object.fromEntries(this.db.prepare('SELECT topic_id AS topicId, location FROM extension_position').all().map(row => [String(row.topicId), String(row.location)]));
+    const sessions = this.db.prepare(`SELECT id, topic_id AS topicId, scope, content_revision AS contentRevision, item_ids_json AS itemIdsJson,
+      created_at AS createdAt, completed_at AS completedAt FROM extension_sessions ORDER BY rowid DESC`).all().map(row => ({
+      id: String(row.id), topicId: String(row.topicId), scope: String(row.scope), contentRevision: String(row.contentRevision), itemIds: JSON.parse(String(row.itemIdsJson)) as string[],
+      createdAt: String(row.createdAt), completedAt: row.completedAt ? String(row.completedAt) : null,
+    }));
+    const attempts = this.db.prepare(`SELECT a.id, a.session_id AS sessionId, s.topic_id AS topicId, a.item_id AS itemId,
+      a.knowledge_id AS knowledgeId, a.answer_json AS answerJson, a.correct, a.self_check AS selfCheck,
+      a.answered_at AS answeredAt, a.item_snapshot AS itemSnapshot FROM extension_attempts a
+      JOIN extension_sessions s ON s.id = a.session_id ORDER BY a.rowid DESC`).all().map(row => ({
+        id: String(row.id), sessionId: String(row.sessionId), topicId: String(row.topicId), itemId: String(row.itemId), knowledgeId: String(row.knowledgeId),
+        answer: JSON.parse(String(row.answerJson)) as Answer, correct: row.correct === null ? null : Boolean(row.correct),
+        selfCheck: row.selfCheck ? String(row.selfCheck) as 'can_do' | 'needs_work' : null,
+        answeredAt: String(row.answeredAt), itemSnapshot: String(row.itemSnapshot),
+      }));
+    return { viewedCardIds, lastPositions, sessions, attempts };
+  }
   private frameworkProgress(): FrameworkProgress {
     const learningRows = this.db.prepare(`SELECT unit_id AS unitId, coverage_status AS status,
       covered_outline_ids AS coveredOutlineIds, updated_at AS updatedAt FROM learning_coverage WHERE catalog_id = ?`).all(a1Scaffold.framework.catalog_id);
     const applicationRows = this.db.prepare(`SELECT node_id AS nodeId, application_status AS status, source,
       evidence_ids AS evidenceIds, note, updated_at AS updatedAt FROM ability_progress WHERE catalog_id = ?`).all(a1Scaffold.framework.catalog_id);
-    return {
+    const result: FrameworkProgress = {
       learning: Object.fromEntries(learningRows.map(row => [String(row.unitId), { ...row, coveredOutlineIds: JSON.parse(String(row.coveredOutlineIds)) } as LearningCoverageRecord])),
       application: Object.fromEntries(applicationRows.map(row => [String(row.nodeId), { ...row, evidenceIds: JSON.parse(String(row.evidenceIds)) } as ApplicationRecord])),
     };
+    for (const pack of extensionPacks) {
+      const viewRows = this.db.prepare('SELECT card_id AS id, viewed_at AS viewedAt FROM extension_card_views WHERE topic_id = ? ORDER BY rowid DESC').all(pack.topicId);
+      const viewed = new Set(viewRows.map(row => String(row.id)));
+      const coveredOutlineIds = pack.sections.filter(section => section.cardIds.some(id => viewed.has(id))).map(section => section.outlineId);
+      const completed = this.db.prepare('SELECT count(*) AS n, MAX(completed_at) AS lastAt FROM extension_sessions WHERE topic_id = ? AND completed_at IS NOT NULL').get(pack.topicId) as { n: number; lastAt: string | null };
+      const fullyBrowsed = pack.cards.every(card => viewed.has(card.id));
+      if (!result.learning[pack.topicId] && coveredOutlineIds.length) result.learning[pack.topicId] = {
+        unitId: pack.topicId, status: fullyBrowsed && completed.n > 0 ? 'studied' : 'partially_covered',
+        coveredOutlineIds, updatedAt: completed.lastAt ?? String(viewRows[0].viewedAt),
+      };
+      const attempts = this.db.prepare(`SELECT a.id, a.answered_at AS answeredAt FROM extension_attempts a JOIN extension_sessions s ON s.id = a.session_id
+        WHERE s.topic_id = ? ORDER BY a.rowid DESC LIMIT 1`).get(pack.topicId) as { id: string; answeredAt: string } | undefined;
+      const node = a1Scaffold.nodeByUnitId.get(pack.topicId)!;
+      if (!result.application[node.id] && attempts) result.application[node.id] = {
+        nodeId: node.id, status: 'in_practice', source: 'practice', evidenceIds: [attempts.id],
+        note: '已有专题练习记录；不能据此认定独立运用能力完全掌握。', updatedAt: attempts.answeredAt,
+      };
+    }
+    return result;
   }
   snapshot(): Snapshot {
     const row = this.db.prepare('SELECT payload FROM app_settings WHERE id = 1').get() as { payload: string };
     const visits = this.db.prepare(`SELECT id, kind, ref_id AS refId, title, visited_at AS visitedAt
       FROM browsing_history ORDER BY rowid DESC LIMIT 100`).all().map(row => ({ ...row })) as unknown as Visit[];
-    return { settings: validateSettings(JSON.parse(row.payload)), visits, frameworkProgress: this.frameworkProgress(), courseProgress: this.courseProgress(), storage: { mode: 'sqlite', path: this.path } };
+    return { settings: validateSettings(JSON.parse(row.payload)), visits, frameworkProgress: this.frameworkProgress(), courseProgress: this.courseProgress(), extensionProgress: this.extensionProgress(), storage: { mode: 'sqlite', path: this.path } };
   }
   updateSettings(value: unknown): Snapshot {
     const settings = validateSettings(value);
@@ -303,6 +381,82 @@ export class LocalStore {
       this.db.prepare('UPDATE practice_sessions SET completed_at = ? WHERE id = ?').run(new Date().toISOString(), sessionId);
       const sectionId = parsePracticeScope(session.scope).sectionId;
       this.setPosition(sectionId === 'assessment' ? `/courses/${studioUnit.id}` : `/courses/${studioUnit.id}/sections/${sectionId}`);
+      this.db.exec('COMMIT;');
+    } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
+    return this.snapshot();
+  }
+  private setExtensionPosition(topicId: string, location: string) {
+    this.db.prepare(`INSERT INTO extension_position VALUES (?, ?, ?) ON CONFLICT(topic_id)
+      DO UPDATE SET location = excluded.location, updated_at = excluded.updated_at`).run(topicId, location, new Date().toISOString());
+  }
+  viewExtensionCard(topicId: unknown, cardId: unknown): Snapshot {
+    const pack = typeof topicId === 'string' ? getExtensionPack(topicId) : undefined;
+    if (!pack || typeof cardId !== 'string' || !pack.cards.some(card => card.id === cardId)) throw new Error('拓展知识卡不存在。');
+    const topic = pack.topicId;
+    const card = cardId as string;
+    this.db.exec('BEGIN IMMEDIATE;');
+    try {
+      this.db.prepare('INSERT INTO extension_card_views VALUES (?, ?, ?, ?)').run(randomUUID(), topic, card, new Date().toISOString());
+      this.setExtensionPosition(topic, `/focus/extension/${topic}/cards/${card}`);
+      this.db.exec('COMMIT;');
+    } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
+    return this.snapshot();
+  }
+  startExtensionPractice(topicId: unknown, restart: unknown = false, taskId: unknown = undefined): Snapshot {
+    const pack = typeof topicId === 'string' ? getExtensionPack(topicId) : undefined;
+    const task = typeof taskId === 'string' ? pack?.tasks.find(item => item.id === taskId) : undefined;
+    if (!pack || typeof restart !== 'boolean' || (taskId !== undefined && !task)) throw new Error('拓展练习范围无效。');
+    const topic = pack.topicId;
+    const scope = task?.id ?? 'practice';
+    const revision = (this.db.prepare('SELECT revision FROM extension_content_active WHERE topic_id = ?').get(topic) as { revision: string }).revision;
+    const active = this.db.prepare(`SELECT id FROM extension_sessions WHERE topic_id = ? AND scope = ? AND content_revision = ?
+      AND completed_at IS NULL ORDER BY rowid DESC LIMIT 1`).get(topic, scope, revision) as { id: string } | undefined;
+    this.db.exec('BEGIN IMMEDIATE;');
+    try {
+      if (!active || restart) {
+        const id = randomUUID();
+        const wrong = this.db.prepare(`SELECT DISTINCT a.knowledge_id AS id FROM extension_attempts a JOIN extension_sessions s ON s.id = a.session_id
+          WHERE s.topic_id = ? AND (a.correct = 0 OR a.self_check = 'needs_work')`).all(topic).map(row => String(row.id));
+        const ids = task ? task.itemIds : selectExtensionItems(pack, id, wrong);
+        this.db.prepare('INSERT INTO extension_sessions VALUES (?, ?, ?, ?, ?, ?, NULL)').run(id, topic, scope, revision, JSON.stringify(ids), new Date().toISOString());
+      }
+      this.setExtensionPosition(topic, `/focus/extension/${topic}/practice${task ? `?task=${task.id}` : ''}`);
+      this.db.exec('COMMIT;');
+    } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
+    return this.snapshot();
+  }
+  submitExtensionAnswer(sessionId: unknown, itemId: unknown, answer: unknown, selfCheck: unknown = null): Snapshot {
+    if (typeof sessionId !== 'string' || typeof itemId !== 'string') throw new Error('拓展答题 ID 无效。');
+    const session = this.db.prepare('SELECT topic_id AS topicId, content_revision AS revision, item_ids_json AS ids, completed_at AS completed FROM extension_sessions WHERE id = ?').get(sessionId) as { topicId: string; revision: string; ids: string; completed: string | null } | undefined;
+    if (!session || session.completed || !(JSON.parse(session.ids) as string[]).includes(itemId)) throw new Error('练习会话或题目无效。');
+    const row = this.db.prepare('SELECT payload FROM extension_content_revisions WHERE topic_id = ? AND revision = ?').get(session.topicId, session.revision) as { payload: string } | undefined;
+    if (!row) throw new Error('拓展内容历史版本缺失。');
+    const item = extensionItem(JSON.parse(row.payload) as ExtensionPack, itemId);
+    if (!item) throw new Error('练习内容不存在。');
+    let correct: number | null = null;
+    let check: string | null = null;
+    if (extensionIsProduction(item)) {
+      if (typeof answer !== 'string' || !answer.trim() || !['can_do', 'needs_work'].includes(String(selfCheck))) throw new Error('请写出短句并完成自我核对。');
+      check = String(selfCheck);
+    } else {
+      if (selfCheck !== null || typeof answer !== 'string' || !item.options?.some(option => option.id === answer)) throw new Error('请选择有效答案。');
+      correct = gradeExtensionObjective(item, answer) ? 1 : 0;
+    }
+    this.db.prepare(`INSERT INTO extension_attempts VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`).run(randomUUID(), sessionId, itemId, item.knowledgeId,
+      JSON.stringify(answer), correct, check, new Date().toISOString(), canonicalJSON(item));
+    return this.snapshot();
+  }
+  completeExtensionPractice(sessionId: unknown): Snapshot {
+    if (typeof sessionId !== 'string') throw new Error('练习会话 ID 无效。');
+    const session = this.db.prepare('SELECT topic_id AS topicId, item_ids_json AS ids, completed_at AS completed FROM extension_sessions WHERE id = ?').get(sessionId) as { topicId: string; ids: string; completed: string | null } | undefined;
+    if (!session) throw new Error('练习会话不存在。');
+    if (session.completed) return this.snapshot();
+    const count = (this.db.prepare('SELECT count(*) AS n FROM extension_attempts WHERE session_id = ?').get(sessionId) as { n: number }).n;
+    if (count !== (JSON.parse(session.ids) as string[]).length) throw new Error('专题练习尚未完成。');
+    this.db.exec('BEGIN IMMEDIATE;');
+    try {
+      this.db.prepare('UPDATE extension_sessions SET completed_at = ? WHERE id = ?').run(new Date().toISOString(), sessionId);
+      this.setExtensionPosition(session.topicId, `/topics/${session.topicId}`);
       this.db.exec('COMMIT;');
     } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
     return this.snapshot();

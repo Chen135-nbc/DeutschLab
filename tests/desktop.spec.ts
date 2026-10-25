@@ -139,18 +139,24 @@ test('A1 板块标题、顺序、说明和 16 条完成目标与源文件一致'
   await capture('test-results/deutschlab-a1-directory.png');
 });
 
-test('68 个单元详情保留 207 条原文和稳定 ID，浏览不生成学习或能力记录', async () => {
+test('68 个单元保留原有纲要；两个已开放专题有内容，其余仍是占位', async () => {
   test.setTimeout(60000);
   const units = framework.boards.flatMap(board => board.units);
   for (const unit of units) {
     await page.evaluate(id => { location.hash = `/topics/${id}`; }, unit.id);
     await expect(page.getByRole('heading', { name: unit.title, exact: true, level: 1 })).toBeVisible();
-    await expect(page.locator('.outline-list li p')).toHaveText(unit.outline.map(item => item.text));
-    expect(await page.locator('.outline-list li').evaluateAll(items => items.map(item => item.getAttribute('data-outline-id')))).toEqual(unit.outline.map(item => item.id));
-    await expect(page.getByRole('heading', { name: '尚未关联主线', exact: true })).toBeVisible();
-    await expect(page.getByRole('heading', { name: '尚未开放', exact: true })).toBeVisible();
-    await expect(page.locator('.framework-status-card').getByText('未开始', { exact: true })).toBeVisible();
-    await expect(page.locator('.framework-status-card').getByText('未评估', { exact: true })).toBeVisible();
+    if (['A1-B03-U01', 'A1-B06-U04'].includes(unit.id)) {
+      await expect(page.locator('.extension-section')).toHaveCount(unit.outline.length);
+      for (const item of unit.outline) await expect(page.locator('.extension-section .mini-label').filter({ hasText: item.text })).toHaveCount(1);
+      await expect(page.getByText('完整专题已开放', { exact: true })).toBeVisible();
+    } else {
+      await expect(page.locator('.outline-list li p')).toHaveText(unit.outline.map(item => item.text));
+      expect(await page.locator('.outline-list li').evaluateAll(items => items.map(item => item.getAttribute('data-outline-id')))).toEqual(unit.outline.map(item => item.id));
+      await expect(page.getByRole('heading', { name: '尚未关联主线', exact: true })).toBeVisible();
+      await expect(page.getByRole('heading', { name: '尚未开放', exact: true })).toBeVisible();
+      await expect(page.locator('.framework-status-card').getByText('未开始', { exact: true })).toBeVisible();
+      await expect(page.locator('.framework-status-card').getByText('未评估', { exact: true })).toBeVisible();
+    }
   }
   const snapshot = await page.evaluate(() => window.deutschlab!.getSnapshot());
   expect(snapshot.frameworkProgress).toEqual({ learning: {}, application: {} });
@@ -461,4 +467,76 @@ test('第一单元和专注模式在最小桌面窗口、最大字号下可以�
   await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].setContentSize(1360, 900));
   await go('个人设置');
   await page.getByRole('combobox', { name: '界面文字大小', exact: true }).selectOption('standard');
+});
+
+test('两个 A1 拓展专题可从原目录进入，知识卡与练习复用专注模式并保留记录', async () => {
+  test.setTimeout(60000);
+  await go('个人设置');
+  await page.getByRole('combobox', { name: '界面文字大小', exact: true }).selectOption('custom');
+  await page.getByRole('spinbutton', { name: '自定义字号' }).fill('24');
+  await page.getByRole('button', { name: '应用', exact: true }).click();
+  await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].setContentSize(960, 640));
+  await go('拓展学习');
+  await page.locator('[data-board-id="A1-B03"]').click();
+  await page.locator('[data-unit-id="A1-B03-U01"]').click();
+  await expect(page.getByRole('heading', { name: '数字与基础数量', exact: true, level: 1 })).toBeVisible();
+  await expect(page.locator('.extension-section')).toHaveCount(3);
+  await expect(page.locator('.extension-vocab')).toHaveCount(12);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+  await page.locator('.extension-card-links a').first().click();
+  await expect(page.locator('.sidebar')).toHaveCount(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+  await expect(page.locator('.knowledge-body')).toContainText('sechzehn');
+  await page.getByRole('link', { name: '下一个' }).click();
+  await expect(page.locator('.focus-meta')).toContainText('数字与基础数量');
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('heading', { name: '数字与基础数量', exact: true, level: 1 })).toBeVisible();
+  await page.getByRole('link', { name: /开始或继续练习/ }).click();
+  await expect(page.locator('.focus-question')).toBeVisible();
+  await expect(page.locator('.sidebar')).toHaveCount(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+  await expect(page.getByText(/Level [123]/)).toBeVisible();
+  const started = await page.evaluate(() => window.deutschlab!.getSnapshot());
+  const session = started.extensionProgress.sessions[0];
+  expect(session.itemIds).toHaveLength(9);
+  await page.getByRole('button', { name: '查看相关知识' }).click();
+  await expect(page.getByRole('dialog', { name: '相关专题知识' })).toBeVisible();
+  await page.getByRole('button', { name: '返回题目' }).click();
+  await page.locator('.focus-options button').first().click();
+  await page.getByRole('button', { name: '保存本题' }).click();
+  await expect(page.locator('.focus-feedback')).toContainText('参考答案');
+  await page.getByRole('link', { name: '退出专注' }).click();
+  await app.close();
+  await launch();
+  await go('拓展学习');
+  await page.locator('[data-board-id="A1-B03"]').click();
+  await page.locator('[data-unit-id="A1-B03-U01"]').click();
+  await page.getByRole('link', { name: /开始或继续练习/ }).click();
+  const resumed = await page.evaluate(() => window.deutschlab!.getSnapshot());
+  expect(resumed.extensionProgress.sessions[0].id).toBe(session.id);
+  expect(resumed.extensionProgress.attempts.filter(item => item.sessionId === session.id)).toHaveLength(1);
+  await expect(page.locator('.focus-question')).toBeVisible();
+  await page.getByRole('link', { name: '退出专注' }).click();
+  await go('拓展学习');
+  await page.locator('[data-board-id="A1-B06"]').click();
+  await page.locator('[data-unit-id="A1-B06-U04"]').click();
+  await expect(page.getByRole('heading', { name: '饮料', exact: true, level: 1 })).toBeVisible();
+  await expect(page.locator('.extension-vocab')).toHaveCount(12);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+  await page.locator('.extension-tasks a').first().click();
+  await expect(page.locator('.sidebar')).toHaveCount(0);
+  await page.getByRole('textbox', { name: '写出你的短句' }).fill('Ich trinke gern Tee.');
+  await page.getByRole('button', { name: '查看参考答案并自我核对' }).click();
+  await expect(page.locator('.extension-reference')).toContainText('常见错误');
+  await page.getByRole('button', { name: '需要巩固' }).click();
+  await page.getByRole('button', { name: '保存本题' }).click();
+  await expect(page.locator('.focus-feedback')).toContainText('自核对');
+  await page.getByRole('button', { name: '下一题' }).click();
+  await page.getByRole('link', { name: '退出专注' }).click();
+  const saved = await page.evaluate(() => window.deutschlab!.getSnapshot());
+  expect(saved.extensionProgress.attempts.some(item => item.topicId === 'A1-B06-U04' && item.selfCheck === 'needs_work')).toBe(true);
+  expect(saved.frameworkProgress.application[ability.tree.children[5].children[3].id].status).toBe('in_practice');
+  expect(saved.frameworkProgress.application[ability.tree.children[5].children[4].id]).toBeUndefined();
+  await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].setContentSize(1360, 900));
+  expect(errors).toEqual([]);
 });
