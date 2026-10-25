@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'rea
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, BookOpen, Check, ChevronLeft, ChevronRight, CircleHelp, RotateCcw, X } from 'lucide-react';
 import { getFrameworkUnit } from '../../domain/framework';
-import { correctAnswerText, getKnowledgeCard, getStudioSection, questionsForScope, studioPack, studioUnit, type Answer, type KnowledgeCard, type PracticeQuestion } from '../../domain/studio21';
+import { correctAnswerText, getKnowledgeCard, getPracticeQuestion, getStudioSection, parsePracticeScope, questionsForScope, studioPack, studioUnit, type Answer, type KnowledgeCard, type PracticeQuestion } from '../../domain/studio21';
 import { useProfile, useRecordVisit } from '../profile';
 import { Badge, Card, Page, SectionHeading } from '../components';
 
@@ -58,7 +58,7 @@ export function StudioCoursePage() {
         <div><span>{section.cardIds.length} 张知识卡 · {section.exerciseIds.length} 道原创题</span><span>{attempted.length ? `已答 ${attempted.length} 次` : '尚未练习'} <ArrowRight size={15} /></span></div>
       </Link>;
     })}</div>
-    <Card className="studio-assessment-card"><div><span className="mini-label">教材第 31 页 · 单元自测与总结</span><h2>第一单元综合检测</h2><p>9 道原创混合题，检查交际、词汇、语法、数字与结账基础。</p><p className="help-text">检测反映当前基础知识表现，不等于实际口语能力。</p></div><Link className="button primary" to={practicePath('assessment')}>进入专注检测<ArrowRight size={16} /></Link></Card>
+    <Card className="studio-assessment-card"><div><span className="mini-label">教材第 31 页 · 单元自测与总结</span><h2>第一单元综合检测</h2><p>{studioUnit.assessmentIds.length} 道原创混合题，检查交际、词汇、语法、数字与结账基础。</p><p className="help-text">检测反映当前基础知识表现，不等于实际口语能力。</p></div><Link className="button primary" to={practicePath('assessment')}>进入专注检测<ArrowRight size={16} /></Link></Card>
     <p className="help-text">{last ? <>上次位置：<Link className="text-link" to={last}>继续上次学习<ArrowRight size={14} /></Link></> : '打开知识卡或练习后，这里会记住你上次的位置。'}</p>
   </Page>;
 }
@@ -68,13 +68,13 @@ export function StudioSectionPage() {
   const { snapshot } = useProfile();
   if (!section) return <Page eyebrow="CONTENT NOT FOUND" title="小节不存在" description="返回课程目录重新选择。"><Link className="button primary" to={unitPath}>返回第一单元</Link></Page>;
   const cards = section.cardIds.map(id => getKnowledgeCard(id)!);
-  const completedSessions = snapshot.courseProgress.sessions.filter(item => item.scope === section.id && item.completedAt);
+  const completedSessions = snapshot.courseProgress.sessions.filter(item => parsePracticeScope(item.scope).sectionId === section.id && item.completedAt);
   return <Page eyebrow={`${studioUnit.number.toUpperCase()} · ${section.pages} 页`} title={section.title} description={section.summary}>
     <Link className="back-link" to={unitPath}><ChevronLeft size={16} />返回单元总览</Link>
     <div className="studio-source-note">本节对应教材第 {section.pages} 页。知识概括与例句为 DeutschLab 原创整理；请结合纸质教材和录播课学习。</div>
     <SectionHeading title="知识卡" subtitle="点击后进入专注模式，一次只看一个知识点" />
     <div className="studio-card-list">{cards.map((card, index) => <Link className="card studio-card-row" key={card.id} to={cardPath(card.id)}><span className="studio-card-number">{String(index + 1).padStart(2, '0')}</span><div><span className="mini-label">{card.category} · {statusLabel[card.learningStatus]}</span><h2>{card.title}</h2><p>{card.core[0]}</p></div><span>{snapshot.courseProgress.viewedCardIds.includes(card.id) ? '已浏览' : '未浏览'}<ArrowRight size={15} /></span></Link>)}</div>
-    <Card className="studio-assessment-card"><div><span className="mini-label">原创基础练习 · {section.exerciseIds.length} 题</span><h2>{section.title} · 小节练习</h2><p>客观题即时反馈。每次提交都会独立保留；可中途退出并继续。</p><p className="help-text">{completedSessions.length ? `已完成 ${completedSessions.length} 次；可再次练习。` : '尚未完成本节练习。'}</p></div><Link className="button primary" to={practicePath(section.id)}>开始或继续练习<ArrowRight size={16} /></Link></Card>
+    <Card className="studio-assessment-card"><div><span className="mini-label">原创练习题库 · {section.exerciseIds.length} 题</span><h2>{section.title} · 小节练习</h2><p>每次抽取约 12 题，答题与错题记录会保留。中途退出可继续。</p><p className="help-text">{completedSessions.length ? `已完成 ${completedSessions.length} 次；可再次练习。` : '尚未完成本节练习。'}</p></div><div className="practice-mode-links"><Link className="button primary" to={practicePath(`${section.id}--basic`)}>基础巩固</Link><Link className="button secondary" to={practicePath(`${section.id}--advanced`)}>综合提高</Link><Link className="button secondary" to={practicePath(`${section.id}--review`)}>错题强化</Link></div></Card>
     <SectionHeading title="关联 A1 拓展专题" subtitle="只表示教材涉及该主题，不代表整个专题已学完" />
     <div className="studio-related">{section.frameworkLinks.map(id => { const topic = getFrameworkUnit(id)!; return <Link key={id} to={`/topics/${id}`}>{topic.title}<ArrowRight size={14} /></Link>; })}</div>
   </Page>;
@@ -129,12 +129,14 @@ export function PracticeFocusPage() {
   const { scope = '' } = useParams();
   const [params] = useSearchParams();
   const restart = params.get('new') === '1';
-  const questions = questionsForScope(scope);
-  const section = getStudioSection(scope);
+  const { sectionId, mode } = parsePracticeScope(scope);
+  const section = getStudioSection(sectionId);
   const back = section ? sectionPath(section.id) : unitPath;
   const { snapshot, startPractice, submitAnswer, completePractice, viewKnowledgeCard } = useProfile();
   const navigate = useNavigate();
   const [sessionId, setSessionId] = useState('');
+  const existingSession = snapshot.courseProgress.sessions.find(item => item.id === sessionId);
+  const questions = existingSession?.questionIds?.map(id => getPracticeQuestion(id)!).filter(Boolean) ?? questionsForScope(sectionId);
   const [index, setIndex] = useState(0);
   const [value, setValue] = useState<Answer>(emptyAnswer(questions[0]));
   const [hintViewed, setHintViewed] = useState(false);
@@ -144,7 +146,7 @@ export function PracticeFocusPage() {
   const [busy, setBusy] = useState(false);
   const started = useRef('');
   useEffect(() => {
-    if (!questions.length) return;
+    if (!questionsForScope(sectionId).length) return;
     const key = `${scope}:${restart}`;
     if (started.current === key) return;
     started.current = key;
@@ -155,10 +157,10 @@ export function PracticeFocusPage() {
       setSessionId(session.id);
       const nextIndex = next.courseProgress.attempts.filter(item => item.sessionId === session.id).length;
       setIndex(nextIndex);
-      setValue(emptyAnswer(questions[nextIndex])); setHintViewed(false); setCardViewed(false);
+      setValue(emptyAnswer((session.questionIds ?? questionsForScope(sectionId).map(item => item.id)).map(id => getPracticeQuestion(id)!)[nextIndex])); setHintViewed(false); setCardViewed(false);
     }).catch(() => { started.current = ''; });
     return () => { active = false; };
-  }, [scope, restart, startPractice, questions.length]);
+  }, [scope, sectionId, restart, startPractice]);
   const session = snapshot.courseProgress.sessions.find(item => item.id === sessionId);
   const attempts = snapshot.courseProgress.attempts.filter(item => item.sessionId === sessionId);
   const question = questions[index];
@@ -188,23 +190,23 @@ export function PracticeFocusPage() {
     try {
       const nextSnapshot = await startPractice(scope, true);
       const nextSession = nextSnapshot.courseProgress.sessions.find(item => item.scope === scope && !item.completedAt)!;
-      setSessionId(nextSession.id); setIndex(0); setValue(emptyAnswer(questions[0])); setHintViewed(false); setCardViewed(false);
+      setSessionId(nextSession.id); setIndex(0); setValue(emptyAnswer(getPracticeQuestion(nextSession.questionIds?.[0] ?? questions[0].id))); setHintViewed(false); setCardViewed(false);
       navigate(practicePath(scope), { replace: true });
     } finally { setBusy(false); }
   }
   if (!questions.length) return <FocusLayout title="练习不存在" trail="Studio21" current={0} total={1} back={unitPath} footer={<Link to={unitPath}>返回课程</Link>}><p>请从单元总览重新选择。</p></FocusLayout>;
-  const heading = scope === 'assessment' ? '第一单元综合检测' : `${section!.title} · 基础练习`;
+  const heading = sectionId === 'assessment' ? '第一单元综合检测' : `${section!.title} · ${mode === 'advanced' ? '综合提高' : mode === 'review' ? '错题强化' : '基础巩固'}`;
   if (!sessionId) return <FocusLayout title="正在恢复练习…" trail={heading} current={0} total={questions.length} back={back} footer={<span />}><p>已提交的答题记录正在读取。</p></FocusLayout>;
   if (finished) {
     const wrong = attempts.filter(item => !item.correct);
     const wrongIds = [...new Set(wrong.map(item => item.knowledgeId))];
-    return <FocusLayout title={scope === 'assessment' ? '单元检测结果' : '小节练习结果'} trail={heading} current={questions.length} total={questions.length} back={back} footer={<><Link className="button secondary" to={back}>返回课程<ArrowLeft size={16} /></Link><button className="button primary" disabled={busy} onClick={() => void restartRun()}><RotateCcw size={16} />再次练习</button></>}><div className="focus-result"><strong>{attempts.filter(item => item.correct).length} / {questions.length}</strong><p>共作答 {questions.length} 题，答对 {attempts.filter(item => item.correct).length} 题。</p><p className="help-text">这是当前基础知识检测结果，不代表实际口语能力，也不会自动改变能力树。</p><h2>错误知识点</h2>{wrongIds.length ? <div className="studio-related">{wrongIds.map(id => { const card = getKnowledgeCard(id); return card && <Link key={id} to={cardPath(id)}>{card.title}<ArrowRight size={14} /></Link>; })}</div> : <p>本次没有答错的知识点。</p>}</div></FocusLayout>;
+    return <FocusLayout title={sectionId === 'assessment' ? '单元检测结果' : '小节练习结果'} trail={heading} current={questions.length} total={questions.length} back={back} footer={<><Link className="button secondary" to={back}>返回课程<ArrowLeft size={16} /></Link><button className="button primary" disabled={busy} onClick={() => void restartRun()}><RotateCcw size={16} />再次练习</button></>}><div className="focus-result"><strong>{attempts.filter(item => item.correct).length} / {questions.length}</strong><p>共作答 {questions.length} 题，答对 {attempts.filter(item => item.correct).length} 题。</p><p>分项结果：{[1, 2, 3].map(level => `Level ${level} ${attempts.filter(item => item.correct && getPracticeQuestion(item.questionId)?.difficulty === level).length}/${questions.filter(item => item.difficulty === level).length}`).join(" · ")}</p><p className="help-text">这是当前基础知识检测结果，不代表实际口语能力，也不会自动改变能力树。</p><h2>错误知识点</h2>{wrongIds.length ? <div className="studio-related">{wrongIds.map(id => { const card = getKnowledgeCard(id); return card && <Link key={id} to={cardPath(id)}>{card.title}<ArrowRight size={14} /></Link>; })}</div> : <p>本次没有答错的知识点。</p>}</div></FocusLayout>;
   }
   if (!question) return <FocusLayout title="本次练习已答完" trail={heading} current={questions.length} total={questions.length} back={back} footer={<button className="button primary" disabled={busy} onClick={() => void finish()}>查看结果<ArrowRight size={16} /></button>}><p>所有答案已保存。点击查看本次结果。</p></FocusLayout>;
   const card = getKnowledgeCard(question.knowledgeId)!;
   const valid = question.type === 'single' ? !!value : question.type === 'fill' ? !!String(value).trim() : question.type === 'match' ? Array.isArray(value) && value.length === question.left!.length && value.every(Boolean) && new Set(value).size === value.length : Array.isArray(value) && value.length === question.tokens!.length;
-  return <FocusLayout title={heading} trail={`${studioUnit.number} / ${scope === 'assessment' ? '综合检测' : section!.title}`} current={index + 1} total={questions.length} back={back} onExit={requestExit} footer={<>{submitted ? <button className="button primary" onClick={() => index === questions.length - 1 ? void finish() : next()}>{index === questions.length - 1 ? '查看结果' : '下一题'}<ArrowRight size={16} /></button> : <button className="button primary" type="submit" form="practice-form" disabled={!valid || busy}>提交答案<Check size={16} /></button>}<button className="button secondary" onClick={() => { setOverlay(true); setCardViewed(true); void viewKnowledgeCard(card.id, true); }}><BookOpen size={16} />查看相关知识</button></>}>
-    <form id="practice-form" onSubmit={event => void submit(event)} onKeyDown={event => { if (event.nativeEvent.isComposing) event.preventDefault(); }}><span className="mini-label">{question.type === 'single' ? '单选题' : question.type === 'fill' ? '填空题' : question.type === 'match' ? '匹配题' : '排序题'}</span><h2 className="focus-question">{question.prompt}</h2>
+  return <FocusLayout title={heading} trail={`${studioUnit.number} / ${sectionId === 'assessment' ? '综合检测' : section!.title}`} current={index + 1} total={questions.length} back={back} onExit={requestExit} footer={<>{submitted ? <button className="button primary" onClick={() => index === questions.length - 1 ? void finish() : next()}>{index === questions.length - 1 ? '查看结果' : '下一题'}<ArrowRight size={16} /></button> : <button className="button primary" type="submit" form="practice-form" disabled={!valid || busy}>提交答案<Check size={16} /></button>}<button className="button secondary" onClick={() => { setOverlay(true); setCardViewed(true); void viewKnowledgeCard(card.id, true); }}><BookOpen size={16} />查看相关知识</button></>}>
+    <form id="practice-form" onSubmit={event => void submit(event)} onKeyDown={event => { if (event.nativeEvent.isComposing) event.preventDefault(); }}><span className="mini-label">{question.type === 'single' ? '单选题' : question.type === 'fill' ? '填空题' : question.type === 'match' ? '匹配题' : '排序题'} · Level {question.difficulty}</span><h2 className="focus-question">{question.prompt}</h2>
       {submitted ? <div className={`focus-feedback ${submitted.correct ? 'correct' : 'incorrect'}`} role="status"><strong>{submitted.correct ? '回答正确' : '这次还没答对'}</strong><p>正确答案：{correctAnswerText(question)}</p><p>{question.explanation}</p></div> : <><QuestionInput key={question.id} question={question} value={value} onChange={setValue} />{question.hint && <div className="focus-hint"><button type="button" onClick={() => setHintViewed(true)}><CircleHelp size={15} />查看提示</button>{hintViewed && <p>{question.hint}</p>}</div>}</>}
     </form>
     {overlay && <div className="focus-overlay" role="dialog" aria-modal="true" aria-label="相关知识卡"><div className="focus-overlay-panel"><button className="focus-overlay-close" autoFocus onClick={() => setOverlay(false)} aria-label="关闭知识卡"><X size={18} /></button><span className="mini-label">相关知识 · 返回后保留当前题目</span><h2>{card.title}</h2><KnowledgeBody card={card} /><button className="button primary" onClick={() => setOverlay(false)}>返回题目</button></div></div>}

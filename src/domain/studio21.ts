@@ -11,7 +11,7 @@ export interface KnowledgeCard {
   explanation: string; example: string; exampleSource: string; relatedIds: string[]; sourcePages: string;
 }
 export interface PracticeQuestion {
-  id: string; sectionId: string; knowledgeId: string; type: QuestionType;
+  id: string; sectionId: string; knowledgeId: string; type: QuestionType; difficulty: 1 | 2 | 3;
   prompt: string; explanation: string; answer: Answer;
   options?: Choice[]; left?: Choice[]; right?: Choice[]; tokens?: Choice[];
   acceptedAnswers?: string[]; hint?: string; gradingRule?: string;
@@ -61,6 +61,7 @@ export function validateStudioPack(input: unknown, sharedCards: readonly Knowled
     ensure(value.unit.sections.find(section => section.id === card.sectionId)?.cardIds.includes(card.id), `知识卡未列入小节：${card.id}`);
   }
   for (const question of value.questions) {
+    ensure([1, 2, 3].includes(question.difficulty), `题目难度无效：${question.id}`);
     ensure(availableCardIds.has(question.knowledgeId) && !!question.prompt && !!question.explanation, `题目缺少知识点或解析：${question.id}`);
     ensure(question.sectionId === 'assessment' ? value.unit.assessmentIds.includes(question.id) : !!value.unit.sections.find(section => section.id === question.sectionId)?.exerciseIds.includes(question.id), `题目未列入练习：${question.id}`);
     if (question.type === 'single') {
@@ -79,7 +80,7 @@ export function validateStudioPack(input: unknown, sharedCards: readonly Knowled
       ensure(question.answer.length === question.tokens.length && new Set(question.answer).size === question.tokens.length && question.answer.every(id => question.tokens!.some(item => item.id === id)), `排序答案无效：${question.id}`);
     } else ensure(false, `未知题型：${question.id}`);
   }
-  ensure(value.unit.assessmentIds.length >= 8 && value.unit.assessmentIds.length <= 10 && value.unit.assessmentIds.every(id => questionIds.has(id)), '综合检测应有 8–10 题');
+  ensure(value.unit.assessmentIds.length >= 15 && value.unit.assessmentIds.length <= 20 && value.unit.assessmentIds.every(id => questionIds.has(id)), '综合检测应有 15–20 题');
   return value;
 }
 export const studioPack = validateStudioPack(rawPack as unknown as StudioPack);
@@ -90,6 +91,23 @@ export const getPracticeQuestion = (id: string) => studioPack.questions.find(que
 export const questionsForScope = (scope: string, pack: StudioPack = studioPack) =>
   (scope === 'assessment' ? pack.unit.assessmentIds : pack.unit.sections.find(section => section.id === scope)?.exerciseIds ?? [])
     .map(id => pack.questions.find(question => question.id === id)!);
+export type PracticeMode = 'basic' | 'advanced' | 'review';
+export function parsePracticeScope(scope: string): { sectionId: string; mode: PracticeMode | null } {
+  const match = /^(.*)--(basic|advanced|review)$/.exec(scope);
+  return match ? { sectionId: match[1], mode: match[2] as PracticeMode } : { sectionId: scope, mode: null };
+}
+export function selectPracticeQuestions(scope: string, wrongKnowledgeIds: readonly string[], seed: string, wrongQuestionIds: readonly string[] = [], pack: StudioPack = studioPack): PracticeQuestion[] {
+  const { sectionId, mode } = parsePracticeScope(scope);
+  const pool = questionsForScope(sectionId, pack);
+  if (!mode || sectionId === 'assessment') return pool;
+  const wrong = new Set(wrongKnowledgeIds);
+  const repeated = new Set(wrongQuestionIds);
+  const hash = (id: string) => { let n = 2166136261; for (const char of `${seed}:${id}`) n = Math.imul(n ^ char.charCodeAt(0), 16777619); return n >>> 0; };
+  const weight = (q: PracticeQuestion) => mode === 'basic' ? (q.difficulty <= 2 ? 2 : 0) : mode === 'advanced' ? (q.difficulty >= 2 ? 2 : 0) : (wrong.has(q.knowledgeId) ? repeated.has(q.id) ? 3 : 5 : q.difficulty >= 2 ? 1 : 0);
+  const sorted = [...pool].sort((a, b) => weight(b) - weight(a) || hash(a.id) - hash(b.id));
+  const selected = sorted.slice(0, Math.min(12, pool.length));
+  return selected.sort((a, b) => hash(`order:${a.id}`) - hash(`order:${b.id}`));
+}
 export function gradeQuestion(question: PracticeQuestion, response: Answer): boolean {
   if (question.type === 'single') return typeof response === 'string' && response === question.answer;
   if (question.type === 'fill') return typeof response === 'string' && (question.acceptedAnswers ?? []).some(answer => normalizeFill(response) === normalizeFill(answer));

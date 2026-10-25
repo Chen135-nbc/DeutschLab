@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState, ty
 import { resolveVisit } from '../domain/catalog';
 import type { DesktopAPI, Settings, Snapshot, VisitInput, VisitKind } from '../shared/contracts';
 import { fontSizePixels } from '../shared/typography';
-import { getKnowledgeCard, getPracticeQuestion, gradeQuestion, questionsForScope, studioUnit } from '../domain/studio21';
+import { getKnowledgeCard, getPracticeQuestion, gradeQuestion, parsePracticeScope, questionsForScope, selectPracticeQuestions, studioUnit } from '../domain/studio21';
 
 function previewAPI(): DesktopAPI {
   let snapshot: Snapshot = {
@@ -29,9 +29,12 @@ function previewAPI(): DesktopAPI {
       return structuredClone(snapshot);
     },
     async startPractice(scope, restart = false) {
-      if (!questionsForScope(scope).length) throw new Error('练习范围无效。');
-      if (restart || !snapshot.courseProgress.sessions.some(session => session.scope === scope && !session.completedAt))
-        snapshot.courseProgress.sessions.unshift({ id: crypto.randomUUID(), scope, createdAt: new Date().toISOString(), completedAt: null, contentRevision: 'preview' });
+      if (!questionsForScope(parsePracticeScope(scope).sectionId).length) throw new Error('练习范围无效。');
+      if (restart || !snapshot.courseProgress.sessions.some(session => session.scope === scope && !session.completedAt)) {
+        const id = crypto.randomUUID();
+        const wrong = snapshot.courseProgress.attempts.filter(item => !item.correct);
+        snapshot.courseProgress.sessions.unshift({ id, scope, createdAt: new Date().toISOString(), completedAt: null, contentRevision: 'preview', questionIds: selectPracticeQuestions(scope, wrong.map(item => item.knowledgeId), id, wrong.map(item => item.questionId)).map(question => question.id) });
+      }
       snapshot.courseProgress.lastLocation = `/focus/studio21/practice/${scope}`;
       return structuredClone(snapshot);
     },
@@ -43,9 +46,10 @@ function previewAPI(): DesktopAPI {
     },
     async completePractice(sessionId) {
       const session = snapshot.courseProgress.sessions.find(item => item.id === sessionId);
-      if (!session || snapshot.courseProgress.attempts.filter(item => item.sessionId === sessionId).length !== questionsForScope(session.scope).length) throw new Error('练习尚未完成。');
+      if (!session || snapshot.courseProgress.attempts.filter(item => item.sessionId === sessionId).length !== (session.questionIds ?? questionsForScope(session.scope).map(q => q.id)).length) throw new Error('练习尚未完成。');
       session.completedAt = new Date().toISOString();
-      snapshot.courseProgress.lastLocation = session.scope === 'assessment' ? `/courses/${studioUnit.id}` : `/courses/${studioUnit.id}/sections/${session.scope}`;
+      const sectionId = parsePracticeScope(session.scope).sectionId;
+      snapshot.courseProgress.lastLocation = sectionId === 'assessment' ? `/courses/${studioUnit.id}` : `/courses/${studioUnit.id}/sections/${sectionId}`;
       return structuredClone(snapshot);
     },
   };

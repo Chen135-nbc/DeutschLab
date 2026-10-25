@@ -11,7 +11,7 @@ export interface Settings {
 export type VisitKind = 'course' | 'topic' | 'quest';
 export interface VisitInput { kind: VisitKind; refId: string }
 export interface Visit extends VisitInput { id: string; title: string; visitedAt: string }
-export interface PracticeSession { id: string; scope: string; contentRevision: string; createdAt: string; completedAt: string | null }
+export interface PracticeSession { id: string; scope: string; contentRevision: string; createdAt: string; completedAt: string | null; questionIds?: string[] }
 export interface PracticeAttempt {
   id: string; sessionId: string; questionId: string; knowledgeId: string; answer: Answer;
   correct: boolean; hintViewed: boolean; cardViewed: boolean; answeredAt: string;

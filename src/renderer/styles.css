@@ -583,6 +583,7 @@ dialog footer { padding: 0 27px 25px; display: flex; justify-content: flex-end; 
 .focus-token-row button { padding: 6px 11px; background: #edf4e9; border-radius: 5px; color: #416345; font-size: .88rem; }
 .focus-token-row button:hover { background: #dfecd8; }
 .focus-token-row.chosen { background: #f8faf5; }
+.practice-mode-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .focus-hint { margin-top: 20px; color: #617b57; font-size: .75rem; }
 .focus-hint button { display: inline-flex; align-items: center; gap: 5px; color: #577d4d; padding: 0; }
 .focus-hint p { margin-top: 8px; }

@@ -7,7 +7,7 @@ import { levels, type Settings, type Snapshot, type Visit, type VisitInput, type
 import { a1Scaffold, canonicalJSON, validateScaffold } from '../domain/framework';
 import type { ApplicationRecord, FrameworkProgress, LearningCoverageRecord } from '../domain/progress';
 import { isFontSize } from '../shared/typography';
-import { studioPack, studioUnit, validateStudioPack, questionsForScope, gradeQuestion, type StudioPack, type Answer, type PracticeQuestion } from '../domain/studio21';
+import { studioPack, studioUnit, validateStudioPack, questionsForScope, gradeQuestion, parsePracticeScope, selectPracticeQuestions, type StudioPack, type Answer, type PracticeQuestion } from '../domain/studio21';
 
 const defaults: Settings = { level: 'A1', fontSize: 'standard', reducedMotion: false };
 
@@ -28,7 +28,7 @@ export class LocalStore {
     mkdirSync(dirname(path), { recursive: true });
     this.db = new DatabaseSync(path);
     const version = this.db.prepare('PRAGMA user_version').get() as { user_version: number };
-    if (version.user_version > 3) {
+    if (version.user_version > 4) {
       this.db.close();
       throw new Error('本地档案来自较新版本，请使用兼容的 DeutschLab。');
     }
@@ -88,6 +88,10 @@ export class LocalStore {
         id TEXT PRIMARY KEY, unit_id TEXT NOT NULL, scope TEXT NOT NULL,
         content_revision TEXT NOT NULL, created_at TEXT NOT NULL, completed_at TEXT
       );
+      CREATE TABLE IF NOT EXISTS practice_plans (
+        session_id TEXT PRIMARY KEY REFERENCES practice_sessions(id), question_ids_json TEXT NOT NULL
+          CHECK(json_valid(question_ids_json) AND json_type(question_ids_json) = 'array')
+      );
       CREATE TABLE IF NOT EXISTS practice_attempts (
         id TEXT PRIMARY KEY, session_id TEXT NOT NULL REFERENCES practice_sessions(id),
         question_id TEXT NOT NULL, knowledge_id TEXT NOT NULL, answer_json TEXT NOT NULL,
@@ -96,8 +100,16 @@ export class LocalStore {
         content_revision TEXT NOT NULL, grading_rule_version TEXT NOT NULL, question_snapshot TEXT NOT NULL,
         UNIQUE(session_id, question_id)
       );
-      PRAGMA user_version = 3;
+      PRAGMA user_version = 4;
     `);
+      // Give unfinished v3 sessions their original question order before importing newer content.
+      const legacy = this.db.prepare(`SELECT s.id, s.scope, r.payload FROM practice_sessions s
+        JOIN course_content_revisions r ON r.unit_id = s.unit_id AND r.revision = s.content_revision
+        LEFT JOIN practice_plans p ON p.session_id = s.id WHERE p.session_id IS NULL`).all();
+      for (const row of legacy) {
+        const ids = questionsForScope(String(row.scope), JSON.parse(String(row.payload)) as StudioPack).map(question => question.id);
+        this.db.prepare('INSERT INTO practice_plans VALUES (?, ?)').run(String(row.id), JSON.stringify(ids));
+      }
       this.db.prepare('INSERT OR IGNORE INTO app_settings (id, payload) VALUES (1, ?)').run(JSON.stringify(defaults));
       this.db.exec('COMMIT;');
       this.importScaffold(a1Scaffold.framework, a1Scaffold.ability);
@@ -157,8 +169,11 @@ export class LocalStore {
     const manual = this.db.prepare('SELECT textbook_done AS textbookDone, recording_done AS recordingDone FROM course_manual_state WHERE unit_id = ?').get(studioUnit.id) as { textbookDone: number; recordingDone: number } | undefined;
     const position = this.db.prepare('SELECT location FROM course_position WHERE unit_id = ?').get(studioUnit.id) as { location: string } | undefined;
     const viewedCardIds = this.db.prepare('SELECT DISTINCT card_id AS cardId FROM card_views WHERE unit_id = ? ORDER BY rowid').all(studioUnit.id).map(row => String(row.cardId));
-    const sessions = this.db.prepare(`SELECT id, scope, content_revision AS contentRevision, created_at AS createdAt, completed_at AS completedAt
-      FROM practice_sessions WHERE unit_id = ? ORDER BY rowid DESC`).all(studioUnit.id).map(row => ({ ...row })) as unknown as PracticeSession[];
+    const sessions = this.db.prepare(`SELECT s.id, s.scope, s.content_revision AS contentRevision, s.created_at AS createdAt, s.completed_at AS completedAt, p.question_ids_json AS questionIdsJson
+      FROM practice_sessions s LEFT JOIN practice_plans p ON p.session_id = s.id WHERE s.unit_id = ? ORDER BY s.rowid DESC`).all(studioUnit.id).map(row => ({
+        id: String(row.id), scope: String(row.scope), contentRevision: String(row.contentRevision), createdAt: String(row.createdAt), completedAt: row.completedAt ? String(row.completedAt) : null,
+        questionIds: row.questionIdsJson ? JSON.parse(String(row.questionIdsJson)) as string[] : undefined,
+      })) satisfies PracticeSession[];
     const attempts = this.db.prepare(`SELECT a.id, a.session_id AS sessionId, a.question_id AS questionId, a.knowledge_id AS knowledgeId,
       a.answer_json AS answerJson, a.correct, a.hint_viewed AS hintViewed, a.card_viewed AS cardViewed,
       a.answered_at AS answeredAt, a.content_revision AS contentRevision, a.grading_rule_version AS gradingRuleVersion,
@@ -221,14 +236,20 @@ export class LocalStore {
     return this.snapshot();
   }
   startPractice(scope: unknown, restart: unknown = false): Snapshot {
-    if (typeof scope !== 'string' || !questionsForScope(scope).length || typeof restart !== 'boolean') throw new Error('练习范围无效。');
+    if (typeof scope !== 'string' || !questionsForScope(parsePracticeScope(scope).sectionId).length || typeof restart !== 'boolean') throw new Error('练习范围无效。');
     const revision = this.activeRevision();
     const active = this.db.prepare(`SELECT id FROM practice_sessions WHERE unit_id = ? AND scope = ?
       AND content_revision = ? AND completed_at IS NULL ORDER BY rowid DESC LIMIT 1`).get(studioUnit.id, scope, revision) as { id: string } | undefined;
     this.db.exec('BEGIN IMMEDIATE;');
     try {
-      if (!active || restart) this.db.prepare('INSERT INTO practice_sessions (id, unit_id, scope, content_revision, created_at) VALUES (?, ?, ?, ?, ?)')
-        .run(randomUUID(), studioUnit.id, scope, revision, new Date().toISOString());
+      if (!active || restart) {
+        const id = randomUUID();
+        const wrongRows = this.db.prepare('SELECT DISTINCT knowledge_id AS knowledgeId, question_id AS questionId FROM practice_attempts WHERE correct = 0').all();
+        const selected = selectPracticeQuestions(scope, wrongRows.map(row => String(row.knowledgeId)), id, wrongRows.map(row => String(row.questionId)));
+        this.db.prepare('INSERT INTO practice_sessions (id, unit_id, scope, content_revision, created_at) VALUES (?, ?, ?, ?, ?)')
+          .run(id, studioUnit.id, scope, revision, new Date().toISOString());
+        this.db.prepare('INSERT INTO practice_plans VALUES (?, ?)').run(id, JSON.stringify(selected.map(question => question.id)));
+      }
       this.setPosition(`/focus/studio21/practice/${scope}`);
       this.db.exec('COMMIT;');
     } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
@@ -241,7 +262,9 @@ export class LocalStore {
     const row = this.db.prepare('SELECT payload FROM course_content_revisions WHERE unit_id = ? AND revision = ?').get(studioUnit.id, session.content_revision) as { payload: string } | undefined;
     if (!row) throw new Error('旧版题目内容缺失。');
     const pack = JSON.parse(row.payload) as StudioPack;
-    const question = questionsForScope(session.scope, pack).find(item => item.id === questionId);
+    const plan = this.db.prepare('SELECT question_ids_json AS ids FROM practice_plans WHERE session_id = ?').get(sessionId) as { ids: string } | undefined;
+    const allowed = plan ? JSON.parse(plan.ids) as string[] : questionsForScope(session.scope, pack).map(item => item.id);
+    const question = allowed.includes(questionId) ? pack.questions.find(item => item.id === questionId) : undefined;
     if (!question) throw new Error('题目不属于当前练习。');
     return { session, question };
   }
@@ -271,13 +294,15 @@ export class LocalStore {
     if (!session) throw new Error('练习不存在。');
     if (session.completed_at) return this.snapshot();
     const row = this.db.prepare('SELECT payload FROM course_content_revisions WHERE unit_id = ? AND revision = ?').get(studioUnit.id, session.content_revision) as { payload: string };
-    const expected = questionsForScope(session.scope, JSON.parse(row.payload) as StudioPack).length;
+    const plan = this.db.prepare('SELECT question_ids_json AS ids FROM practice_plans WHERE session_id = ?').get(sessionId) as { ids: string } | undefined;
+    const expected = plan ? (JSON.parse(plan.ids) as string[]).length : questionsForScope(session.scope, JSON.parse(row.payload) as StudioPack).length;
     const actual = (this.db.prepare('SELECT count(*) AS n FROM practice_attempts WHERE session_id = ?').get(sessionId) as { n: number }).n;
     if (actual !== expected) throw new Error('练习尚未完成。');
     this.db.exec('BEGIN IMMEDIATE;');
     try {
       this.db.prepare('UPDATE practice_sessions SET completed_at = ? WHERE id = ?').run(new Date().toISOString(), sessionId);
-      this.setPosition(session.scope === 'assessment' ? `/courses/${studioUnit.id}` : `/courses/${studioUnit.id}/sections/${session.scope}`);
+      const sectionId = parsePracticeScope(session.scope).sectionId;
+      this.setPosition(sectionId === 'assessment' ? `/courses/${studioUnit.id}` : `/courses/${studioUnit.id}/sections/${sectionId}`);
       this.db.exec('COMMIT;');
     } catch (error) { this.db.exec('ROLLBACK;'); throw error; }
     return this.snapshot();

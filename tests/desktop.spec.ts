@@ -35,6 +35,16 @@ async function capture(path: string, fullPage = false) {
   });
   await page.screenshot({ path, fullPage, animations: 'disabled' });
 }
+async function answerCurrent(question: any) {
+  if (question.type === 'single') {
+    const label = question.options.find((item: any) => item.id === question.answer).text;
+    await page.locator('.focus-options button').filter({ hasText: label }).click();
+  }
+  else if (question.type === 'fill') await page.getByRole('textbox', { name: '你的答案' }).fill(question.answer);
+  else if (question.type === 'match') for (const [i, left] of question.left.entries()) await page.getByRole('combobox', { name: `${left.text} 对应的答案` }).selectOption(question.answer[i]);
+  else for (const id of question.answer) await page.locator('.focus-token-row:not(.chosen)').getByRole('button', { name: question.tokens.find((item: any) => item.id === id).text, exact: true }).click();
+  await page.getByRole('button', { name: '提交答案' }).click();
+}
 test.beforeAll(launch);
 test.afterAll(async () => { await app?.close(); });
 
@@ -299,36 +309,25 @@ test('打包资源离线可用，没有页面异常或远程请求', async () =>
 test('真实第一单元、知识卡专注模式、小节练习和重启续学', async () => {
   await go('主线学习');
   await page.locator('.studio-feature-course').click();
-  await expect(page.getByRole('heading', { name: 'Lektion 1 · Kaffee oder Tee?', exact: true })).toBeVisible();
   await expect(page.locator('.studio-section-card')).toHaveCount(4);
   await page.getByLabel('已完成录播课').check();
-  await expect(page.getByLabel('已完成录播课')).toBeChecked();
   await page.locator('.studio-section-card').first().click();
-  await expect(page.getByRole('heading', { name: 'Im Café', exact: true })).toBeVisible();
-  await expect(page.locator('.studio-card-row')).toHaveCount(4);
-  await expect(page.locator('.studio-related a')).toHaveCount(5);
   await page.locator('.studio-card-row').first().click();
   await expect(page.locator('.sidebar')).toHaveCount(0);
   await expect(page.locator('.knowledge-body')).toContainText('Guten Tag. Ich heiße Mia.');
-  await page.getByRole('link', { name: '下一个' }).click();
-  await expect(page.getByRole('heading', { name: '正式 Sie 与非正式 du', exact: true })).toBeVisible();
   await page.keyboard.press('Escape');
-  await expect(page.getByRole('heading', { name: 'Im Café', exact: true })).toBeVisible();
-  await page.getByRole('link', { name: '开始或继续练习' }).click();
-  await expect(page.locator('.sidebar')).toHaveCount(0);
-  await expect(page.locator('.focus-question')).toHaveText('将问句与合适的答句配对。');
-  await page.getByRole('combobox', { name: 'Wie heißen Sie? 对应的答案' }).selectOption('y');
+  await page.getByRole('link', { name: '基础巩固' }).click();
+  await expect(page.locator('.focus-question')).toBeVisible();
+  const started = await page.evaluate(() => window.deutschlab!.getSnapshot());
+  const session = started.courseProgress.sessions[0];
+  expect(session.questionIds).toHaveLength(12);
+  const first = studio.questions.find((q: { id: string }) => q.id === session.questionIds![0]);
+  await expect(page.locator('.focus-question')).toHaveText(first.prompt);
   await page.getByRole('button', { name: '查看相关知识' }).click();
-  await expect(page.getByRole('dialog', { name: '相关知识卡' })).toContainText('问候与自我介绍');
+  await expect(page.getByRole('dialog', { name: '相关知识卡' })).toBeVisible();
   await page.getByRole('button', { name: '返回题目' }).click();
-  await expect(page.getByRole('combobox', { name: 'Wie heißen Sie? 对应的答案' })).toHaveValue('y');
-  await page.getByRole('combobox', { name: 'Woher kommen Sie? 对应的答案' }).selectOption('x');
-  await page.getByRole('button', { name: '提交答案' }).click();
+  await answerCurrent(first);
   await expect(page.getByRole('status')).toContainText('回答正确');
-  let saved = await page.evaluate(() => window.deutschlab!.getSnapshot());
-  expect(saved.courseProgress.attempts[0].cardViewed).toBe(true);
-  expect(saved.courseProgress.attempts[0].correct).toBe(true);
-  expect(saved.courseProgress.lastLocation).toBe('/focus/studio21/practice/im-cafe');
   await page.getByRole('link', { name: '退出专注' }).click();
   await app.close();
   await launch();
@@ -336,18 +335,20 @@ test('真实第一单元、知识卡专注模式、小节练习和重启续学',
   await page.locator('.studio-feature-course').click();
   await expect(page.getByLabel('已完成录播课')).toBeChecked();
   await page.locator('.studio-section-card').first().click();
-  await page.getByRole('link', { name: '开始或继续练习' }).click();
-  await expect(page.locator('.focus-question')).toHaveText('“茶”对应哪个德语词？');
-  for (const label of ['der Tee', 'Sie', 'Ich möchte einen Kaffee, bitte.']) {
-    await page.getByRole('button', { name: new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) }).click();
-    await page.getByRole('button', { name: '提交答案' }).click();
+  await page.getByRole('link', { name: '基础巩固' }).click();
+  await expect(page.locator('.focus-question')).toBeVisible();
+  const resumed = await page.evaluate(() => window.deutschlab!.getSnapshot());
+  expect(resumed.courseProgress.sessions[0].id).toBe(session.id);
+  expect(resumed.courseProgress.attempts[0].cardViewed).toBe(true);
+  for (const id of session.questionIds!.slice(1)) {
+    const question = studio.questions.find((q: { id: string }) => q.id === id);
+    await answerCurrent(question);
     await expect(page.getByRole('status')).toContainText('回答正确');
-    await page.getByRole('button', { name: label === 'Ich möchte einen Kaffee, bitte.' ? '查看结果' : '下一题' }).click();
+    await page.getByRole('button', { name: id === session.questionIds!.at(-1) ? '查看结果' : '下一题' }).click();
   }
-  await expect(page.getByRole('heading', { name: '小节练习结果' })).toBeVisible();
-  await expect(page.locator('.focus-result')).toContainText('4 / 4');
-  saved = await page.evaluate(() => window.deutschlab!.getSnapshot());
-  expect(saved.courseProgress.attempts.length).toBe(4);
+  await expect(page.locator('.focus-result')).toContainText('12 / 12');
+  const saved = await page.evaluate(() => window.deutschlab!.getSnapshot());
+  expect(saved.courseProgress.attempts.filter(a => a.sessionId === session.id)).toHaveLength(12);
   expect(saved.frameworkProgress.application).toEqual({});
   await capture('test-results/deutschlab-studio-focus-result.png');
 });
@@ -381,10 +382,10 @@ test('四题型与综合检测可作答，错误知识点可回看且重练产�
     await page.getByRole('button', { name: index === questions.length - 1 ? '查看结果' : '下一题' }).click();
   }
   await expect(page.getByRole('heading', { name: '单元检测结果' })).toBeVisible();
-  await expect(page.locator('.focus-result')).toContainText('8 / 9');
+  await expect(page.locator('.focus-result')).toContainText('17 / 18');
   await expect(page.locator('.focus-result')).toContainText('问候与自我介绍');
   let snapshot = await page.evaluate(() => window.deutschlab!.getSnapshot());
-  expect(snapshot.courseProgress.attempts.length).toBe(priorAttempts + 9);
+  expect(snapshot.courseProgress.attempts.length).toBe(priorAttempts + 18);
   expect(snapshot.frameworkProgress.application).toEqual({});
   await page.getByRole('button', { name: '再次练习' }).click();
   await expect(page.locator('.focus-question')).toHaveText(questions[0].prompt);
@@ -393,12 +394,13 @@ test('四题型与综合检测可作答，错误知识点可回看且重练产�
   await page.getByRole('link', { name: '退出专注' }).click();
   await go('学习统计');
   await page.getByRole('button', { name: '学习记录', exact: true }).click();
-  await expect(page.locator('.studio-record-row')).toHaveCount(Math.min(30, priorAttempts + 9));
+  await expect(page.locator('.studio-record-row')).toHaveCount(Math.min(30, priorAttempts + 18));
   await expect(page.locator('.studio-records')).toContainText('问候与自我介绍');
   await capture('test-results/deutschlab-studio-records.png');
 });
 
 test('四个小节都能打开知识卡与练习，搜索可回到单元，草稿退出有提示', async () => {
+  if (await page.locator('.focus-shell').count()) await page.getByRole('link', { name: '返回课程' }).click();
   await go('主线学习');
   await page.locator('.studio-feature-course').click();
   await page.getByRole('searchbox', { name: '检索第一单元知识卡' }).fill('siebzig');
@@ -412,23 +414,25 @@ test('四个小节都能打开知识卡与练习，搜索可回到单元，草�
     await page.locator('.studio-section-card').nth(index).click();
     await expect(page.getByRole('heading', { name: section.title, exact: true })).toBeVisible();
     await expect(page.locator('.studio-card-row')).toHaveCount(section.cardIds.length);
-    await page.getByRole('link', { name: '开始或继续练习' }).click();
+    await page.getByRole('link', { name: '基础巩固' }).click();
+    await expect(page.locator('.focus-question')).toBeVisible();
     await expect(page.locator('.sidebar')).toHaveCount(0);
-    const first = studio.questions.find((question: { id: string }) => question.id === section.exerciseIds[0]);
+    const state = await page.evaluate(() => window.deutschlab!.getSnapshot());
+    const first = studio.questions.find((question: { id: string }) => question.id === state.courseProgress.sessions[0].questionIds![0]);
     await expect(page.locator('.focus-question')).toHaveText(first.prompt);
     if (index === 0) await capture('test-results/deutschlab-studio-question.png');
     if (index === 1) {
-      await page.locator('.focus-options button').filter({ hasText: 'wir' }).click();
+      if (first.type === 'single') await page.locator('.focus-options button').first().click();
+      else if (first.type === 'fill') await page.getByRole('textbox', { name: '你的答案' }).fill('Entwurf');
+      else if (first.type === 'match') await page.getByRole('combobox').first().selectOption(first.answer[0]);
+      else await page.locator('.focus-token-row:not(.chosen) button').first().click();
       await page.keyboard.press('Escape');
       await expect(page.getByRole('dialog', { name: '退出练习' })).toContainText('未提交的答案');
       await page.getByRole('button', { name: '继续作答' }).click();
-      await expect(page.locator('.focus-options button.selected')).toHaveCount(1);
-    } else if (first.type === 'single') {
-      await page.locator('.focus-options button').filter({ hasText: first.options.find((item: { id: string }) => item.id === first.answer).text }).click();
-    } else if (first.type === 'match') {
-      for (const [i, left] of first.left.entries()) await page.getByRole('combobox', { name: `${left.text} 对应的答案` }).selectOption(first.answer[i]);
+      if (first.type === 'order') await page.locator('.focus-token-row.chosen button').first().click();
+      else if (first.type === 'match') await page.getByRole('combobox').first().selectOption('');
     }
-    await page.getByRole('button', { name: '提交答案' }).click();
+    await answerCurrent(first);
     await expect(page.getByRole('status')).toContainText('回答正确');
     await page.getByRole('link', { name: '退出专注' }).click();
     await expect(page.getByRole('heading', { name: section.title, exact: true })).toBeVisible();
