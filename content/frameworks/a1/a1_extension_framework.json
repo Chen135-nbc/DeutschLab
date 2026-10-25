@@ -1,0 +1,1740 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "deutschlab-a1-extension-v1",
+  "language": "de",
+  "cefr_level": "A1",
+  "source": {
+    "title": "德语A1自学专题框架 · 新版",
+    "provided_filename": "德语A1自学专题框架_新版(1).pdf",
+    "source_type": "user_supplied_pdf",
+    "pages": 13,
+    "extraction_method": "embedded_text",
+    "editorial_policy": "保留原有8个板块、68个单元及细分内容；不提前进行Studio21映射或新增语言教学内容"
+  },
+  "design_intent": {
+    "role": "自学拓展内容的稳定导航骨架，而不是需要依次学完的第二套课程表",
+    "primary_sequence": "Studio21",
+    "append_details_incrementally": true,
+    "separate_user_progress_from_catalog": true,
+    "course_mappings_deferred": true,
+    "avoid_forcing_a1_a2_advanced_grammar": true
+  },
+  "a1_skill_goals": {
+    "listening": "听懂慢速、清晰的熟悉问句与数字、时间、地点等关键信息。",
+    "speaking": "用短句介绍自己和身边的人，完成问候、约时间、购物、问路等任务。",
+    "reading": "理解简单标识、菜单、时刻表、短信和个人资料表。",
+    "writing": "填写个人资料，写短消息或简短自我介绍。"
+  },
+  "counts": {
+    "board_count": 8,
+    "unit_count": 68,
+    "outline_item_count": 207,
+    "board_completion_criteria_count": 16
+  },
+  "boards": [
+    {
+      "id": "A1-B01",
+      "number": 1,
+      "title": "发音、个人信息与基础社交",
+      "description": "从辨音与拼读起步，能在初次见面时介绍自己、交换信息并礼貌结束交流。",
+      "a1_bridge": "从辨音与拼读起步，能在初次见面时介绍自己、交换信息并礼貌结束交流。",
+      "a2_bridge": "A2 接着叙述经历、解释计划，并把问候、邀请、改期与道歉连成完整社交任务。",
+      "completion_criteria": [
+        "能听懂并回答常见见面问题，完成一次简短寒暄。",
+        "能填写个人资料、交换联系方式，并作 1-2 分钟自我介绍。"
+      ],
+      "units": [
+        {
+          "id": "A1-B01-U01",
+          "number": 1,
+          "title": "发音与拼读预备",
+          "outline": [
+            {
+              "id": "A1-B01-U01-P01",
+              "text": "字母名称、拼写姓名与邮箱；常见字母组合及词重音。"
+            },
+            {
+              "id": "A1-B01-U01-P02",
+              "text": "长短元音、ä/ö/ü、ch/sch/sp/st、词尾辅音；跟读并区分易混音。"
+            },
+            {
+              "id": "A1-B01-U01-P03",
+              "text": "听写熟悉词、模仿短句语调；不会拼写时请求对方重复或放慢。"
+            },
+            {
+              "id": "A1-B01-U01-P04",
+              "text": "发音规则随 Studio 21 逐章巩固，不把全部语音现象一次学完。"
+            }
+          ],
+          "source_page_start": 3,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B01-U02",
+          "number": 2,
+          "title": "见面、问候与寒暄",
+          "outline": [
+            {
+              "id": "A1-B01-U02-P01",
+              "text": "早晚与日常问候；正式 Sie 与熟人 du 的场合。"
+            },
+            {
+              "id": "A1-B01-U02-P02",
+              "text": "初次见面介绍姓名、回应“很高兴认识你”。"
+            },
+            {
+              "id": "A1-B01-U02-P03",
+              "text": "熟人再见面时询问近况、用一两句回答。"
+            },
+            {
+              "id": "A1-B01-U02-P04",
+              "text": "欢迎别人、开启和结束一段简短寒暄。"
+            }
+          ],
+          "source_page_start": 3,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B01-U03",
+          "number": 3,
+          "title": "告别与基本礼貌表达",
+          "outline": [
+            {
+              "id": "A1-B01-U03-P01",
+              "text": "正式和非正式告别，晚间告别及下次见的说法。"
+            },
+            {
+              "id": "A1-B01-U03-P02",
+              "text": "请求、感谢、回应感谢与简单道歉。"
+            },
+            {
+              "id": "A1-B01-U03-P03",
+              "text": "生日或节日使用简短祝福；听懂常见礼貌回应。"
+            },
+            {
+              "id": "A1-B01-U03-P04",
+              "text": "在对话中选用合适称呼，而不是只背单个词。"
+            }
+          ],
+          "source_page_start": 3,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B01-U04",
+          "number": 4,
+          "title": "姓名、年龄与生日",
+          "outline": [
+            {
+              "id": "A1-B01-U04-P01",
+              "text": "区分 Vorname / Nachname；说出和询问全名。"
+            },
+            {
+              "id": "A1-B01-U04-P02",
+              "text": "拼写姓名，报年龄、出生日期和生日。"
+            },
+            {
+              "id": "A1-B01-U04-P03",
+              "text": "询问对方最基础的个人资料，并核对听到的数字。"
+            }
+          ],
+          "source_page_start": 3,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B01-U05",
+          "number": 5,
+          "title": "联系方式与地址",
+          "outline": [
+            {
+              "id": "A1-B01-U05-P01",
+              "text": "报电话号码、电子邮箱、街道、门牌号、邮编和城市。"
+            },
+            {
+              "id": "A1-B01-U05-P02",
+              "text": "拼写邮箱中的点、@、连字符等常见符号。"
+            },
+            {
+              "id": "A1-B01-U05-P03",
+              "text": "交换联系方式并在简单表格中填写自己的信息。"
+            }
+          ],
+          "source_page_start": 3,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B01-U06",
+          "number": 6,
+          "title": "国家、城市与居住地",
+          "outline": [
+            {
+              "id": "A1-B01-U06-P01",
+              "text": "说出来自哪里、家乡和现在住在哪里。"
+            },
+            {
+              "id": "A1-B01-U06-P02",
+              "text": "认识德国常见城市及德国、奥地利、瑞士的基本地理名称。"
+            },
+            {
+              "id": "A1-B01-U06-P03",
+              "text": "询问别人的城市与居住地，区分“来自”和“住在”。"
+            }
+          ],
+          "source_page_start": 3,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B01-U07",
+          "number": 7,
+          "title": "语言、国籍与来源",
+          "outline": [
+            {
+              "id": "A1-B01-U07-P01",
+              "text": "常见语言、母语、正在学习的语言。"
+            },
+            {
+              "id": "A1-B01-U07-P02",
+              "text": "表达会不会说、说得多好，提出简单的语言问题。"
+            },
+            {
+              "id": "A1-B01-U07-P03",
+              "text": "认识基础国籍说法，描述自己和身边人的来源。"
+            }
+          ],
+          "source_page_start": 4,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B01-U08",
+          "number": 8,
+          "title": "职业、身份与基本状态",
+          "outline": [
+            {
+              "id": "A1-B01-U08-P01",
+              "text": "学生、实习生、职员及其他高频身份和职业。"
+            },
+            {
+              "id": "A1-B01-U08-P02",
+              "text": "简单说明在哪里学习或工作、现在做什么。"
+            },
+            {
+              "id": "A1-B01-U08-P03",
+              "text": "把姓名、城市、语言、身份、兴趣串成 1-2 分钟自我介绍。"
+            }
+          ],
+          "source_page_start": 4,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        }
+      ],
+      "source_page_start": 3,
+      "source_page_end": 4
+    },
+    {
+      "id": "A1-B02",
+      "number": 2,
+      "title": "人物、家庭、关系与兴趣",
+      "description": "从“介绍我”扩展到“介绍身边的人”，说清关系、外貌、性格和空闲时间。",
+      "a1_bridge": "从“介绍我”扩展到“介绍身边的人”，说清关系、外貌、性格和空闲时间。",
+      "a2_bridge": "A2 会进一步描述相处经历与感受，处理邀请、关系和情绪；A1 先把人和活动说清楚。",
+      "completion_criteria": [
+        "能介绍一位家人或朋友，包括关系、外貌、性格与兴趣。",
+        "能用几句话介绍自己的休闲方式并询问别人。"
+      ],
+      "units": [
+        {
+          "id": "A1-B02-U01",
+          "number": 1,
+          "title": "家庭成员与亲属",
+          "outline": [
+            {
+              "id": "A1-B02-U01-P01",
+              "text": "父母、兄弟姐妹、祖父母、子女和常见亲属称谓。"
+            },
+            {
+              "id": "A1-B02-U01-P02",
+              "text": "介绍家庭人数、成员姓名、年龄和职业。"
+            },
+            {
+              "id": "A1-B02-U01-P03",
+              "text": "用照片或简单家庭图说出“谁是谁”。"
+            }
+          ],
+          "source_page_start": 4,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B02-U02",
+          "number": 2,
+          "title": "婚姻、伴侣与家庭关系",
+          "outline": [
+            {
+              "id": "A1-B02-U02-P01",
+              "text": "单身、已婚、伴侣、男朋友/女朋友、丈夫/妻子等基本说法。"
+            },
+            {
+              "id": "A1-B02-U02-P02",
+              "text": "按自己的实际情况介绍关系，也能选择不作私人回答。"
+            },
+            {
+              "id": "A1-B02-U02-P03",
+              "text": "只做身份与关系词汇，不延伸到复杂情感讨论。"
+            }
+          ],
+          "source_page_start": 4,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B02-U03",
+          "number": 3,
+          "title": "朋友、同学、老师、同事与邻居",
+          "outline": [
+            {
+              "id": "A1-B02-U03-P01",
+              "text": "认识常见人物关系的德语说法。"
+            },
+            {
+              "id": "A1-B02-U03-P02",
+              "text": "问“这是谁”，回答与对方的关系、在哪里认识。"
+            },
+            {
+              "id": "A1-B02-U03-P03",
+              "text": "简述一个人在哪里学习或工作。"
+            }
+          ],
+          "source_page_start": 4,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B02-U04",
+          "number": 4,
+          "title": "人物外貌与衣着",
+          "outline": [
+            {
+              "id": "A1-B02-U04-P01",
+              "text": "高矮、年龄、头发、眼睛及基础衣着。"
+            },
+            {
+              "id": "A1-B02-U04-P02",
+              "text": "用 3-4 句描述照片中的人，区分基本颜色和外貌特征。"
+            },
+            {
+              "id": "A1-B02-U04-P03",
+              "text": "听简单描述，辨认说话人指的是谁。"
+            }
+          ],
+          "source_page_start": 4,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B02-U05",
+          "number": 5,
+          "title": "人物性格与简单评价",
+          "outline": [
+            {
+              "id": "A1-B02-U05-P01",
+              "text": "freundlich、nett、ruhig、lustig、fleißig 等高频形容词。"
+            },
+            {
+              "id": "A1-B02-U05-P02",
+              "text": "表达“我觉得他/她很……”以及简单的喜欢或不喜欢。"
+            },
+            {
+              "id": "A1-B02-U05-P03",
+              "text": "把人物关系、外貌和性格合成一段短介绍。"
+            }
+          ],
+          "source_page_start": 5,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B02-U06",
+          "number": 6,
+          "title": "兴趣与爱好",
+          "outline": [
+            {
+              "id": "A1-B02-U06-P01",
+              "text": "阅读、音乐、电影、运动、游戏、旅行、做饭、摄影等。"
+            },
+            {
+              "id": "A1-B02-U06-P02",
+              "text": "用 gern / nicht gern 表达喜好，说明通常与谁一起做。"
+            },
+            {
+              "id": "A1-B02-U06-P03",
+              "text": "询问别人的兴趣，并找到一个共同话题。"
+            }
+          ],
+          "source_page_start": 5,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B02-U07",
+          "number": 7,
+          "title": "休闲活动与周末",
+          "outline": [
+            {
+              "id": "A1-B02-U07-P01",
+              "text": "说明周末做什么、在哪里、和谁一起、多久一次。"
+            },
+            {
+              "id": "A1-B02-U07-P02",
+              "text": "说出在家与外出的两三种活动。"
+            },
+            {
+              "id": "A1-B02-U07-P03",
+              "text": "用简短问答安排一次周末活动；复杂协调留到 A2。"
+            }
+          ],
+          "source_page_start": 5,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        }
+      ],
+      "source_page_start": 4,
+      "source_page_end": 5
+    },
+    {
+      "id": "A1-B03",
+      "number": 3,
+      "title": "数字、时间、日期与日常生活",
+      "description": "掌握生活中最常用的数字与时间信息，描述一天的节奏并作简单约定。",
+      "a1_bridge": "掌握生活中最常用的数字与时间信息，描述一天的节奏并作简单约定。",
+      "a2_bridge": "A2 从“几点见、每天做什么”升级到多事项安排、改期、迟到解释和未来计划。",
+      "completion_criteria": [
+        "能读写常见时间、日期、价格，并完成简单约见。",
+        "能按顺序描述工作日作息和周末习惯。"
+      ],
+      "units": [
+        {
+          "id": "A1-B03-U01",
+          "number": 1,
+          "title": "数字与基础数量",
+          "outline": [
+            {
+              "id": "A1-B03-U01-P01",
+              "text": "0-100、百和千；听写电话、门牌、价格与数量。"
+            },
+            {
+              "id": "A1-B03-U01-P02",
+              "text": "问多少钱、有几个，核对听到的数字。"
+            },
+            {
+              "id": "A1-B03-U01-P03",
+              "text": "在价格和电话号码中练习十位与个位的德语顺序。"
+            }
+          ],
+          "source_page_start": 5,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B03-U02",
+          "number": 2,
+          "title": "时钟与时间表达",
+          "outline": [
+            {
+              "id": "A1-B03-U02-P01",
+              "text": "整点、半点、几点几分；正式和常见口语说法。"
+            },
+            {
+              "id": "A1-B03-U02-P02",
+              "text": "询问现在几点、活动什么时候开始和结束。"
+            },
+            {
+              "id": "A1-B03-U02-P03",
+              "text": "从简单时刻表中找到对应时间。"
+            }
+          ],
+          "source_page_start": 5,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B03-U03",
+          "number": 3,
+          "title": "星期、日期、月份与年份",
+          "outline": [
+            {
+              "id": "A1-B03-U03-P01",
+              "text": "星期、12 个月、日期和年份。"
+            },
+            {
+              "id": "A1-B03-U03-P02",
+              "text": "今天、昨天、明天；询问生日、课程和预约日期。"
+            },
+            {
+              "id": "A1-B03-U03-P03",
+              "text": "读懂简单日期格式，避免数字顺序混淆。"
+            }
+          ],
+          "source_page_start": 5,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B03-U04",
+          "number": 4,
+          "title": "一天中的时段",
+          "outline": [
+            {
+              "id": "A1-B03-U04-P01",
+              "text": "Morgen、Vormittag、Mittag、Nachmittag、Abend、Nacht。"
+            },
+            {
+              "id": "A1-B03-U04-P02",
+              "text": "说出早上、下午、晚上通常做什么。"
+            },
+            {
+              "id": "A1-B03-U04-P03",
+              "text": "把时段和具体钟点结合起来安排活动。"
+            }
+          ],
+          "source_page_start": 6,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B03-U05",
+          "number": 5,
+          "title": "日常作息",
+          "outline": [
+            {
+              "id": "A1-B03-U05-P01",
+              "text": "起床、洗漱、吃饭、学习或上班、回家、睡觉等动作。"
+            },
+            {
+              "id": "A1-B03-U05-P02",
+              "text": "按先后描述工作日的一天；认识常见可分动词。"
+            },
+            {
+              "id": "A1-B03-U05-P03",
+              "text": "说出“几点做什么”和活动持续多久的基础表达。"
+            }
+          ],
+          "source_page_start": 6,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B03-U06",
+          "number": 6,
+          "title": "习惯与频率",
+          "outline": [
+            {
+              "id": "A1-B03-U06-P01",
+              "text": "immer、oft、manchmal、selten、nie 等。"
+            },
+            {
+              "id": "A1-B03-U06-P02",
+              "text": "描述运动、阅读、做饭或学习的频率。"
+            },
+            {
+              "id": "A1-B03-U06-P03",
+              "text": "对比工作日和周末的简单习惯。"
+            }
+          ],
+          "source_page_start": 6,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B03-U07",
+          "number": 7,
+          "title": "简单约时间",
+          "outline": [
+            {
+              "id": "A1-B03-U07-P01",
+              "text": "询问何时有空、几点见、在哪里见。"
+            },
+            {
+              "id": "A1-B03-U07-P02",
+              "text": "接受或拒绝一个时间，提出另一个简单选项。"
+            },
+            {
+              "id": "A1-B03-U07-P03",
+              "text": "通过消息确认时间和地点；取消与解释原因放到 A2。"
+            }
+          ],
+          "source_page_start": 6,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B03-U08",
+          "number": 8,
+          "title": "天气、季节与活动",
+          "outline": [
+            {
+              "id": "A1-B03-U08-P01",
+              "text": "四季、晴雨雪、冷暖、简单温度表达。"
+            },
+            {
+              "id": "A1-B03-U08-P02",
+              "text": "询问天气，说出穿什么、想做什么。"
+            },
+            {
+              "id": "A1-B03-U08-P03",
+              "text": "从天气预报中获取当天最基本的信息。"
+            }
+          ],
+          "source_page_start": 6,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        }
+      ],
+      "source_page_start": 5,
+      "source_page_end": 6
+    },
+    {
+      "id": "A1-B04",
+      "number": 4,
+      "title": "学校、学习与基础教育生活",
+      "description": "让“如何学习、如何在课堂上求助”成为可用的语言任务。",
+      "a1_bridge": "让“如何学习、如何在课堂上求助”成为可用的语言任务。",
+      "a2_bridge": "A2 将延伸至课程安排、学习方法、考试、请假和教育经历；A1 先掌握课堂生存表达。",
+      "completion_criteria": [
+        "能理解课堂高频指令，在听不懂时主动求助。",
+        "能介绍自己的课程、作业和基本学习习惯。"
+      ],
+      "units": [
+        {
+          "id": "A1-B04-U01",
+          "number": 1,
+          "title": "学校与学习场所",
+          "outline": [
+            {
+              "id": "A1-B04-U01-P01",
+              "text": "Schule、Universität、Kurs、Klassenzimmer、Bibliothek 等。"
+            },
+            {
+              "id": "A1-B04-U01-P02",
+              "text": "说出在哪里上课或自学，询问教室位置。"
+            },
+            {
+              "id": "A1-B04-U01-P03",
+              "text": "读懂简单课程地点与时间信息。"
+            }
+          ],
+          "source_page_start": 6,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B04-U02",
+          "number": 2,
+          "title": "学科与课程",
+          "outline": [
+            {
+              "id": "A1-B04-U02-P01",
+              "text": "德语、英语、数学、物理、计算机等常见学科。"
+            },
+            {
+              "id": "A1-B04-U02-P02",
+              "text": "介绍正在学什么、喜欢哪门课、什么时候上课。"
+            },
+            {
+              "id": "A1-B04-U02-P03",
+              "text": "简单比较“容易”和“难”。"
+            }
+          ],
+          "source_page_start": 7,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B04-U03",
+          "number": 3,
+          "title": "课堂物品与学习用品",
+          "outline": [
+            {
+              "id": "A1-B04-U03-P01",
+              "text": "书、笔记本、笔、纸、电脑、词典、书包等。"
+            },
+            {
+              "id": "A1-B04-U03-P02",
+              "text": "询问物品在哪里、借用或递交简单物品。"
+            },
+            {
+              "id": "A1-B04-U03-P03",
+              "text": "看懂最基本的教材和练习提示。"
+            }
+          ],
+          "source_page_start": 7,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B04-U04",
+          "number": 4,
+          "title": "课堂基本交流",
+          "outline": [
+            {
+              "id": "A1-B04-U04-P01",
+              "text": "听、读、说、写、回答、提问、打开书等指令。"
+            },
+            {
+              "id": "A1-B04-U04-P02",
+              "text": "表达 Ich verstehe das nicht. 和 Können Sie das bitte wiederholen?。"
+            },
+            {
+              "id": "A1-B04-U04-P03",
+              "text": "听不清时请求放慢、重复或拼写关键词。"
+            }
+          ],
+          "source_page_start": 7,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B04-U05",
+          "number": 5,
+          "title": "作业与学习活动",
+          "outline": [
+            {
+              "id": "A1-B04-U05-P01",
+              "text": "Hausaufgaben、Übung、Aufgabe；lernen、wiederholen、lesen、schreiben。"
+            },
+            {
+              "id": "A1-B04-U05-P02",
+              "text": "询问作业是什么、哪一页、什么时候完成。"
+            },
+            {
+              "id": "A1-B04-U05-P03",
+              "text": "简述今天学了什么和接下来要练什么。"
+            }
+          ],
+          "source_page_start": 7,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B04-U06",
+          "number": 6,
+          "title": "语言学习与学习习惯",
+          "outline": [
+            {
+              "id": "A1-B04-U06-P01",
+              "text": "说自己学什么语言、每天学多久、如何练习。"
+            },
+            {
+              "id": "A1-B04-U06-P02",
+              "text": "区分听力、口语、阅读和写作的基础词汇。"
+            },
+            {
+              "id": "A1-B04-U06-P03",
+              "text": "表达哪部分容易或困难，并提出简单求助。"
+            }
+          ],
+          "source_page_start": 7,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        }
+      ],
+      "source_page_start": 6,
+      "source_page_end": 7
+    },
+    {
+      "id": "A1-B05",
+      "number": 5,
+      "title": "住房、物品、空间与城市",
+      "description": "识别家里的物品与城市地点，说明物品位置并听懂简单路线。",
+      "a1_bridge": "识别家里的物品与城市地点，说明物品位置并听懂简单路线。",
+      "a2_bridge": "A2 才进入找房、租金、押金、报修、搬家和合住规则；A1 先建立空间与场所词汇。",
+      "completion_criteria": [
+        "能介绍自己的房间、描述常用物品位置。",
+        "能辨认常见城市地点并完成简单问路。"
+      ],
+      "units": [
+        {
+          "id": "A1-B05-U01",
+          "number": 1,
+          "title": "房屋与房间",
+          "outline": [
+            {
+              "id": "A1-B05-U01-P01",
+              "text": "Wohnung、Haus、客厅、卧室、厨房、浴室和阳台。"
+            },
+            {
+              "id": "A1-B05-U01-P02",
+              "text": "介绍住在哪里、家里有哪些房间。"
+            },
+            {
+              "id": "A1-B05-U01-P03",
+              "text": "用一两句表达房间大小与喜好。"
+            }
+          ],
+          "source_page_start": 7,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B05-U02",
+          "number": 2,
+          "title": "家具",
+          "outline": [
+            {
+              "id": "A1-B05-U02-P01",
+              "text": "桌、椅、床、衣柜、沙发、书架等高频家具。"
+            },
+            {
+              "id": "A1-B05-U02-P02",
+              "text": "描述房间里有什么、哪件家具在哪里。"
+            },
+            {
+              "id": "A1-B05-U02-P03",
+              "text": "听简单的房间介绍并画出大致布局。"
+            }
+          ],
+          "source_page_start": 8,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B05-U03",
+          "number": 3,
+          "title": "家用电器",
+          "outline": [
+            {
+              "id": "A1-B05-U03-P01",
+              "text": "冰箱、洗衣机、电视、炉灶、灯等。"
+            },
+            {
+              "id": "A1-B05-U03-P02",
+              "text": "说出日常使用哪种电器和它在哪个房间。"
+            },
+            {
+              "id": "A1-B05-U03-P03",
+              "text": "简单描述开/关、能用/不能用；报修留到 A2。"
+            }
+          ],
+          "source_page_start": 8,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B05-U04",
+          "number": 4,
+          "title": "日常用品",
+          "outline": [
+            {
+              "id": "A1-B05-U04-P01",
+              "text": "钥匙、杯子、包、手机、雨伞、毛巾等。"
+            },
+            {
+              "id": "A1-B05-U04-P02",
+              "text": "询问和说明东西是谁的、放在哪里。"
+            },
+            {
+              "id": "A1-B05-U04-P03",
+              "text": "围绕自己常用的物品扩充主题词库。"
+            }
+          ],
+          "source_page_start": 8,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B05-U05",
+          "number": 5,
+          "title": "颜色、形状、大小与材质",
+          "outline": [
+            {
+              "id": "A1-B05-U05-P01",
+              "text": "基本颜色、长短、大小、新旧、常见形状。"
+            },
+            {
+              "id": "A1-B05-U05-P02",
+              "text": "认识木、塑料、金属、玻璃等材质。"
+            },
+            {
+              "id": "A1-B05-U05-P03",
+              "text": "用颜色和特征指认一件物品。"
+            }
+          ],
+          "source_page_start": 8,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B05-U06",
+          "number": 6,
+          "title": "物品位置与空间关系",
+          "outline": [
+            {
+              "id": "A1-B05-U06-P01",
+              "text": "上、下、里、外、前、后、左、右、旁边。"
+            },
+            {
+              "id": "A1-B05-U06-P02",
+              "text": "询问东西在哪里，描述相对位置。"
+            },
+            {
+              "id": "A1-B05-U06-P03",
+              "text": "方位格变化跟随主教材进度，不为专题强行超前。"
+            }
+          ],
+          "source_page_start": 8,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B05-U07",
+          "number": 7,
+          "title": "城市地点与公共设施",
+          "outline": [
+            {
+              "id": "A1-B05-U07-P01",
+              "text": "车站、超市、药店、医院、银行、邮局、餐厅、学校、公园。"
+            },
+            {
+              "id": "A1-B05-U07-P02",
+              "text": "辨认地图与路牌上的常见地点。"
+            },
+            {
+              "id": "A1-B05-U07-P03",
+              "text": "说出自己要去哪里和那里能做什么。"
+            }
+          ],
+          "source_page_start": 8,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B05-U08",
+          "number": 8,
+          "title": "问路与简单指路",
+          "outline": [
+            {
+              "id": "A1-B05-U08-P01",
+              "text": "问“在哪里”“怎么去”；直走、左转、右转、在旁边。"
+            },
+            {
+              "id": "A1-B05-U08-P02",
+              "text": "听一两步路线并在地图上找到目的地。"
+            },
+            {
+              "id": "A1-B05-U08-P03",
+              "text": "遇到没听清的方向时请求重复。"
+            }
+          ],
+          "source_page_start": 8,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B05-U09",
+          "number": 9,
+          "title": "生活服务场所",
+          "outline": [
+            {
+              "id": "A1-B05-U09-P01",
+              "text": "面包店、理发店、洗衣店等日常服务地点。"
+            },
+            {
+              "id": "A1-B05-U09-P02",
+              "text": "结合营业时间与简单地址选择要去的地方。"
+            },
+            {
+              "id": "A1-B05-U09-P03",
+              "text": "只练最基本的询问与定位；办事流程留到 A2。"
+            }
+          ],
+          "source_page_start": 8,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        }
+      ],
+      "source_page_start": 7,
+      "source_page_end": 8
+    },
+    {
+      "id": "A1-B06",
+      "number": 6,
+      "title": "饮食、烹饪、餐厅与购物",
+      "description": "建立实用的食品词汇库，能买到所需物品、点餐并付款。",
+      "a1_bridge": "建立实用的食品词汇库，能买到所需物品、点餐并付款。",
+      "a2_bridge": "A2 将升级为读菜谱、比较优惠、处理退换货、完整用餐和在线购物。",
+      "completion_criteria": [
+        "能按数量购买食品、理解价格并付款。",
+        "能在餐厅完成简短点餐和结账。"
+      ],
+      "units": [
+        {
+          "id": "A1-B06-U01",
+          "number": 1,
+          "title": "基础食品",
+          "outline": [
+            {
+              "id": "A1-B06-U01-P01",
+              "text": "面包、米饭、面食、肉、蛋、奶、奶酪、黄油等。"
+            },
+            {
+              "id": "A1-B06-U01-P02",
+              "text": "说出早餐、午餐、晚餐通常吃什么。"
+            },
+            {
+              "id": "A1-B06-U01-P03",
+              "text": "结合冠词和复数记录高频食品名词。"
+            }
+          ],
+          "source_page_start": 9,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B06-U02",
+          "number": 2,
+          "title": "水果与蔬菜",
+          "outline": [
+            {
+              "id": "A1-B06-U02-P01",
+              "text": "积累生活中常买的水果、蔬菜与超市标签。"
+            },
+            {
+              "id": "A1-B06-U02-P02",
+              "text": "说出喜欢或不喜欢的种类、买多少。"
+            },
+            {
+              "id": "A1-B06-U02-P03",
+              "text": "根据个人饮食扩充词汇，无须追求穷尽品种。"
+            }
+          ],
+          "source_page_start": 9,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B06-U03",
+          "number": 3,
+          "title": "肉类、乳制品与其他食品",
+          "outline": [
+            {
+              "id": "A1-B06-U03-P01",
+              "text": "鸡肉、牛肉、猪肉、鱼、酸奶和常见乳制品。"
+            },
+            {
+              "id": "A1-B06-U03-P02",
+              "text": "用简单问题确认是否有某种食材。"
+            },
+            {
+              "id": "A1-B06-U03-P03",
+              "text": "描述自己通常买什么、不能或不想吃什么。"
+            }
+          ],
+          "source_page_start": 9,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B06-U04",
+          "number": 4,
+          "title": "饮料",
+          "outline": [
+            {
+              "id": "A1-B06-U04-P01",
+              "text": "水、茶、咖啡、果汁、牛奶等。"
+            },
+            {
+              "id": "A1-B06-U04-P02",
+              "text": "询问和回答想喝什么、冷热与数量。"
+            },
+            {
+              "id": "A1-B06-U04-P03",
+              "text": "在咖啡馆下一个最简单的饮料订单。"
+            }
+          ],
+          "source_page_start": 9,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B06-U05",
+          "number": 5,
+          "title": "味道与饮食偏好",
+          "outline": [
+            {
+              "id": "A1-B06-U05-P01",
+              "text": "süß、salzig、sauer、scharf、lecker 等。"
+            },
+            {
+              "id": "A1-B06-U05-P02",
+              "text": "说出喜好、能吃辣与否、想吃什么。"
+            },
+            {
+              "id": "A1-B06-U05-P03",
+              "text": "对一顿饭给出一两句简单评价。"
+            }
+          ],
+          "source_page_start": 9,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B06-U06",
+          "number": 6,
+          "title": "厨房用品",
+          "outline": [
+            {
+              "id": "A1-B06-U06-P01",
+              "text": "锅、刀、叉、勺、盘、碗、杯子等。"
+            },
+            {
+              "id": "A1-B06-U06-P02",
+              "text": "指出用品在哪里、做饭需要什么。"
+            },
+            {
+              "id": "A1-B06-U06-P03",
+              "text": "用图片建立物品与名称的对应关系。"
+            }
+          ],
+          "source_page_start": 9,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B06-U07",
+          "number": 7,
+          "title": "基础烹饪动作",
+          "outline": [
+            {
+              "id": "A1-B06-U07-P01",
+              "text": "schneiden、kochen、braten、backen、essen、trinken。"
+            },
+            {
+              "id": "A1-B06-U07-P02",
+              "text": "用短句描述做一道熟悉食物的大致动作。"
+            },
+            {
+              "id": "A1-B06-U07-P03",
+              "text": "复杂菜谱和连续步骤说明留到 A2。"
+            }
+          ],
+          "source_page_start": 9,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B06-U08",
+          "number": 8,
+          "title": "超市购物",
+          "outline": [
+            {
+              "id": "A1-B06-U08-P01",
+              "text": "在超市找商品、问价格和数量、到收银台结账。"
+            },
+            {
+              "id": "A1-B06-U08-P02",
+              "text": "听懂最常见的价格与收银问句。"
+            },
+            {
+              "id": "A1-B06-U08-P03",
+              "text": "从简短购物清单中买齐几样商品。"
+            }
+          ],
+          "source_page_start": 10,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B06-U09",
+          "number": 9,
+          "title": "数量、包装与计量单位",
+          "outline": [
+            {
+              "id": "A1-B06-U09-P01",
+              "text": "ein Kilo、500 Gramm、eine Flasche、eine Packung、eine Dose、ein Stück。"
+            },
+            {
+              "id": "A1-B06-U09-P02",
+              "text": "按需要说出数量和包装规格。"
+            },
+            {
+              "id": "A1-B06-U09-P03",
+              "text": "读懂货架标签中的价格、单位和基本重量。"
+            }
+          ],
+          "source_page_start": 10,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B06-U10",
+          "number": 10,
+          "title": "付款",
+          "outline": [
+            {
+              "id": "A1-B06-U10-P01",
+              "text": "现金、银行卡、价格、找零、收据。"
+            },
+            {
+              "id": "A1-B06-U10-P02",
+              "text": "询问能否刷卡、确认总价并完成付款。"
+            },
+            {
+              "id": "A1-B06-U10-P03",
+              "text": "认识日常付款后的高频回应。"
+            }
+          ],
+          "source_page_start": 10,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B06-U11",
+          "number": 11,
+          "title": "餐厅、咖啡馆与点餐",
+          "outline": [
+            {
+              "id": "A1-B06-U11-P01",
+              "text": "看菜单，点主食、饮料与甜点。"
+            },
+            {
+              "id": "A1-B06-U11-P02",
+              "text": "向服务员确认菜品、请求买单。"
+            },
+            {
+              "id": "A1-B06-U11-P03",
+              "text": "用简单句评价食物；订位、投诉和复杂配料询问留到 A2。"
+            }
+          ],
+          "source_page_start": 10,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        }
+      ],
+      "source_page_start": 9,
+      "source_page_end": 10
+    },
+    {
+      "id": "A1-B07",
+      "number": 7,
+      "title": "交通、旅行与外出活动",
+      "description": "读懂基本出行信息，买票、找站台、作简单换乘与住宿沟通。",
+      "a1_bridge": "读懂基本出行信息，买票、找站台、作简单换乘与住宿沟通。",
+      "a2_bridge": "A2 将处理延误、取消、错过连接车、完整机场流程和住宿问题。",
+      "completion_criteria": [
+        "能读一张简短时刻表，确认车次、时间与站台。",
+        "能完成购票、问路和最基础的住宿问答。"
+      ],
+      "units": [
+        {
+          "id": "A1-B07-U01",
+          "number": 1,
+          "title": "交通工具",
+          "outline": [
+            {
+              "id": "A1-B07-U01-P01",
+              "text": "公交、火车、地铁、城铁、自行车、汽车、飞机等。"
+            },
+            {
+              "id": "A1-B07-U01-P02",
+              "text": "说通常怎么上学或上班、想坐哪种交通工具。"
+            },
+            {
+              "id": "A1-B07-U01-P03",
+              "text": "识别交通图中的简单图标与线路名称。"
+            }
+          ],
+          "source_page_start": 10,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B07-U02",
+          "number": 2,
+          "title": "车站与基础交通设施",
+          "outline": [
+            {
+              "id": "A1-B07-U02-P01",
+              "text": "Bahnhof、Haltestelle、Gleis、Flughafen、Ticketautomat。"
+            },
+            {
+              "id": "A1-B07-U02-P02",
+              "text": "问车站、站台或售票机在哪里。"
+            },
+            {
+              "id": "A1-B07-U02-P03",
+              "text": "从站内标识中找到基础设施。"
+            }
+          ],
+          "source_page_start": 10,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B07-U03",
+          "number": 3,
+          "title": "车票与购票",
+          "outline": [
+            {
+              "id": "A1-B07-U03-P01",
+              "text": "单程、往返、目的地、出发时间与票价。"
+            },
+            {
+              "id": "A1-B07-U03-P02",
+              "text": "在售票处或机器上寻找简单票种。"
+            },
+            {
+              "id": "A1-B07-U03-P03",
+              "text": "用短句确认“去哪里、几张票、什么时候”。"
+            }
+          ],
+          "source_page_start": 11,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B07-U04",
+          "number": 4,
+          "title": "时刻表",
+          "outline": [
+            {
+              "id": "A1-B07-U04-P01",
+              "text": "Abfahrt、Ankunft、Uhrzeit、Gleis 等。"
+            },
+            {
+              "id": "A1-B07-U04-P02",
+              "text": "在一张简短时刻表中找到出发、到达与站台。"
+            },
+            {
+              "id": "A1-B07-U04-P03",
+              "text": "对照自己的计划确认是否赶得上。"
+            }
+          ],
+          "source_page_start": 11,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B07-U05",
+          "number": 5,
+          "title": "路线与换乘基础",
+          "outline": [
+            {
+              "id": "A1-B07-U05-P01",
+              "text": "从哪里出发、到哪里、坐哪辆车、在哪里换乘。"
+            },
+            {
+              "id": "A1-B07-U05-P02",
+              "text": "用地图完成一段含一次换乘的简单路线。"
+            },
+            {
+              "id": "A1-B07-U05-P03",
+              "text": "复杂的延误、改签和错过车次留到 A2。"
+            }
+          ],
+          "source_page_start": 11,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B07-U06",
+          "number": 6,
+          "title": "旅行物品与行李",
+          "outline": [
+            {
+              "id": "A1-B07-U06-P01",
+              "text": "Koffer、Tasche、Rucksack、Pass、Ticket。"
+            },
+            {
+              "id": "A1-B07-U06-P02",
+              "text": "说出旅行需要带什么，询问行李在哪里。"
+            },
+            {
+              "id": "A1-B07-U06-P03",
+              "text": "用清单检查证件、车票和行李。"
+            }
+          ],
+          "source_page_start": 11,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B07-U07",
+          "number": 7,
+          "title": "机场基础",
+          "outline": [
+            {
+              "id": "A1-B07-U07-P01",
+              "text": "Flughafen、Check-in、Gepäck、Gate、Flug。"
+            },
+            {
+              "id": "A1-B07-U07-P02",
+              "text": "辨认机场标识与航班上的基本信息。"
+            },
+            {
+              "id": "A1-B07-U07-P03",
+              "text": "A1 只建立词汇和一句话求助能力。"
+            }
+          ],
+          "source_page_start": 11,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B07-U08",
+          "number": 8,
+          "title": "酒店与住宿基础",
+          "outline": [
+            {
+              "id": "A1-B07-U08-P01",
+              "text": "Hotel、Zimmer、Reservierung、Frühstück、Schlüssel。"
+            },
+            {
+              "id": "A1-B07-U08-P02",
+              "text": "说出姓名、确认是否预订、有无早餐。"
+            },
+            {
+              "id": "A1-B07-U08-P03",
+              "text": "完成最简单的入住问答；住宿投诉留到 A2。"
+            }
+          ],
+          "source_page_start": 11,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B07-U09",
+          "number": 9,
+          "title": "旅游与景点",
+          "outline": [
+            {
+              "id": "A1-B07-U09-P01",
+              "text": "Sehenswürdigkeit、Museum、Park、Stadtzentrum、Ticket。"
+            },
+            {
+              "id": "A1-B07-U09-P02",
+              "text": "说想去哪里、什么时候去、门票多少钱。"
+            },
+            {
+              "id": "A1-B07-U09-P03",
+              "text": "根据开放时间选择简单的外出活动。"
+            }
+          ],
+          "source_page_start": 11,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        }
+      ],
+      "source_page_start": 10,
+      "source_page_end": 11
+    },
+    {
+      "id": "A1-B08",
+      "number": 8,
+      "title": "身体、健康、通信与基础工作",
+      "description": "把基本身体状况说清楚，能接电话、写短消息、填资料，并认识基础工作环境。",
+      "a1_bridge": "把基本身体状况说清楚，能接电话、写短消息、填资料，并认识基础工作环境。",
+      "a2_bridge": "A2 把这些入口拆分为健康就医、通信办事和工作实习，再发展为更完整的生活任务。",
+      "completion_criteria": [
+        "能向他人说明基础症状，并完成简短电话或消息沟通。",
+        "能填写个人资料，用数句介绍工作地点和简单任务。"
+      ],
+      "units": [
+        {
+          "id": "A1-B08-U01",
+          "number": 1,
+          "title": "身体部位",
+          "outline": [
+            {
+              "id": "A1-B08-U01-P01",
+              "text": "头、脸、眼、耳、口、喉、背、手臂、手、腹、腿、脚。"
+            },
+            {
+              "id": "A1-B08-U01-P02",
+              "text": "指出哪里不舒服，听懂医生对身体部位的简单询问。"
+            },
+            {
+              "id": "A1-B08-U01-P03",
+              "text": "优先掌握高频部位，不追求医学术语。"
+            }
+          ],
+          "source_page_start": 12,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B08-U02",
+          "number": 2,
+          "title": "常见身体状态与症状",
+          "outline": [
+            {
+              "id": "A1-B08-U02-P01",
+              "text": "müde、krank、Schmerzen、Fieber、Husten、Erkältung。"
+            },
+            {
+              "id": "A1-B08-U02-P02",
+              "text": "说出“我不舒服”“我发烧了”“这里疼”。"
+            },
+            {
+              "id": "A1-B08-U02-P03",
+              "text": "用简单问答说明现在的状态。"
+            }
+          ],
+          "source_page_start": 12,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B08-U03",
+          "number": 3,
+          "title": "医生与诊所",
+          "outline": [
+            {
+              "id": "A1-B08-U03-P01",
+              "text": "认识 Arzt、Praxis、Termin 等基础词。"
+            },
+            {
+              "id": "A1-B08-U03-P02",
+              "text": "向诊所说出姓名与哪里不舒服，回答简单问题。"
+            },
+            {
+              "id": "A1-B08-U03-P03",
+              "text": "医生预约、症状持续时间与检查流程留到 A2。"
+            }
+          ],
+          "source_page_start": 12,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B08-U04",
+          "number": 4,
+          "title": "药店与药品基础",
+          "outline": [
+            {
+              "id": "A1-B08-U04-P01",
+              "text": "Apotheke、Medikament、Tablette、Rezept。"
+            },
+            {
+              "id": "A1-B08-U04-P02",
+              "text": "说自己需要什么、询问在哪里可以买到。"
+            },
+            {
+              "id": "A1-B08-U04-P03",
+              "text": "读懂药品说明中的少量高频词；具体用法须以专业指导为准。"
+            }
+          ],
+          "source_page_start": 12,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B08-U05",
+          "number": 5,
+          "title": "电话交流",
+          "outline": [
+            {
+              "id": "A1-B08-U05-P01",
+              "text": "接电话、自我介绍、请求找某人。"
+            },
+            {
+              "id": "A1-B08-U05-P02",
+              "text": "没听清时请求重复或放慢，核对名字和电话号码。"
+            },
+            {
+              "id": "A1-B08-U05-P03",
+              "text": "礼貌结束一次简短通话。"
+            }
+          ],
+          "source_page_start": 12,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B08-U06",
+          "number": 6,
+          "title": "邮件与消息",
+          "outline": [
+            {
+              "id": "A1-B08-U06-P01",
+              "text": "称呼、1-3 句内容、时间地点、感谢与结尾。"
+            },
+            {
+              "id": "A1-B08-U06-P02",
+              "text": "发简短消息确认见面或课程信息。"
+            },
+            {
+              "id": "A1-B08-U06-P03",
+              "text": "阅读一封非常短的通知，找到关键时间和地点。"
+            }
+          ],
+          "source_page_start": 12,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B08-U07",
+          "number": 7,
+          "title": "表格与个人资料",
+          "outline": [
+            {
+              "id": "A1-B08-U07-P01",
+              "text": "Name、Vorname、Nachname、Geburtsdatum、Geburtsort。"
+            },
+            {
+              "id": "A1-B08-U07-P02",
+              "text": "Adresse、Telefonnummer、E-Mail、Staatsangehörigkeit。"
+            },
+            {
+              "id": "A1-B08-U07-P03",
+              "text": "用真实或模拟信息填写常见个人资料表并检查拼写。"
+            }
+          ],
+          "source_page_start": 12,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B08-U08",
+          "number": 8,
+          "title": "公司、部门与工作场所",
+          "outline": [
+            {
+              "id": "A1-B08-U08-P01",
+              "text": "Firma、Büro、Fabrik、Geschäft、Abteilung。"
+            },
+            {
+              "id": "A1-B08-U08-P02",
+              "text": "说出自己在哪类场所、哪个部门学习或工作。"
+            },
+            {
+              "id": "A1-B08-U08-P03",
+              "text": "认识日常工作环境的少量高频标识。"
+            }
+          ],
+          "source_page_start": 12,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B08-U09",
+          "number": 9,
+          "title": "职位与工作内容",
+          "outline": [
+            {
+              "id": "A1-B08-U09-P01",
+              "text": "常见职业、工作地点、时间和简单任务。"
+            },
+            {
+              "id": "A1-B08-U09-P02",
+              "text": "用一两句介绍自己的实习或工作，如 Ich arbeite im Büro.。"
+            },
+            {
+              "id": "A1-B08-U09-P03",
+              "text": "不提前训练复杂简历或职业面试长回答。"
+            }
+          ],
+          "source_page_start": 13,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        },
+        {
+          "id": "A1-B08-U10",
+          "number": 10,
+          "title": "基础办公室交流",
+          "outline": [
+            {
+              "id": "A1-B08-U10-P01",
+              "text": "电脑、电话、文件、邮件、打印、开会等。"
+            },
+            {
+              "id": "A1-B08-U10-P02",
+              "text": "询问物品在哪里、简单说明正在做什么。"
+            },
+            {
+              "id": "A1-B08-U10-P03",
+              "text": "听不懂任务时使用礼貌的重复与确认表达。"
+            }
+          ],
+          "source_page_start": 13,
+          "content_status": "outline_only",
+          "course_links": [],
+          "quest_links": []
+        }
+      ],
+      "source_page_start": 11,
+      "source_page_end": 13
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "deutschlab",
+  "productName": "DeutschLab",
+  "version": "0.3.0",
+  "private": true,
+  "description": "个人使用、本地优先的德语学习工作台",
+  "type": "module",
+  "main": "dist/main/index.cjs",
+  "scripts": {
+    "postinstall": "node node_modules/electron/install.js",
+    "dev": "node scripts/dev.mjs",
+    "build": "npm run typecheck && vite build && node scripts/build-electron.mjs",
+    "typecheck": "tsc --noEmit",
+    "start": "npm run build && node scripts/start.mjs",
+    "package": "npm run build && node scripts/package.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "test:desktop": "playwright test",
+    "preview": "vite --host 127.0.0.1"
+  },
+  "engines": {
+    "node": ">=24.14.0"
+  },
+  "dependencies": {
+    "lucide-react": "1.56.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router-dom": "7.18.4"
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "@playwright/test": "1.64.0",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "electron": "44.7.0",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2",
+    "vite": "8.3.4"
+  }
+}

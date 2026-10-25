@@ -1,0 +1,71 @@
+{
+  "packId": "deutschlab.demo.shell",
+  "packVersion": "1.0.0",
+  "schemaVersion": 1,
+  "isDemo": true,
+  "source": "DeutschLab 原创界面演示，不是 Studio21 教材章节或真实自学框架。",
+  "units": [
+    {
+      "id": "demo.course.first-contact", "revision": "1", "level": "A1", "number": "01",
+      "title": "第一句，Hallo", "germanTitle": "Hallo, ich bin …", "category": "认识与问候",
+      "description": "从一声问候开始，认识彼此，尝试介绍自己的名字与来处。",
+      "objectives": ["了解常见问候与告别表达", "认识简单的自我介绍句式", "观察 ich 与 du 的动词形式"],
+      "vocabulary": ["hallo", "der Name", "kommen", "heißen"],
+      "grammar": ["人称代词 ich / du", "heißen 与 kommen 的简单形式"],
+      "topicIds": ["demo.topic.introductions"], "knowledgeIds": ["demo.knowledge.greeting", "demo.knowledge.verb"],
+      "questIds": ["demo.quest.bakery"]
+    },
+    {
+      "id": "demo.course.simple-order", "revision": "1", "level": "A1", "number": "02",
+      "title": "一份日常，小小的愿望", "germanTitle": "Ein Brötchen, bitte.", "category": "简单生活交流",
+      "description": "以面包房为演示情境，认识物品名称与简单、礼貌的请求。",
+      "objectives": ["认识简单食品词汇", "了解 bitte 与 danke 的使用场合", "观察名词与冠词的搭配"],
+      "vocabulary": ["das Brötchen", "das Brot", "bitte", "danke"],
+      "grammar": ["名词与冠词的基本搭配", "简单请求的表达结构"],
+      "topicIds": ["demo.topic.daily-life"], "knowledgeIds": ["demo.knowledge.politeness", "demo.knowledge.greeting"],
+      "questIds": ["demo.quest.bakery"]
+    }
+  ],
+  "topics": [
+    {
+      "id": "demo.topic.introductions", "revision": "1", "level": "A1", "block": "人与交流", "number": "01",
+      "title": "认识彼此", "germanTitle": "Sich kennenlernen",
+      "description": "将问候、自我介绍和礼貌交流放进一个小小的交际场景。",
+      "chapters": ["从问候开始", "名字与来处", "礼貌地开启对话"],
+      "notes": "这是原创专题结构示例，尚未映射用户的真实 A1/A2 自学框架。",
+      "unitIds": ["demo.course.first-contact"], "questIds": ["demo.quest.bakery"],
+      "knowledgeIds": ["demo.knowledge.greeting", "demo.knowledge.verb"]
+    },
+    {
+      "id": "demo.topic.daily-life", "revision": "1", "level": "A1", "block": "日常生活", "number": "02",
+      "title": "生活里的小对话", "germanTitle": "Deutsch im Alltag",
+      "description": "观察物品、数量与礼貌请求，准备走进面包房的第一段对话。",
+      "chapters": ["认识日常物品", "提出一个简单请求", "表达感谢与结束对话"],
+      "notes": "基础造句将在后续阶段训练词形、语序、冠词与格；与表达深化分别实现。",
+      "unitIds": ["demo.course.simple-order"], "questIds": ["demo.quest.bakery"],
+      "knowledgeIds": ["demo.knowledge.politeness", "demo.knowledge.greeting"]
+    }
+  ],
+  "quests": [
+    {
+      "id": "demo.quest.bakery", "revision": "1", "level": "A1", "category": "parallel-life",
+      "title": "清晨的面包房", "germanTitle": "Ein Morgen in der Bäckerei",
+      "description": "推开街角面包房的门，从一句 Guten Morgen 开始。一个关于问候、请求与感谢的生活场景。",
+      "location": "街角面包房", "npc": "店员 · Anna", "sceneLabel": "原创场景预览",
+      "goals": ["礼貌地问候店员", "提出简单的购买请求", "表达感谢与告别"],
+      "npcLine": "Guten Morgen! Was möchten Sie?",
+      "topicIds": ["demo.topic.introductions", "demo.topic.daily-life"],
+      "knowledgeIds": ["demo.knowledge.greeting", "demo.knowledge.politeness"]
+    }
+  ],
+  "knowledge": [
+    { "id": "demo.knowledge.greeting", "title": "问候与告别", "germanTitle": "Begrüßung", "kind": "表达", "description": "把常见问候放进合适的日常情境。", "unitIds": ["demo.course.first-contact", "demo.course.simple-order"] },
+    { "id": "demo.knowledge.verb", "title": "ich 与 du 的动词形式", "germanTitle": "Verbformen", "kind": "语法", "description": "观察人称与动词形式的关系。", "unitIds": ["demo.course.first-contact"] },
+    { "id": "demo.knowledge.politeness", "title": "礼貌的小词", "germanTitle": "Bitte & danke", "kind": "词汇", "description": "认识请求与感谢里的常用表达。", "unitIds": ["demo.course.simple-order"] }
+  ],
+  "skills": [
+    { "id": "demo.skill.introduce", "title": "简单地介绍自己", "branch": "人与交流" },
+    { "id": "demo.skill.request", "title": "提出简单的请求", "branch": "日常生活" },
+    { "id": "demo.skill.politeness", "title": "使用基本礼貌表达", "branch": "交际策略" }
+  ]
+}

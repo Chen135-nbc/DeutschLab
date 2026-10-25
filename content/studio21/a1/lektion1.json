@@ -1,0 +1,1131 @@
+{
+  "packId": "deutschlab.studio21.a1.lektion1",
+  "packVersion": "1.0.0",
+  "schemaVersion": 1,
+  "source": {
+    "kind": "user-provided-course-outline",
+    "textbook": "Studio21 A1",
+    "pages": "16–31",
+    "note": "内容依据本次任务的课程概要；知识解释、例句和题目为 DeutschLab 原创。未复刻教材原题、对话或听力。"
+  },
+  "unit": {
+    "id": "studio21.a1.lektion1",
+    "level": "A1",
+    "number": "Lektion 1",
+    "title": "Kaffee oder Tee?",
+    "chineseTitle": "咖啡还是茶？",
+    "pages": "16–31",
+    "teachingPages": "16–23",
+    "practicePages": "24–30",
+    "reviewPage": "31",
+    "sections": [
+      {
+        "id": "im-cafe",
+        "title": "Im Café",
+        "pages": "16–17",
+        "summary": "问候、介绍自己，并在咖啡馆提出简单礼貌的请求。",
+        "cardIds": [
+          "studio21.a1.lektion1.card.greeting",
+          "studio21.a1.lektion1.card.address",
+          "studio21.a1.lektion1.card.drinks",
+          "studio21.a1.lektion1.card.request"
+        ],
+        "exerciseIds": [
+          "studio21.a1.lektion1.question.s1-match",
+          "studio21.a1.lektion1.question.s1-drink",
+          "studio21.a1.lektion1.question.s1-address",
+          "studio21.a1.lektion1.question.s1-request"
+        ],
+        "frameworkLinks": [
+          "A1-B01-U02",
+          "A1-B01-U04",
+          "A1-B01-U06",
+          "A1-B06-U04",
+          "A1-B06-U11"
+        ]
+      },
+      {
+        "id": "wer-woher-was",
+        "title": "Wer? Woher? Was?",
+        "pages": "18–19",
+        "summary": "认识人称、动词形式以及最基础的德语问句。",
+        "cardIds": [
+          "studio21.a1.lektion1.card.pronouns",
+          "studio21.a1.lektion1.card.regular-verbs",
+          "studio21.a1.lektion1.card.sein",
+          "studio21.a1.lektion1.card.questions",
+          "studio21.a1.lektion1.card.preferences",
+          "studio21.a1.lektion1.card.stress"
+        ],
+        "exerciseIds": [
+          "studio21.a1.lektion1.question.s2-pronoun",
+          "studio21.a1.lektion1.question.s2-verb",
+          "studio21.a1.lektion1.question.s2-sein",
+          "studio21.a1.lektion1.question.s2-question",
+          "studio21.a1.lektion1.question.s2-preference",
+          "studio21.a1.lektion1.question.s2-stress"
+        ],
+        "frameworkLinks": [
+          "A1-B01-U01",
+          "A1-B01-U06",
+          "A1-B01-U07",
+          "A1-B06-U05"
+        ]
+      },
+      {
+        "id": "zahlen",
+        "title": "Zahlen und zählen",
+        "pages": "20–21",
+        "summary": "识读数字，并理解十位与个位的组合顺序。",
+        "cardIds": [
+          "studio21.a1.lektion1.card.numbers-basic",
+          "studio21.a1.lektion1.card.numbers-pattern",
+          "studio21.a1.lektion1.card.hundreds",
+          "studio21.a1.lektion1.card.numbers-pitfalls"
+        ],
+        "exerciseIds": [
+          "studio21.a1.lektion1.question.s3-numeral",
+          "studio21.a1.lektion1.question.s3-spell",
+          "studio21.a1.lektion1.question.s3-pattern",
+          "studio21.a1.lektion1.question.s3-hundred"
+        ],
+        "frameworkLinks": [
+          "A1-B03-U01"
+        ]
+      },
+      {
+        "id": "telefon-rechnung",
+        "title": "Telefonnummern und Rechnungen",
+        "pages": "22–23",
+        "summary": "交换电话号码，读懂简单价格并礼貌结账。",
+        "cardIds": [
+          "studio21.a1.lektion1.card.phone",
+          "studio21.a1.lektion1.card.prices",
+          "studio21.a1.lektion1.card.paying",
+          "studio21.a1.lektion1.card.bill"
+        ],
+        "exerciseIds": [
+          "studio21.a1.lektion1.question.s4-phone",
+          "studio21.a1.lektion1.question.s4-price",
+          "studio21.a1.lektion1.question.s4-paying",
+          "studio21.a1.lektion1.question.s4-bill"
+        ],
+        "frameworkLinks": [
+          "A1-B01-U05",
+          "A1-B03-U01",
+          "A1-B06-U10",
+          "A1-B06-U11"
+        ]
+      }
+    ],
+    "assessmentIds": [
+      "studio21.a1.lektion1.question.test-greeting",
+      "studio21.a1.lektion1.question.test-drink",
+      "studio21.a1.lektion1.question.test-verb",
+      "studio21.a1.lektion1.question.test-sein",
+      "studio21.a1.lektion1.question.test-number",
+      "studio21.a1.lektion1.question.test-phone",
+      "studio21.a1.lektion1.question.test-price",
+      "studio21.a1.lektion1.question.test-paying",
+      "studio21.a1.lektion1.question.test-bill"
+    ]
+  },
+  "cards": [
+    {
+      "id": "studio21.a1.lektion1.card.greeting",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "im-cafe",
+      "level": "A1",
+      "title": "问候与自我介绍",
+      "category": "交际知识",
+      "learningStatus": "new",
+      "core": [
+        "Hallo. / Guten Tag.",
+        "Ich heiße … / Ich bin …",
+        "Wie heißen Sie?"
+      ],
+      "explanation": "初次见面可用礼貌问候和一句短介绍；正式场合用 Sie。",
+      "example": "Guten Tag. Ich heiße Mia.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.address"
+      ],
+      "sourcePages": "16–17",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.address",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "im-cafe",
+      "level": "A1",
+      "title": "正式 Sie 与非正式 du",
+      "category": "语法知识",
+      "learningStatus": "new",
+      "core": [
+        "Sie：正式称呼，首字母大写",
+        "du：熟悉的人之间",
+        "Wie heißen Sie? / Wie heißt du?"
+      ],
+      "explanation": "向陌生成年人或服务人员通常用 Sie；同龄熟人可用 du。",
+      "example": "Entschuldigung, wie heißen Sie?",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.greeting"
+      ],
+      "sourcePages": "16–17",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.drinks",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "im-cafe",
+      "level": "A1",
+      "title": "常见饮料",
+      "category": "主题词汇",
+      "learningStatus": "new",
+      "core": [
+        "der Kaffee",
+        "der Tee",
+        "das Wasser"
+      ],
+      "explanation": "饮料词连同冠词一起记忆；点饮品时注意表达中的形式。",
+      "example": "Ich trinke heute Tee.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.request"
+      ],
+      "sourcePages": "16–17",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.request",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "im-cafe",
+      "level": "A1",
+      "title": "询问饮品与礼貌请求",
+      "category": "常用表达",
+      "learningStatus": "new",
+      "core": [
+        "Was trinken Sie?",
+        "Ich möchte einen Kaffee, bitte.",
+        "Danke."
+      ],
+      "explanation": "möchte 先作为礼貌表达使用；这里不展开高阶语法。",
+      "example": "Ich möchte einen Tee, bitte.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.drinks"
+      ],
+      "sourcePages": "16–17",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.pronouns",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "wer-woher-was",
+      "level": "A1",
+      "title": "人称代词",
+      "category": "语法知识",
+      "learningStatus": "new",
+      "core": [
+        "ich · du · er/sie/es",
+        "wir · ihr · sie/Sie"
+      ],
+      "explanation": "人称决定动词词尾；正式 Sie 与复数 sie 同形，但书写时首字母大写。",
+      "example": "Wir kommen aus Berlin.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.regular-verbs"
+      ],
+      "sourcePages": "18–19",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.regular-verbs",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "wer-woher-was",
+      "level": "A1",
+      "title": "规则动词现在时",
+      "category": "语法知识",
+      "learningStatus": "new",
+      "core": [
+        "ich -e · du -st · er/sie/es -t",
+        "wir -en · ihr -t · sie/Sie -en",
+        "heißen：du heißt（词干末尾已有 ß）"
+      ],
+      "explanation": "先掌握常见规律，再留意 heißen 等个别词形。",
+      "example": "Du kommst aus Hamburg.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.pronouns"
+      ],
+      "sourcePages": "18–19",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.sein",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "wer-woher-was",
+      "level": "A1",
+      "title": "sein 的现在时",
+      "category": "语法知识",
+      "learningStatus": "new",
+      "core": [
+        "ich bin · du bist · er/sie/es ist",
+        "wir sind · ihr seid · sie/Sie sind"
+      ],
+      "explanation": "sein 不按规则动词词尾直接变化，需要单独记忆。",
+      "example": "Wir sind heute im Café.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.pronouns"
+      ],
+      "sourcePages": "18–19",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.questions",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "wer-woher-was",
+      "level": "A1",
+      "title": "陈述句与疑问句",
+      "category": "语法知识",
+      "learningStatus": "new",
+      "core": [
+        "陈述句：动词通常在第二位",
+        "W-Frage：疑问词 + 动词 + 主语",
+        "一般疑问句：动词 + 主语"
+      ],
+      "explanation": "比较 Woher kommen Sie? 与 Kommen Sie aus Berlin? 的词序。",
+      "example": "Woher kommen Sie?",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.regular-verbs"
+      ],
+      "sourcePages": "18–19",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.preferences",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "wer-woher-was",
+      "level": "A1",
+      "title": "饮品偏好与简单搭配",
+      "category": "常用表达",
+      "learningStatus": "new",
+      "core": [
+        "gern：喜欢；lieber：更喜欢",
+        "mit：带有；ohne：不带",
+        "viel：多；wenig：少"
+      ],
+      "explanation": "先用于简单饮品偏好表达，不要求复杂句型。",
+      "example": "Ich trinke lieber Tee ohne Zucker.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.drinks"
+      ],
+      "sourcePages": "18–19",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.stress",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "wer-woher-was",
+      "level": "A1",
+      "title": "词重音基础",
+      "category": "发音知识",
+      "learningStatus": "recognition",
+      "core": [
+        "观察词中更突出的音节",
+        "先听清并模仿熟悉词的重音"
+      ],
+      "explanation": "不同词有不同重音；这张卡只训练辨识意识，不以书面规则代替听辨。",
+      "example": "Kaffee：重音在第一音节（KAF-fee）。",
+      "relatedIds": [],
+      "sourcePages": "18–19",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.numbers-basic",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "zahlen",
+      "level": "A1",
+      "title": "基础数字",
+      "category": "主题词汇",
+      "learningStatus": "reinforce",
+      "core": [
+        "eins、zwei、drei、vier、fünf",
+        "zehn、zwanzig、dreißig"
+      ],
+      "explanation": "先确保能识读常见个位和整十。",
+      "example": "Ich habe zwei Bücher.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.numbers-pattern"
+      ],
+      "sourcePages": "20–21",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.numbers-pattern",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "zahlen",
+      "level": "A1",
+      "title": "个位与十位组合",
+      "category": "语法知识",
+      "learningStatus": "new",
+      "core": [
+        "21：einundzwanzig",
+        "24：vierundzwanzig",
+        "35：fünfunddreißig"
+      ],
+      "explanation": "21—99（整十除外）先说个位，再说 und 和十位；21 的 eins 在组合中变为 ein。",
+      "example": "Vierundzwanzig ist 24.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.numbers-basic"
+      ],
+      "sourcePages": "20–21",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.hundreds",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "zahlen",
+      "level": "A1",
+      "title": "百位与千位",
+      "category": "主题词汇",
+      "learningStatus": "recognition",
+      "core": [
+        "100：hundert / einhundert",
+        "1000：tausend / eintausend",
+        "123：hundertdreiundzwanzig"
+      ],
+      "explanation": "本阶段以识读为主，先拆成百位、个位和十位部分。",
+      "example": "Einhundert Euro sind 100 Euro.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.numbers-pattern"
+      ],
+      "sourcePages": "20–21",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.numbers-pitfalls",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "zahlen",
+      "level": "A1",
+      "title": "数字易错点",
+      "category": "语法知识",
+      "learningStatus": "new",
+      "core": [
+        "30：dreißig",
+        "60：sechzig；70：siebzig",
+        "35：fünfunddreißig"
+      ],
+      "explanation": "区分常见拼写变化；书面练习保留 ä/ö/ü 与 ß。",
+      "example": "Fünfunddreißig ist 35.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.numbers-pattern"
+      ],
+      "sourcePages": "20–21",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.phone",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "telefon-rechnung",
+      "level": "A1",
+      "title": "电话号码与数字信息",
+      "category": "交际知识",
+      "learningStatus": "new",
+      "core": [
+        "Wie ist Ihre Telefonnummer?",
+        "号码可逐位清楚说出",
+        "0：null"
+      ],
+      "explanation": "电话号码是数字序列，不要把它误读为一个大整数。",
+      "example": "Meine Nummer ist null eins zwei drei.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.numbers-basic"
+      ],
+      "sourcePages": "22–23",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.prices",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "telefon-rechnung",
+      "level": "A1",
+      "title": "欧元金额与价格",
+      "category": "主题词汇",
+      "learningStatus": "new",
+      "core": [
+        "1 Euro · 2 Euro",
+        "50 Cent",
+        "3,50 €：drei Euro fünfzig"
+      ],
+      "explanation": "金额中逗号分隔欧元与分；此处只练简单静态例子。",
+      "example": "Der Tee kostet drei Euro fünfzig.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.numbers-pattern"
+      ],
+      "sourcePages": "22–23",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.paying",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "telefon-rechnung",
+      "level": "A1",
+      "title": "咖啡馆结账",
+      "category": "常用表达",
+      "learningStatus": "new",
+      "core": [
+        "Die Rechnung, bitte.",
+        "Zusammen oder getrennt?",
+        "Zusammen, bitte. / Getrennt, bitte."
+      ],
+      "explanation": "一起付款用 zusammen；分别付款用 getrennt。",
+      "example": "Wir zahlen getrennt, bitte.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.request"
+      ],
+      "sourcePages": "22–23",
+      "exampleSource": "DeutschLab 原创例句"
+    },
+    {
+      "id": "studio21.a1.lektion1.card.bill",
+      "unitId": "studio21.a1.lektion1",
+      "sectionId": "telefon-rechnung",
+      "level": "A1",
+      "title": "简单账单理解",
+      "category": "交际知识",
+      "learningStatus": "new",
+      "core": [
+        "看清饮品、数量和单价",
+        "总额 = 各项价格之和",
+        "核对欧元和分"
+      ],
+      "explanation": "先练最简单的两项加总；不把练习中的价格当作现实店价。",
+      "example": "Ein Tee kostet 2 €, ein Wasser 1 €. Zusammen sind das 3 €.",
+      "relatedIds": [
+        "studio21.a1.lektion1.card.prices",
+        "studio21.a1.lektion1.card.paying"
+      ],
+      "sourcePages": "22–23",
+      "exampleSource": "DeutschLab 原创例句"
+    }
+  ],
+  "questions": [
+    {
+      "id": "studio21.a1.lektion1.question.s1-match",
+      "sectionId": "im-cafe",
+      "knowledgeId": "studio21.a1.lektion1.card.greeting",
+      "type": "match",
+      "prompt": "将问句与合适的答句配对。",
+      "left": [
+        {
+          "id": "a",
+          "text": "Wie heißen Sie?"
+        },
+        {
+          "id": "b",
+          "text": "Woher kommen Sie?"
+        }
+      ],
+      "right": [
+        {
+          "id": "x",
+          "text": "Ich komme aus Bonn."
+        },
+        {
+          "id": "y",
+          "text": "Ich heiße Lara."
+        }
+      ],
+      "answer": [
+        "y",
+        "x"
+      ],
+      "explanation": "姓名对应 Ich heiße …；来源对应 Ich komme aus …。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s1-drink",
+      "sectionId": "im-cafe",
+      "knowledgeId": "studio21.a1.lektion1.card.drinks",
+      "type": "single",
+      "prompt": "“茶”对应哪个德语词？",
+      "options": [
+        {
+          "id": "a",
+          "text": "der Tee"
+        },
+        {
+          "id": "b",
+          "text": "der Kaffee"
+        },
+        {
+          "id": "c",
+          "text": "das Wasser"
+        },
+        {
+          "id": "d",
+          "text": "der Name"
+        }
+      ],
+      "answer": "a",
+      "explanation": "der Tee 是茶。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s1-address",
+      "sectionId": "im-cafe",
+      "knowledgeId": "studio21.a1.lektion1.card.address",
+      "type": "single",
+      "prompt": "第一次向陌生成年人询问姓名，选择哪个称呼？",
+      "options": [
+        {
+          "id": "a",
+          "text": "du"
+        },
+        {
+          "id": "b",
+          "text": "Sie"
+        }
+      ],
+      "answer": "b",
+      "explanation": "陌生成年人通常用正式称呼 Sie。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s1-request",
+      "sectionId": "im-cafe",
+      "knowledgeId": "studio21.a1.lektion1.card.request",
+      "type": "single",
+      "prompt": "在咖啡馆礼貌地要一杯咖啡，应选哪句？",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ich möchte einen Kaffee, bitte."
+        },
+        {
+          "id": "b",
+          "text": "Du heißt Kaffee."
+        },
+        {
+          "id": "c",
+          "text": "Woher Kaffee?"
+        }
+      ],
+      "answer": "a",
+      "explanation": "möchte …, bitte 是当前场景中的礼貌请求。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s2-pronoun",
+      "sectionId": "wer-woher-was",
+      "knowledgeId": "studio21.a1.lektion1.card.pronouns",
+      "type": "single",
+      "prompt": "“我们”对应哪个人称代词？",
+      "options": [
+        {
+          "id": "a",
+          "text": "ihr"
+        },
+        {
+          "id": "b",
+          "text": "wir"
+        },
+        {
+          "id": "c",
+          "text": "sie"
+        }
+      ],
+      "answer": "b",
+      "explanation": "wir 表示“我们”。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s2-verb",
+      "sectionId": "wer-woher-was",
+      "knowledgeId": "studio21.a1.lektion1.card.regular-verbs",
+      "type": "single",
+      "prompt": "填入正确形式：Du ___ aus Köln.",
+      "options": [
+        {
+          "id": "a",
+          "text": "komme"
+        },
+        {
+          "id": "b",
+          "text": "kommst"
+        },
+        {
+          "id": "c",
+          "text": "kommen"
+        }
+      ],
+      "answer": "b",
+      "explanation": "kommen 的 du 形式是 kommst。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s2-sein",
+      "sectionId": "wer-woher-was",
+      "knowledgeId": "studio21.a1.lektion1.card.sein",
+      "type": "fill",
+      "prompt": "填入 sein 的正确形式：Wir ___ im Café.",
+      "acceptedAnswers": [
+        "sind"
+      ],
+      "answer": "sind",
+      "hint": "请回想 sein 对应 wir 的形式。",
+      "explanation": "wir sind 是固定变位形式。",
+      "gradingRule": "trim-collapse-whitespace-casefold-preserve-umlauts-v1"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s2-question",
+      "sectionId": "wer-woher-was",
+      "knowledgeId": "studio21.a1.lektion1.card.questions",
+      "type": "order",
+      "prompt": "排列成一个询问来源的 W-Frage。",
+      "tokens": [
+        {
+          "id": "a",
+          "text": "Sie"
+        },
+        {
+          "id": "b",
+          "text": "kommen"
+        },
+        {
+          "id": "c",
+          "text": "Woher"
+        },
+        {
+          "id": "d",
+          "text": "?"
+        }
+      ],
+      "answer": [
+        "c",
+        "b",
+        "a",
+        "d"
+      ],
+      "explanation": "W-Frage 的基本次序是疑问词 + 动词 + 主语。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s2-preference",
+      "sectionId": "wer-woher-was",
+      "knowledgeId": "studio21.a1.lektion1.card.preferences",
+      "type": "single",
+      "prompt": "“我更喜欢喝茶”中“更喜欢”对应哪个词？",
+      "options": [
+        {
+          "id": "a",
+          "text": "gern"
+        },
+        {
+          "id": "b",
+          "text": "lieber"
+        },
+        {
+          "id": "c",
+          "text": "ohne"
+        }
+      ],
+      "answer": "b",
+      "explanation": "lieber 用于表达更偏好的选择。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s2-stress",
+      "sectionId": "wer-woher-was",
+      "knowledgeId": "studio21.a1.lektion1.card.stress",
+      "type": "single",
+      "prompt": "Kaffee 的重音通常落在哪个音节？",
+      "options": [
+        {
+          "id": "a",
+          "text": "第一音节 Kaf-"
+        },
+        {
+          "id": "b",
+          "text": "第二音节 -fee"
+        }
+      ],
+      "answer": "a",
+      "explanation": "Kaffee 的重音在第一音节。本题训练词重音辨识；实际学习仍应配合录播听辨。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s3-numeral",
+      "sectionId": "zahlen",
+      "knowledgeId": "studio21.a1.lektion1.card.numbers-pattern",
+      "type": "single",
+      "prompt": "vierundzwanzig 是哪个数字？",
+      "options": [
+        {
+          "id": "a",
+          "text": "42"
+        },
+        {
+          "id": "b",
+          "text": "24"
+        },
+        {
+          "id": "c",
+          "text": "14"
+        }
+      ],
+      "answer": "b",
+      "explanation": "vier + und + zwanzig，即 24。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s3-spell",
+      "sectionId": "zahlen",
+      "knowledgeId": "studio21.a1.lektion1.card.numbers-pattern",
+      "type": "fill",
+      "prompt": "把 35 写成德语词（完整拼写）。",
+      "acceptedAnswers": [
+        "fünfunddreißig"
+      ],
+      "answer": "fünfunddreißig",
+      "hint": "注意 ü 与 ß 的拼写。",
+      "explanation": "先说个位 fünf，再说 und，最后说 dreißig。",
+      "gradingRule": "trim-collapse-whitespace-casefold-preserve-umlauts-v1"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s3-pattern",
+      "sectionId": "zahlen",
+      "knowledgeId": "studio21.a1.lektion1.card.numbers-pitfalls",
+      "type": "single",
+      "prompt": "选择 70 的正确拼写。",
+      "options": [
+        {
+          "id": "a",
+          "text": "siebenzig"
+        },
+        {
+          "id": "b",
+          "text": "siebzig"
+        },
+        {
+          "id": "c",
+          "text": "siebzehn"
+        }
+      ],
+      "answer": "b",
+      "explanation": "70 写作 siebzig。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s3-hundred",
+      "sectionId": "zahlen",
+      "knowledgeId": "studio21.a1.lektion1.card.hundreds",
+      "type": "single",
+      "prompt": "einhundert 对应哪个数字？",
+      "options": [
+        {
+          "id": "a",
+          "text": "100"
+        },
+        {
+          "id": "b",
+          "text": "1000"
+        },
+        {
+          "id": "c",
+          "text": "110"
+        }
+      ],
+      "answer": "a",
+      "explanation": "einhundert 是 100；eintausend 是 1000。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s4-phone",
+      "sectionId": "telefon-rechnung",
+      "knowledgeId": "studio21.a1.lektion1.card.phone",
+      "type": "single",
+      "prompt": "电话号码逐位说出“0 1 2”，应选哪组？",
+      "options": [
+        {
+          "id": "a",
+          "text": "null eins zwei"
+        },
+        {
+          "id": "b",
+          "text": "zehn zwei"
+        },
+        {
+          "id": "c",
+          "text": "zwölf"
+        }
+      ],
+      "answer": "a",
+      "explanation": "电话号码按数字序列逐位说出，0 是 null。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s4-price",
+      "sectionId": "telefon-rechnung",
+      "knowledgeId": "studio21.a1.lektion1.card.prices",
+      "type": "single",
+      "prompt": "3,50 € 可如何简洁表达？",
+      "options": [
+        {
+          "id": "a",
+          "text": "drei Euro fünfzig"
+        },
+        {
+          "id": "b",
+          "text": "fünfzig Euro drei"
+        },
+        {
+          "id": "c",
+          "text": "drei Cent fünfzig"
+        }
+      ],
+      "answer": "a",
+      "explanation": "3,50 € 是三欧元五十分。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s4-paying",
+      "sectionId": "telefon-rechnung",
+      "knowledgeId": "studio21.a1.lektion1.card.paying",
+      "type": "single",
+      "prompt": "你们想分别付款，应说哪句？",
+      "options": [
+        {
+          "id": "a",
+          "text": "Zusammen, bitte."
+        },
+        {
+          "id": "b",
+          "text": "Getrennt, bitte."
+        },
+        {
+          "id": "c",
+          "text": "Guten Morgen."
+        }
+      ],
+      "answer": "b",
+      "explanation": "getrennt 表示分开付款。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.s4-bill",
+      "sectionId": "telefon-rechnung",
+      "knowledgeId": "studio21.a1.lektion1.card.bill",
+      "type": "single",
+      "prompt": "原创账单：茶 2 €，水 1 €。合计多少？",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 €"
+        },
+        {
+          "id": "b",
+          "text": "2 €"
+        },
+        {
+          "id": "c",
+          "text": "3 €"
+        }
+      ],
+      "answer": "c",
+      "explanation": "2 € + 1 € = 3 €。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.test-greeting",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.lektion1.card.greeting",
+      "type": "single",
+      "prompt": "见面时询问对方姓名，哪句合适？",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wie heißen Sie?"
+        },
+        {
+          "id": "b",
+          "text": "Was kostet das?"
+        },
+        {
+          "id": "c",
+          "text": "Wie viel Uhr ist es?"
+        }
+      ],
+      "answer": "a",
+      "explanation": "Wie heißen Sie? 用于正式地询问姓名。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.test-drink",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.lektion1.card.drinks",
+      "type": "single",
+      "prompt": "Wasser 的中文意思是什么？",
+      "options": [
+        {
+          "id": "a",
+          "text": "水"
+        },
+        {
+          "id": "b",
+          "text": "茶"
+        },
+        {
+          "id": "c",
+          "text": "咖啡"
+        }
+      ],
+      "answer": "a",
+      "explanation": "das Wasser 是水。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.test-verb",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.lektion1.card.regular-verbs",
+      "type": "fill",
+      "prompt": "填入 kommen 的正确形式：Ich ___ aus Leipzig.",
+      "acceptedAnswers": [
+        "komme"
+      ],
+      "answer": "komme",
+      "hint": "从 kommen 的词干 komm- 出发。",
+      "explanation": "ich 对应规则动词词尾 -e。",
+      "gradingRule": "trim-collapse-whitespace-casefold-preserve-umlauts-v1"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.test-sein",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.lektion1.card.sein",
+      "type": "single",
+      "prompt": "Du ___ im Café. 应填入哪个 sein 形式？",
+      "options": [
+        {
+          "id": "a",
+          "text": "bin"
+        },
+        {
+          "id": "b",
+          "text": "bist"
+        },
+        {
+          "id": "c",
+          "text": "sind"
+        }
+      ],
+      "answer": "b",
+      "explanation": "du bist 是 sein 的正确变位。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.test-number",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.lektion1.card.numbers-pattern",
+      "type": "single",
+      "prompt": "zweiunddreißig 对应哪个数字？",
+      "options": [
+        {
+          "id": "a",
+          "text": "23"
+        },
+        {
+          "id": "b",
+          "text": "32"
+        },
+        {
+          "id": "c",
+          "text": "42"
+        }
+      ],
+      "answer": "b",
+      "explanation": "zwei + und + dreißig，即 32。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.test-phone",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.lektion1.card.phone",
+      "type": "order",
+      "prompt": "将电话号码“0 2 4”逐位排列为德语表达。",
+      "tokens": [
+        {
+          "id": "a",
+          "text": "vier"
+        },
+        {
+          "id": "b",
+          "text": "null"
+        },
+        {
+          "id": "c",
+          "text": "zwei"
+        }
+      ],
+      "answer": [
+        "b",
+        "c",
+        "a"
+      ],
+      "explanation": "号码逐位说为 null zwei vier。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.test-price",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.lektion1.card.prices",
+      "type": "single",
+      "prompt": "4,20 € 中小数部分表示什么？",
+      "options": [
+        {
+          "id": "a",
+          "text": "20 Cent"
+        },
+        {
+          "id": "b",
+          "text": "20 Euro"
+        },
+        {
+          "id": "c",
+          "text": "4 Cent"
+        }
+      ],
+      "answer": "a",
+      "explanation": "4,20 € 是 4 Euro 和 20 Cent。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.test-paying",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.lektion1.card.paying",
+      "type": "match",
+      "prompt": "把结账方式与表达配对。",
+      "left": [
+        {
+          "id": "a",
+          "text": "一起付款"
+        },
+        {
+          "id": "b",
+          "text": "分别付款"
+        }
+      ],
+      "right": [
+        {
+          "id": "x",
+          "text": "Getrennt, bitte."
+        },
+        {
+          "id": "y",
+          "text": "Zusammen, bitte."
+        }
+      ],
+      "answer": [
+        "y",
+        "x"
+      ],
+      "explanation": "zusammen 表示一起，getrennt 表示分开。"
+    },
+    {
+      "id": "studio21.a1.lektion1.question.test-bill",
+      "sectionId": "assessment",
+      "knowledgeId": "studio21.a1.lektion1.card.bill",
+      "type": "single",
+      "prompt": "原创账单：咖啡 3 €，茶 2 €。两项合计多少？",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 €"
+        },
+        {
+          "id": "b",
+          "text": "5 €"
+        },
+        {
+          "id": "c",
+          "text": "6 €"
+        }
+      ],
+      "answer": "b",
+      "explanation": "3 € + 2 € = 5 €。"
+    }
+  ]
+}

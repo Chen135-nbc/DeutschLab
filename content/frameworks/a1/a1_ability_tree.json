@@ -1,0 +1,1078 @@
+{
+  "schema_version": "1.0.0",
+  "tree_id": "deutschlab-a1-ability-tree-v1",
+  "source_catalog_id": "deutschlab-a1-extension-v1",
+  "design_intent": {
+    "navigation": "按A1自学框架8个板块、68个单元构造树形导航；具体任务型技能叶片以后按练习证据增量添加",
+    "shared_ids": "节点通过source_catalog_id或outline_refs引用自学框架内容；不要复制课程内容",
+    "two_axes": "学习覆盖状态和实际运用能力状态必须分开",
+    "no_auto_mastery": "仅学习、匹配/选择题正确或通关剧情都不能自动证明口语能力",
+    "replay": "同一副本重复训练时追加证据，不覆盖历史成绩"
+  },
+  "progress_model_proposal": {
+    "storage": "separate_user_progress_records",
+    "learning_coverage_status": [
+      "not_started",
+      "partially_covered",
+      "studied"
+    ],
+    "application_status": [
+      "not_assessed",
+      "in_practice",
+      "self_reported",
+      "evidence_supported"
+    ],
+    "learning_node_key": "source_catalog_id",
+    "ability_node_key": "id",
+    "outline_coverage_field": "covered_outline_ids",
+    "evidence_field": "assessment_evidence_ids",
+    "default_on_import": {
+      "learning_coverage_status": "not_started",
+      "application_status": "not_assessed"
+    }
+  },
+  "tree": {
+    "id": "A1-ROOT",
+    "kind": "level",
+    "title": "德语 A1",
+    "children": [
+      {
+        "id": "SKILL-A1-B01",
+        "kind": "topic_branch",
+        "title": "发音、个人信息与基础社交",
+        "source_catalog_id": "A1-B01",
+        "children": [
+          {
+            "id": "SKILL-A1-B01-U01",
+            "kind": "topic_node",
+            "title": "发音与拼读预备",
+            "source_catalog_id": "A1-B01-U01",
+            "outline_refs": [
+              "A1-B01-U01-P01",
+              "A1-B01-U01-P02",
+              "A1-B01-U01-P03",
+              "A1-B01-U01-P04"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B01-U02",
+            "kind": "topic_node",
+            "title": "见面、问候与寒暄",
+            "source_catalog_id": "A1-B01-U02",
+            "outline_refs": [
+              "A1-B01-U02-P01",
+              "A1-B01-U02-P02",
+              "A1-B01-U02-P03",
+              "A1-B01-U02-P04"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B01-U03",
+            "kind": "topic_node",
+            "title": "告别与基本礼貌表达",
+            "source_catalog_id": "A1-B01-U03",
+            "outline_refs": [
+              "A1-B01-U03-P01",
+              "A1-B01-U03-P02",
+              "A1-B01-U03-P03",
+              "A1-B01-U03-P04"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B01-U04",
+            "kind": "topic_node",
+            "title": "姓名、年龄与生日",
+            "source_catalog_id": "A1-B01-U04",
+            "outline_refs": [
+              "A1-B01-U04-P01",
+              "A1-B01-U04-P02",
+              "A1-B01-U04-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B01-U05",
+            "kind": "topic_node",
+            "title": "联系方式与地址",
+            "source_catalog_id": "A1-B01-U05",
+            "outline_refs": [
+              "A1-B01-U05-P01",
+              "A1-B01-U05-P02",
+              "A1-B01-U05-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B01-U06",
+            "kind": "topic_node",
+            "title": "国家、城市与居住地",
+            "source_catalog_id": "A1-B01-U06",
+            "outline_refs": [
+              "A1-B01-U06-P01",
+              "A1-B01-U06-P02",
+              "A1-B01-U06-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B01-U07",
+            "kind": "topic_node",
+            "title": "语言、国籍与来源",
+            "source_catalog_id": "A1-B01-U07",
+            "outline_refs": [
+              "A1-B01-U07-P01",
+              "A1-B01-U07-P02",
+              "A1-B01-U07-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B01-U08",
+            "kind": "topic_node",
+            "title": "职业、身份与基本状态",
+            "source_catalog_id": "A1-B01-U08",
+            "outline_refs": [
+              "A1-B01-U08-P01",
+              "A1-B01-U08-P02",
+              "A1-B01-U08-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          }
+        ],
+        "completion_criteria": [
+          {
+            "id": "A1-B01-G01",
+            "description": "能听懂并回答常见见面问题，完成一次简短寒暄。"
+          },
+          {
+            "id": "A1-B01-G02",
+            "description": "能填写个人资料、交换联系方式，并作 1-2 分钟自我介绍。"
+          }
+        ]
+      },
+      {
+        "id": "SKILL-A1-B02",
+        "kind": "topic_branch",
+        "title": "人物、家庭、关系与兴趣",
+        "source_catalog_id": "A1-B02",
+        "children": [
+          {
+            "id": "SKILL-A1-B02-U01",
+            "kind": "topic_node",
+            "title": "家庭成员与亲属",
+            "source_catalog_id": "A1-B02-U01",
+            "outline_refs": [
+              "A1-B02-U01-P01",
+              "A1-B02-U01-P02",
+              "A1-B02-U01-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B02-U02",
+            "kind": "topic_node",
+            "title": "婚姻、伴侣与家庭关系",
+            "source_catalog_id": "A1-B02-U02",
+            "outline_refs": [
+              "A1-B02-U02-P01",
+              "A1-B02-U02-P02",
+              "A1-B02-U02-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B02-U03",
+            "kind": "topic_node",
+            "title": "朋友、同学、老师、同事与邻居",
+            "source_catalog_id": "A1-B02-U03",
+            "outline_refs": [
+              "A1-B02-U03-P01",
+              "A1-B02-U03-P02",
+              "A1-B02-U03-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B02-U04",
+            "kind": "topic_node",
+            "title": "人物外貌与衣着",
+            "source_catalog_id": "A1-B02-U04",
+            "outline_refs": [
+              "A1-B02-U04-P01",
+              "A1-B02-U04-P02",
+              "A1-B02-U04-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B02-U05",
+            "kind": "topic_node",
+            "title": "人物性格与简单评价",
+            "source_catalog_id": "A1-B02-U05",
+            "outline_refs": [
+              "A1-B02-U05-P01",
+              "A1-B02-U05-P02",
+              "A1-B02-U05-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B02-U06",
+            "kind": "topic_node",
+            "title": "兴趣与爱好",
+            "source_catalog_id": "A1-B02-U06",
+            "outline_refs": [
+              "A1-B02-U06-P01",
+              "A1-B02-U06-P02",
+              "A1-B02-U06-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B02-U07",
+            "kind": "topic_node",
+            "title": "休闲活动与周末",
+            "source_catalog_id": "A1-B02-U07",
+            "outline_refs": [
+              "A1-B02-U07-P01",
+              "A1-B02-U07-P02",
+              "A1-B02-U07-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          }
+        ],
+        "completion_criteria": [
+          {
+            "id": "A1-B02-G01",
+            "description": "能介绍一位家人或朋友，包括关系、外貌、性格与兴趣。"
+          },
+          {
+            "id": "A1-B02-G02",
+            "description": "能用几句话介绍自己的休闲方式并询问别人。"
+          }
+        ]
+      },
+      {
+        "id": "SKILL-A1-B03",
+        "kind": "topic_branch",
+        "title": "数字、时间、日期与日常生活",
+        "source_catalog_id": "A1-B03",
+        "children": [
+          {
+            "id": "SKILL-A1-B03-U01",
+            "kind": "topic_node",
+            "title": "数字与基础数量",
+            "source_catalog_id": "A1-B03-U01",
+            "outline_refs": [
+              "A1-B03-U01-P01",
+              "A1-B03-U01-P02",
+              "A1-B03-U01-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B03-U02",
+            "kind": "topic_node",
+            "title": "时钟与时间表达",
+            "source_catalog_id": "A1-B03-U02",
+            "outline_refs": [
+              "A1-B03-U02-P01",
+              "A1-B03-U02-P02",
+              "A1-B03-U02-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B03-U03",
+            "kind": "topic_node",
+            "title": "星期、日期、月份与年份",
+            "source_catalog_id": "A1-B03-U03",
+            "outline_refs": [
+              "A1-B03-U03-P01",
+              "A1-B03-U03-P02",
+              "A1-B03-U03-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B03-U04",
+            "kind": "topic_node",
+            "title": "一天中的时段",
+            "source_catalog_id": "A1-B03-U04",
+            "outline_refs": [
+              "A1-B03-U04-P01",
+              "A1-B03-U04-P02",
+              "A1-B03-U04-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B03-U05",
+            "kind": "topic_node",
+            "title": "日常作息",
+            "source_catalog_id": "A1-B03-U05",
+            "outline_refs": [
+              "A1-B03-U05-P01",
+              "A1-B03-U05-P02",
+              "A1-B03-U05-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B03-U06",
+            "kind": "topic_node",
+            "title": "习惯与频率",
+            "source_catalog_id": "A1-B03-U06",
+            "outline_refs": [
+              "A1-B03-U06-P01",
+              "A1-B03-U06-P02",
+              "A1-B03-U06-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B03-U07",
+            "kind": "topic_node",
+            "title": "简单约时间",
+            "source_catalog_id": "A1-B03-U07",
+            "outline_refs": [
+              "A1-B03-U07-P01",
+              "A1-B03-U07-P02",
+              "A1-B03-U07-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B03-U08",
+            "kind": "topic_node",
+            "title": "天气、季节与活动",
+            "source_catalog_id": "A1-B03-U08",
+            "outline_refs": [
+              "A1-B03-U08-P01",
+              "A1-B03-U08-P02",
+              "A1-B03-U08-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          }
+        ],
+        "completion_criteria": [
+          {
+            "id": "A1-B03-G01",
+            "description": "能读写常见时间、日期、价格，并完成简单约见。"
+          },
+          {
+            "id": "A1-B03-G02",
+            "description": "能按顺序描述工作日作息和周末习惯。"
+          }
+        ]
+      },
+      {
+        "id": "SKILL-A1-B04",
+        "kind": "topic_branch",
+        "title": "学校、学习与基础教育生活",
+        "source_catalog_id": "A1-B04",
+        "children": [
+          {
+            "id": "SKILL-A1-B04-U01",
+            "kind": "topic_node",
+            "title": "学校与学习场所",
+            "source_catalog_id": "A1-B04-U01",
+            "outline_refs": [
+              "A1-B04-U01-P01",
+              "A1-B04-U01-P02",
+              "A1-B04-U01-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B04-U02",
+            "kind": "topic_node",
+            "title": "学科与课程",
+            "source_catalog_id": "A1-B04-U02",
+            "outline_refs": [
+              "A1-B04-U02-P01",
+              "A1-B04-U02-P02",
+              "A1-B04-U02-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B04-U03",
+            "kind": "topic_node",
+            "title": "课堂物品与学习用品",
+            "source_catalog_id": "A1-B04-U03",
+            "outline_refs": [
+              "A1-B04-U03-P01",
+              "A1-B04-U03-P02",
+              "A1-B04-U03-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B04-U04",
+            "kind": "topic_node",
+            "title": "课堂基本交流",
+            "source_catalog_id": "A1-B04-U04",
+            "outline_refs": [
+              "A1-B04-U04-P01",
+              "A1-B04-U04-P02",
+              "A1-B04-U04-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B04-U05",
+            "kind": "topic_node",
+            "title": "作业与学习活动",
+            "source_catalog_id": "A1-B04-U05",
+            "outline_refs": [
+              "A1-B04-U05-P01",
+              "A1-B04-U05-P02",
+              "A1-B04-U05-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B04-U06",
+            "kind": "topic_node",
+            "title": "语言学习与学习习惯",
+            "source_catalog_id": "A1-B04-U06",
+            "outline_refs": [
+              "A1-B04-U06-P01",
+              "A1-B04-U06-P02",
+              "A1-B04-U06-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          }
+        ],
+        "completion_criteria": [
+          {
+            "id": "A1-B04-G01",
+            "description": "能理解课堂高频指令，在听不懂时主动求助。"
+          },
+          {
+            "id": "A1-B04-G02",
+            "description": "能介绍自己的课程、作业和基本学习习惯。"
+          }
+        ]
+      },
+      {
+        "id": "SKILL-A1-B05",
+        "kind": "topic_branch",
+        "title": "住房、物品、空间与城市",
+        "source_catalog_id": "A1-B05",
+        "children": [
+          {
+            "id": "SKILL-A1-B05-U01",
+            "kind": "topic_node",
+            "title": "房屋与房间",
+            "source_catalog_id": "A1-B05-U01",
+            "outline_refs": [
+              "A1-B05-U01-P01",
+              "A1-B05-U01-P02",
+              "A1-B05-U01-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B05-U02",
+            "kind": "topic_node",
+            "title": "家具",
+            "source_catalog_id": "A1-B05-U02",
+            "outline_refs": [
+              "A1-B05-U02-P01",
+              "A1-B05-U02-P02",
+              "A1-B05-U02-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B05-U03",
+            "kind": "topic_node",
+            "title": "家用电器",
+            "source_catalog_id": "A1-B05-U03",
+            "outline_refs": [
+              "A1-B05-U03-P01",
+              "A1-B05-U03-P02",
+              "A1-B05-U03-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B05-U04",
+            "kind": "topic_node",
+            "title": "日常用品",
+            "source_catalog_id": "A1-B05-U04",
+            "outline_refs": [
+              "A1-B05-U04-P01",
+              "A1-B05-U04-P02",
+              "A1-B05-U04-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B05-U05",
+            "kind": "topic_node",
+            "title": "颜色、形状、大小与材质",
+            "source_catalog_id": "A1-B05-U05",
+            "outline_refs": [
+              "A1-B05-U05-P01",
+              "A1-B05-U05-P02",
+              "A1-B05-U05-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B05-U06",
+            "kind": "topic_node",
+            "title": "物品位置与空间关系",
+            "source_catalog_id": "A1-B05-U06",
+            "outline_refs": [
+              "A1-B05-U06-P01",
+              "A1-B05-U06-P02",
+              "A1-B05-U06-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B05-U07",
+            "kind": "topic_node",
+            "title": "城市地点与公共设施",
+            "source_catalog_id": "A1-B05-U07",
+            "outline_refs": [
+              "A1-B05-U07-P01",
+              "A1-B05-U07-P02",
+              "A1-B05-U07-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B05-U08",
+            "kind": "topic_node",
+            "title": "问路与简单指路",
+            "source_catalog_id": "A1-B05-U08",
+            "outline_refs": [
+              "A1-B05-U08-P01",
+              "A1-B05-U08-P02",
+              "A1-B05-U08-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B05-U09",
+            "kind": "topic_node",
+            "title": "生活服务场所",
+            "source_catalog_id": "A1-B05-U09",
+            "outline_refs": [
+              "A1-B05-U09-P01",
+              "A1-B05-U09-P02",
+              "A1-B05-U09-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          }
+        ],
+        "completion_criteria": [
+          {
+            "id": "A1-B05-G01",
+            "description": "能介绍自己的房间、描述常用物品位置。"
+          },
+          {
+            "id": "A1-B05-G02",
+            "description": "能辨认常见城市地点并完成简单问路。"
+          }
+        ]
+      },
+      {
+        "id": "SKILL-A1-B06",
+        "kind": "topic_branch",
+        "title": "饮食、烹饪、餐厅与购物",
+        "source_catalog_id": "A1-B06",
+        "children": [
+          {
+            "id": "SKILL-A1-B06-U01",
+            "kind": "topic_node",
+            "title": "基础食品",
+            "source_catalog_id": "A1-B06-U01",
+            "outline_refs": [
+              "A1-B06-U01-P01",
+              "A1-B06-U01-P02",
+              "A1-B06-U01-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B06-U02",
+            "kind": "topic_node",
+            "title": "水果与蔬菜",
+            "source_catalog_id": "A1-B06-U02",
+            "outline_refs": [
+              "A1-B06-U02-P01",
+              "A1-B06-U02-P02",
+              "A1-B06-U02-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B06-U03",
+            "kind": "topic_node",
+            "title": "肉类、乳制品与其他食品",
+            "source_catalog_id": "A1-B06-U03",
+            "outline_refs": [
+              "A1-B06-U03-P01",
+              "A1-B06-U03-P02",
+              "A1-B06-U03-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B06-U04",
+            "kind": "topic_node",
+            "title": "饮料",
+            "source_catalog_id": "A1-B06-U04",
+            "outline_refs": [
+              "A1-B06-U04-P01",
+              "A1-B06-U04-P02",
+              "A1-B06-U04-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B06-U05",
+            "kind": "topic_node",
+            "title": "味道与饮食偏好",
+            "source_catalog_id": "A1-B06-U05",
+            "outline_refs": [
+              "A1-B06-U05-P01",
+              "A1-B06-U05-P02",
+              "A1-B06-U05-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B06-U06",
+            "kind": "topic_node",
+            "title": "厨房用品",
+            "source_catalog_id": "A1-B06-U06",
+            "outline_refs": [
+              "A1-B06-U06-P01",
+              "A1-B06-U06-P02",
+              "A1-B06-U06-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B06-U07",
+            "kind": "topic_node",
+            "title": "基础烹饪动作",
+            "source_catalog_id": "A1-B06-U07",
+            "outline_refs": [
+              "A1-B06-U07-P01",
+              "A1-B06-U07-P02",
+              "A1-B06-U07-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B06-U08",
+            "kind": "topic_node",
+            "title": "超市购物",
+            "source_catalog_id": "A1-B06-U08",
+            "outline_refs": [
+              "A1-B06-U08-P01",
+              "A1-B06-U08-P02",
+              "A1-B06-U08-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B06-U09",
+            "kind": "topic_node",
+            "title": "数量、包装与计量单位",
+            "source_catalog_id": "A1-B06-U09",
+            "outline_refs": [
+              "A1-B06-U09-P01",
+              "A1-B06-U09-P02",
+              "A1-B06-U09-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B06-U10",
+            "kind": "topic_node",
+            "title": "付款",
+            "source_catalog_id": "A1-B06-U10",
+            "outline_refs": [
+              "A1-B06-U10-P01",
+              "A1-B06-U10-P02",
+              "A1-B06-U10-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B06-U11",
+            "kind": "topic_node",
+            "title": "餐厅、咖啡馆与点餐",
+            "source_catalog_id": "A1-B06-U11",
+            "outline_refs": [
+              "A1-B06-U11-P01",
+              "A1-B06-U11-P02",
+              "A1-B06-U11-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          }
+        ],
+        "completion_criteria": [
+          {
+            "id": "A1-B06-G01",
+            "description": "能按数量购买食品、理解价格并付款。"
+          },
+          {
+            "id": "A1-B06-G02",
+            "description": "能在餐厅完成简短点餐和结账。"
+          }
+        ]
+      },
+      {
+        "id": "SKILL-A1-B07",
+        "kind": "topic_branch",
+        "title": "交通、旅行与外出活动",
+        "source_catalog_id": "A1-B07",
+        "children": [
+          {
+            "id": "SKILL-A1-B07-U01",
+            "kind": "topic_node",
+            "title": "交通工具",
+            "source_catalog_id": "A1-B07-U01",
+            "outline_refs": [
+              "A1-B07-U01-P01",
+              "A1-B07-U01-P02",
+              "A1-B07-U01-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B07-U02",
+            "kind": "topic_node",
+            "title": "车站与基础交通设施",
+            "source_catalog_id": "A1-B07-U02",
+            "outline_refs": [
+              "A1-B07-U02-P01",
+              "A1-B07-U02-P02",
+              "A1-B07-U02-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B07-U03",
+            "kind": "topic_node",
+            "title": "车票与购票",
+            "source_catalog_id": "A1-B07-U03",
+            "outline_refs": [
+              "A1-B07-U03-P01",
+              "A1-B07-U03-P02",
+              "A1-B07-U03-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B07-U04",
+            "kind": "topic_node",
+            "title": "时刻表",
+            "source_catalog_id": "A1-B07-U04",
+            "outline_refs": [
+              "A1-B07-U04-P01",
+              "A1-B07-U04-P02",
+              "A1-B07-U04-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B07-U05",
+            "kind": "topic_node",
+            "title": "路线与换乘基础",
+            "source_catalog_id": "A1-B07-U05",
+            "outline_refs": [
+              "A1-B07-U05-P01",
+              "A1-B07-U05-P02",
+              "A1-B07-U05-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B07-U06",
+            "kind": "topic_node",
+            "title": "旅行物品与行李",
+            "source_catalog_id": "A1-B07-U06",
+            "outline_refs": [
+              "A1-B07-U06-P01",
+              "A1-B07-U06-P02",
+              "A1-B07-U06-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B07-U07",
+            "kind": "topic_node",
+            "title": "机场基础",
+            "source_catalog_id": "A1-B07-U07",
+            "outline_refs": [
+              "A1-B07-U07-P01",
+              "A1-B07-U07-P02",
+              "A1-B07-U07-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B07-U08",
+            "kind": "topic_node",
+            "title": "酒店与住宿基础",
+            "source_catalog_id": "A1-B07-U08",
+            "outline_refs": [
+              "A1-B07-U08-P01",
+              "A1-B07-U08-P02",
+              "A1-B07-U08-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B07-U09",
+            "kind": "topic_node",
+            "title": "旅游与景点",
+            "source_catalog_id": "A1-B07-U09",
+            "outline_refs": [
+              "A1-B07-U09-P01",
+              "A1-B07-U09-P02",
+              "A1-B07-U09-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          }
+        ],
+        "completion_criteria": [
+          {
+            "id": "A1-B07-G01",
+            "description": "能读一张简短时刻表，确认车次、时间与站台。"
+          },
+          {
+            "id": "A1-B07-G02",
+            "description": "能完成购票、问路和最基础的住宿问答。"
+          }
+        ]
+      },
+      {
+        "id": "SKILL-A1-B08",
+        "kind": "topic_branch",
+        "title": "身体、健康、通信与基础工作",
+        "source_catalog_id": "A1-B08",
+        "children": [
+          {
+            "id": "SKILL-A1-B08-U01",
+            "kind": "topic_node",
+            "title": "身体部位",
+            "source_catalog_id": "A1-B08-U01",
+            "outline_refs": [
+              "A1-B08-U01-P01",
+              "A1-B08-U01-P02",
+              "A1-B08-U01-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B08-U02",
+            "kind": "topic_node",
+            "title": "常见身体状态与症状",
+            "source_catalog_id": "A1-B08-U02",
+            "outline_refs": [
+              "A1-B08-U02-P01",
+              "A1-B08-U02-P02",
+              "A1-B08-U02-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B08-U03",
+            "kind": "topic_node",
+            "title": "医生与诊所",
+            "source_catalog_id": "A1-B08-U03",
+            "outline_refs": [
+              "A1-B08-U03-P01",
+              "A1-B08-U03-P02",
+              "A1-B08-U03-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B08-U04",
+            "kind": "topic_node",
+            "title": "药店与药品基础",
+            "source_catalog_id": "A1-B08-U04",
+            "outline_refs": [
+              "A1-B08-U04-P01",
+              "A1-B08-U04-P02",
+              "A1-B08-U04-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B08-U05",
+            "kind": "topic_node",
+            "title": "电话交流",
+            "source_catalog_id": "A1-B08-U05",
+            "outline_refs": [
+              "A1-B08-U05-P01",
+              "A1-B08-U05-P02",
+              "A1-B08-U05-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B08-U06",
+            "kind": "topic_node",
+            "title": "邮件与消息",
+            "source_catalog_id": "A1-B08-U06",
+            "outline_refs": [
+              "A1-B08-U06-P01",
+              "A1-B08-U06-P02",
+              "A1-B08-U06-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B08-U07",
+            "kind": "topic_node",
+            "title": "表格与个人资料",
+            "source_catalog_id": "A1-B08-U07",
+            "outline_refs": [
+              "A1-B08-U07-P01",
+              "A1-B08-U07-P02",
+              "A1-B08-U07-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B08-U08",
+            "kind": "topic_node",
+            "title": "公司、部门与工作场所",
+            "source_catalog_id": "A1-B08-U08",
+            "outline_refs": [
+              "A1-B08-U08-P01",
+              "A1-B08-U08-P02",
+              "A1-B08-U08-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B08-U09",
+            "kind": "topic_node",
+            "title": "职位与工作内容",
+            "source_catalog_id": "A1-B08-U09",
+            "outline_refs": [
+              "A1-B08-U09-P01",
+              "A1-B08-U09-P02",
+              "A1-B08-U09-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          },
+          {
+            "id": "SKILL-A1-B08-U10",
+            "kind": "topic_node",
+            "title": "基础办公室交流",
+            "source_catalog_id": "A1-B08-U10",
+            "outline_refs": [
+              "A1-B08-U10-P01",
+              "A1-B08-U10-P02",
+              "A1-B08-U10-P03"
+            ],
+            "skill_leaf_ids": [],
+            "unit_assessment_deferred": true
+          }
+        ],
+        "completion_criteria": [
+          {
+            "id": "A1-B08-G01",
+            "description": "能向他人说明基础症状，并完成简短电话或消息沟通。"
+          },
+          {
+            "id": "A1-B08-G02",
+            "description": "能填写个人资料，用数句介绍工作地点和简单任务。"
+          }
+        ]
+      }
+    ],
+    "description": "按自学框架组织能力主题；具体掌握证据独立记录"
+  },
+  "counts": {
+    "branch_count": 8,
+    "topic_node_count": 68,
+    "board_completion_criteria_count": 16
+  }
+}
